@@ -7,8 +7,12 @@ reload("user.treesitter")
 
 reload("user.cybu")
 reload("user.nvim-tree")
-reload("user.telescope")
-reload("user.spectre")
 reload("user.harpoon")
+reload("user.lastplace")
+reload("user.spectre")
+reload("user.telescope")
 reload("user.whichkey")
 reload("user.zen")
+
+
+
