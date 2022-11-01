@@ -12,11 +12,13 @@ reload("user.harpoon")
 reload("user.lastplace")
 reload("user.spectre")
 reload("user.telescope")
+reload("user.todo")
 reload("user.whichkey")
 reload("user.zen")
 
 
--- TODO
+-- TODO:
 -- 1. Delete cmd-tabnine in the runtime folder
 -- 2. On treesitter on spellchecker
-
+-- 3. Configure which-keys
+-- 4. Configure icons for todo-comments
