@@ -6,6 +6,18 @@
 -- }
 -- Additional Plugins
 
+
+local function check_os()
+  if vim.fn.has('Windows') then
+    return "& .\\install.ps1"
+  end
+
+  return "./install.sh"
+end
+
+print(1)
+
+
 lvim.plugins = {
   -- "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
@@ -72,7 +84,8 @@ lvim.plugins = {
   -- 	run = "cd js && npm ci",
   -- },
   -- TODO: programmatically run sh/ps1 depends on the user OS
-  { "tzachar/cmp-tabnine", run = "./install.ps1" },
+  -- { "tzachar/cmp-tabnine", run = check_os()},
+  -- { "tzachar/cmp-tabnine", run = "& .\\install.ps1"},
   -- {
   -- 	"zbirenbaum/copilot.lua",
   -- 	event = { "VimEnter" },
