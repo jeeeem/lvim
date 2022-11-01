@@ -22,3 +22,7 @@ reload("user.zen")
 -- 2. On treesitter on spellchecker
 -- 3. Configure which-keys
 -- 4. Configure icons for todo-comments
+
+-- TODO: Priority
+-- Research on how to change the git blame details
+
