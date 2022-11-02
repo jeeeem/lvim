@@ -15,9 +15,6 @@ local function check_os()
   return "./install.sh"
 end
 
-print(1)
-
-
 lvim.plugins = {
   -- "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
@@ -33,7 +30,7 @@ lvim.plugins = {
   "NvChad/nvim-colorizer.lua",
   "ghillb/cybu.nvim",
   -- "moll/vim-bbye",
-  -- "folke/todo-comments.nvim",
+  "folke/todo-comments.nvim",
   "windwp/nvim-spectre",
   -- "f-person/git-blame.nvim",
   -- "ruifm/gitlinker.nvim",
