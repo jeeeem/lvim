@@ -28,6 +28,7 @@ lvim.plugins = {
   -- "mattn/vim-gist",
   -- "mattn/webapi-vim",
   "folke/zen-mode.nvim",
+  "folke/twilight.nvim",
   -- "lvimuser/lsp-inlayhints.nvim",
   -- "lunarvim/darkplus.nvim",
   -- "lunarvim/templeos.nvim",
