@@ -1,23 +1,30 @@
-local M = {}
+---@diagnostic disable: undefined-global
 
--- export all snippets methods for reusability
-
-local snip_status_ok, ls = pcall(require, "luasnip")
-if not snip_status_ok then
-	return
-end
-
-local s = ls.snippet
-local sn = ls.snippet_node
-local isn = ls.indent_snippet_node
-local t = ls.text_node
-local i = ls.insert_node
-local f = ls.function_node
-local c = ls.choice_node
-local d = ls.dynamic_node
-local r = ls.restore_node
--- local events = require "luasnip.util.events"
--- local ai = require "luasnip.nodes.absolute_indexer"
+-- LuaSnip Environment
+-- s = require("luasnip.nodes.snippet").S,
+-- sn = require("luasnip.nodes.snippet").SN,
+-- isn = require("luasnip.nodes.snippet").ISN,
+-- t = require("luasnip.nodes.textNode").T,
+-- i = require("luasnip.nodes.insertNode").I,
+-- f = require("luasnip.nodes.functionNode").F,
+-- c = require("luasnip.nodes.choiceNode").C,
+-- d = require("luasnip.nodes.dynamicNode").D,
+-- r = require("luasnip.nodes.restoreNode").R,
+-- events = require("luasnip.util.events"),
+-- ai = require("luasnip.nodes.absolute_indexer"),
+-- extras = require("luasnip.extras"),
+-- l = require("luasnip.extras").lambda,
+-- rep = require("luasnip.extras").rep,
+-- p = require("luasnip.extras").partial,
+-- m = require("luasnip.extras").match,
+-- n = require("luasnip.extras").nonempty,
+-- dl = require("luasnip.extras").dynamic_lambda,
+-- fmt = require("luasnip.extras.fmt").fmt,
+-- fmta = require("luasnip.extras.fmt").fmta,
+-- conds = require("luasnip.extras.expand_conditions"),
+-- postfix = require("luasnip.extras.postfix").postfix,
+-- types = require("luasnip.util.types"),
+-- parse = require("luasnip.util.parser").parse_snippet,
 
 local function simple_restore(args, _)
 	return sn(nil, { i(1, args[1]), r(2, "dyn", i(nil, "user_text")) })
