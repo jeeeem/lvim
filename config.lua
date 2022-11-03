@@ -15,7 +15,7 @@ reload("user.telescope")
 reload("user.todo")
 reload("user.whichkey")
 reload("user.zen")
-
+-- reload("user.icons")
 
 -- TODO:
 -- 1. Delete cmd-tabnine in the runtime folder
@@ -25,4 +25,3 @@ reload("user.zen")
 
 -- TODO: Priority
 -- Research on how to change the git blame details
-
