@@ -1,7 +1,7 @@
 -- Windows Specifc configuration
 -- if vim.loop.os_uname().sysname == "Windows NT" then
 
-if vim.fn.has('win32') then
+if vim.fn.has('win32') == 1 then
   -- Enable powershell as your default shell
   -- lvim.builtin.terminal.shell = "pwsh.exe -NoLogo"
   vim.opt.shell = "pwsh.exe -NoLogo"
