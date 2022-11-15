@@ -1,10 +1,10 @@
 -- Windows Specifc configuration
 -- if vim.loop.os_uname().sysname == "Windows NT" then
 
-if vim.fn.has('Windows') then
+if vim.fn.has('win32') then
   -- Enable powershell as your default shell
-  lvim.builtin.terminal.shell = "pwsh.exe -NoLogo"
-  -- vim.opt.shell = "pwsh.exe -NoLogo"
+  -- lvim.builtin.terminal.shell = "pwsh.exe -NoLogo"
+  vim.opt.shell = "pwsh.exe -NoLogo"
   vim.opt.shellcmdflag =
   "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
   vim.cmd [[
@@ -36,11 +36,35 @@ lvim.colorscheme = "tokyonight"
 vim.opt.showtabline = 0 -- Remove tabline
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
--- Lvim default options
+-- Lvim default plugins
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.bufferline.active = false
-lvim.builtin.terminal.active = false
+lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.breadcrumbs.active = true
+lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.dap.active = true
+lvim.builtin.cmp.cmdline.enable = false
+lvim.builtin.cmp.window.documentation = false
+lvim.builtin.cmp.window.completion = {
+  border = "rounded",
+  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+}
+lvim.builtin.cmp.formatting.source_names = {
+  nvim_lsp = "",
+  emoji = "",
+  path = "",
+  calc = "",
+  cmp_tabnine = "",
+  vsnip = "",
+  luasnip = "",
+  buffer = "",
+  tmux = "",
+  copilot = "",
+  treesitter = "",
+}
 
 -- User options
 
