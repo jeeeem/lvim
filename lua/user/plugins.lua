@@ -16,28 +16,36 @@ local function check_os()
 end
 
 lvim.plugins = {
-  -- "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "mfussenegger/nvim-jdtls",
   "ethanholz/nvim-lastplace", -- Last position of last edit
-  -- "karb94/neoscroll.nvim",
   "j-hui/fidget.nvim",
-  -- "windwp/nvim-ts-autotag",
   "kylechui/nvim-surround",
-  -- "christianchiarulli/harpoon",
   "ThePrimeagen/harpoon",
-  -- "MattesGroeger/vim-bookmarks",
   "NvChad/nvim-colorizer.lua",
   "ghillb/cybu.nvim",
-  -- "moll/vim-bbye",
   "folke/todo-comments.nvim",
   "windwp/nvim-spectre",
+  "monaqa/dial.nvim",
+  "folke/zen-mode.nvim",
+  "folke/twilight.nvim",
+	"vimwiki/vimwiki",
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+  },
+  
+  
+  -- "nvim-treesitter/playground",
+  -- "karb94/neoscroll.nvim",
+  -- "christianchiarulli/harpoon",
+  -- "MattesGroeger/vim-bookmarks",
+  -- "moll/vim-bbye",
   -- "f-person/git-blame.nvim",
   -- "ruifm/gitlinker.nvim",
   -- "mattn/vim-gist",
   -- "mattn/webapi-vim",
-  "folke/zen-mode.nvim",
-  "folke/twilight.nvim",
   -- "lvimuser/lsp-inlayhints.nvim",
   -- "lunarvim/darkplus.nvim",
   -- "lunarvim/templeos.nvim",
@@ -76,7 +84,6 @@ lvim.plugins = {
   -- 	end,
   -- },
   -- { "christianchiarulli/telescope-tabs", branch = "chris" },
-  "monaqa/dial.nvim",
   -- {
   -- 	"0x100101/lab.nvim",
   -- 	run = "cd js && npm ci",
@@ -114,6 +121,7 @@ lvim.plugins = {
   -- 		"MunifTanjim/nui.nvim",
   -- 	},
   -- },
+  -- "karb94/neoscroll.nvim",
 
   -- https://github.com/jose-elias-alvarez/typescript.nvim
   -- "rmagatti/auto-session",
