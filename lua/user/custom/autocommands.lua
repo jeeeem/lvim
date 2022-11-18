@@ -1,4 +1,4 @@
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)aut
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
 --   -- enable wrap mode for json files only
@@ -136,25 +136,25 @@ autocmd("FileType", {
 })
 
 -- Markdown Augroup
--- autocmd(
--- 	{ "BufNewFile", "BufFilePre", "BufRead" },
--- 	{ pattern = "*.md", command = "set filetype=markdown.pandoc", group = markdown }
--- )
+autocmd(
+	{ "BufNewFile", "BufFilePre", "BufRead" },
+	{ pattern = "*.md", command = "set filetype=markdown.pandoc", group = markdown }
+)
 
--- autocmd("FileType", {
--- 	pattern = { "vimwiki", "md" },
--- 	command = "set filetype=markdown.pandoc",
--- 	group = markdown,
--- })
+autocmd("FileType", {
+	pattern = { "vimwiki", "md" },
+	command = "set filetype=markdown.pandoc",
+	group = markdown,
+})
 
--- autocmd("FileType", {
--- 	pattern = { "markdown", "markdown.pandoc" },
--- 	callback = function()
--- 		vim.opt_local.wrap = true
--- 		vim.opt_local.spell = true
--- 	end,
--- 	group = markdown,
--- })
+autocmd("FileType", {
+	pattern = { "markdown", "markdown.pandoc" },
+	-- callback = function()
+	-- 	vim.opt_local.wrap = true
+	-- 	vim.opt_local.spell = true
+	-- end,
+	group = markdown,
+})
 
 -- Spectre Augroup
 autocmd("ColorScheme", {
