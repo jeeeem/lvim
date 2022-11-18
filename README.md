@@ -11,7 +11,6 @@
   - Git
   - RipGrep
 
-
 ### WSL/Linux
 
 #### Pre-requisites
@@ -19,3 +18,26 @@
   - Python
   - Git
   - RipGrep
+  
+### TODO:
+
+- General
+  - Delete cmd-tabnine in the runtime folder
+  - On treesitter on spellchecker
+
+- Theme
+  - Default Nerd-font
+
+- Plugins
+  - Configure which-keys
+  - Configure nvim-surround
+  - Configure harpoon
+  - Configure icons for todo-comments
+
+- LSP
+
+  - Java
+  - Deno
+  
+- Git
+  - Research on how to change the git blame details

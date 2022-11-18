@@ -2,6 +2,7 @@
 
 -- LuaSnip Environment Variables
 -- https://github.com/L3MON4D3/LuaSnip/blob/master/lua/luasnip/config.lua#L122-L147
+-- TODO: add an examples to each luasnip function for reference
   -- s = require("luasnip.nodes.snippet").S,
   -- sn = require("luasnip.nodes.snippet").SN,
   -- isn = require("luasnip.nodes.snippet").ISN,
@@ -27,9 +28,9 @@
   -- types = require("luasnip.util.types"),
   -- parse = require("luasnip.util.parser").parse_snippet,
 
-local function simple_restore(args, _)
-	return sn(nil, { i(1, args[1]), r(2, "dyn", i(nil, "user_text")) })
-end
+-- local function simple_restore(args, _)
+-- 	return sn(nil, { i(1, args[1]), r(2, "dyn", i(nil, "user_text")) })
+-- end
 
 return {
 	-- Current time

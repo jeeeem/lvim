@@ -19,14 +19,15 @@ elseif vim.fn.has('unix') == 1 then
 end
 
 if vim.fn.has("win32") == 1 then
-	WORKSPACE_PATH = HOME .. "\\workspace\\"
-	CONFIG = "windows"
+	WORKSPACE_PATH = HOME .. "/workspace/"
+	CONFIG = "win"
 elseif vim.fn.has("unix") == 1 then
 	WORKSPACE_PATH = HOME .. "/workspace/"
 	CONFIG = "linux"
 else
 	print("Unsupported system")
 end
+
 
 -- Find root of project
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -44,23 +45,26 @@ local workspace_dir = WORKSPACE_PATH .. project_name
 
 if vim.fn.has('win32') == 1 then
   local bundles = {}
-  local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "\\mason\\")
+  local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
   vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages\\java-test\\extension\\server\\*.jar"), "\n"))
   vim.list_extend(
     bundles,
     vim.split(
-      vim.fn.glob(mason_path .. "packages\\java-debug-adapter\\extension\\server\\com.microsoft.java.debug.plugin-*.jar"),
+      vim.fn.glob(mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
       "\n"
     )
   )
--- -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+
+print(HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config_" .. CONFIG )
+-- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
   local config = {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
     cmd = {
-
       -- 💀
-      "java", -- or '/path/to/java11_or_newer/bin/java'
+      "C:/Users/jberen/scoop/apps/openjdk/current/bin/java.exe", -- or '\\path\\to\\java11_or_newer\\bin\\java'
+      -- "C:/Users/jberen/.sdkman/candidates/java/17.0.2-open/bin/java", -- or '/path/to/java11_or_newer/bin/java'
+      -- "java",
       -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
       "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -68,24 +72,24 @@ if vim.fn.has('win32') == 1 then
       "-Declipse.product=org.eclipse.jdt.ls.core.product",
       "-Dlog.protocol=true",
       "-Dlog.level=ALL",
-      "-javaagent:" .. HOME .. "\\AppData\\Roaming\\nvim-data\\mason\\packages\\jdtls\\lombok.jar",
+      "-javaagent:" .. HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/lombok.jar",
       "-Xms1g",
       "--add-modules=ALL-SYSTEM",
       "--add-opens",
-      "java.base\\java.util=ALL-UNNAMED",
+      "java.base/java.util=ALL-UNNAMED",
       "--add-opens",
-      "java.base\\java.lang=ALL-UNNAMED",
+      "java.base/java.lang=ALL-UNNAMED",
 
       -- 💀
       "-jar",
-      vim.fn.glob(HOME .. "\\AppData\\Roaming\\nvim-data\\mason\\packages\\jdtls\\plugins\\org.eclipse.equinox.launcher_*.jar"),
+      vim.fn.glob(HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
       -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
       -- Must point to the                                                     Change this to
       -- eclipse.jdt.ls installation                                           the actual version
 
       -- 💀
       "-configuration",
-      HOME .. "\\AppData\\Roaming\\nvim-data\\mason\\packages\\jdtls\\config_" .. CONFIG,
+      HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config" .. CONFIG,
       -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
       -- Must point to the                      Change to one of `linux`, `win` or `mac`
       -- eclipse.jdt.ls installation            Depending on your system.
@@ -122,12 +126,16 @@ if vim.fn.has('win32') == 1 then
           updateBuildConfiguration = "interactive",
           runtimes = {
             {
-              name = "JavaSE-11",
-              path = "~\\.sdkman\\candidates\\java\\11.0.2-open",
+              name = "JavaSE-8",
+              path = "C:/tools/Corretto/jdk1.8.0_265",
             },
             {
-              name = "JavaSE-18",
-              path = "~\\.sdkman\\candidates\\java\\18.0.1.1-open",
+              name = "OpenJDK",
+              path = "C:/Users/jberen/scoop/apps/openjdk"
+            },
+            {
+              name = "JavaSE-17",
+              path = "C:/Users/jberen/.sdkman/candidates/java/17.0.2-open"
             },
           },
         },

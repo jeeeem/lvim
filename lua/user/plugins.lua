@@ -1,12 +1,3 @@
--- lvim.plugins = {
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
--- Additional Plugins
-
-
 local function check_os()
   if vim.fn.has('Windows') then
     return "& .\\install.ps1"
@@ -17,7 +8,16 @@ end
 
 lvim.plugins = {
   "nvim-treesitter/nvim-treesitter-textobjects",
+
+  -- LSP
   "mfussenegger/nvim-jdtls",
+  "sigmaSd/deno-nvim",
+
+  -- Syntax highlight
+  -- "NoahTheDuke/vim-just" - https://github.com/casey/just#recipe-parameters
+  -- "IndianBoy42/tree-sitter-just"
+
+  -- Others
   "ethanholz/nvim-lastplace", -- Last position of last edit
   "j-hui/fidget.nvim",
   "kylechui/nvim-surround",
@@ -33,9 +33,10 @@ lvim.plugins = {
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
-    ft = "markdown",
+    ft = {"markdown", "markdown.pandoc"},
   },
-  
+  "vim-pandoc/vim-pandoc-syntax",
+  "nvim-zh/colorful-winsep.nvim"
   
   -- "nvim-treesitter/playground",
   -- "karb94/neoscroll.nvim",
@@ -88,9 +89,11 @@ lvim.plugins = {
   -- 	"0x100101/lab.nvim",
   -- 	run = "cd js && npm ci",
   -- },
+
   -- TODO: programmatically run sh/ps1 depends on the user OS
   -- { "tzachar/cmp-tabnine", run = check_os()},
   -- { "tzachar/cmp-tabnine", run = "& .\\install.ps1"},
+
   -- {
   -- 	"zbirenbaum/copilot.lua",
   -- 	event = { "VimEnter" },
