@@ -31,9 +31,9 @@ lvim.plugins = {
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
-    ft = "markdown",
+    ft = {"markdown", "markdown.pandoc"},
   },
-  
+  "vim-pandoc/vim-pandoc-syntax"
   
   -- "nvim-treesitter/playground",
   -- "karb94/neoscroll.nvim",
