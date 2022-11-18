@@ -13,6 +13,8 @@ lvim.plugins = {
   "mfussenegger/nvim-jdtls",
   "sigmaSd/deno-nvim",
 
+  -- DAP
+
   -- Syntax highlight
   -- "NoahTheDuke/vim-just" - https://github.com/casey/just#recipe-parameters
   -- "IndianBoy42/tree-sitter-just"

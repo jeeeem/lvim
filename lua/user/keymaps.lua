@@ -6,6 +6,7 @@ local keymap_del = vim.keymap.del
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":up<cr>"
 
+-- TODO: if there is no .git use `Telescope find_files` in the current directory
 keymap_set("n", "<C-p>", "<cmd>Telescope git_files<cr>", opts)
 keymap_set("", "<C-z>", "<Nop>", opts) -- Remove C-z suspending key
 
