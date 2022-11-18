@@ -28,7 +28,6 @@ else
 	print("Unsupported system")
 end
 
-
 -- Find root of project
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -420,8 +419,6 @@ elseif vim.fn.has('unix') == 1 then
   -- -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 end
 
-
-
 -- local status_ok, which_key = pcall(require, "which-key")
 -- if not status_ok then
 -- 	return
@@ -469,3 +466,8 @@ end
 -- which_key.register(mappings, opts)
 -- which_key.register(vmappings, vopts)
 -- which_key.register(vmappings, vopts)
+
+-- TODO:
+-- 1. More general config path
+    -- data path
+    -- more robust win32 / unix condition

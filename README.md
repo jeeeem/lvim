@@ -1,4 +1,4 @@
-## LunarVim Configuration
+[##](##) LunarVim Configuration
 
 ### Windows
 
@@ -28,16 +28,20 @@
 - Theme
   - Default Nerd-font
 
-- Plugins
-  - Configure which-keys
-  - Configure nvim-surround
-  - Configure harpoon
-  - Configure icons for todo-comments
+- Configure Plugins
+  - which-keys
+  - nvim-surround
+  - harpoon
+  - markdown
+    - MD syntax
+    - vimwiki
+    - markdown preview
+  -  todo-comments
+    - powershell filetype
+  - CMP
+    - show preview in LSP completion
 
 - LSP
-
-  - Java
   - Deno
-  
-- Git
-  - Research on how to change the git blame details
+  - Java
+    - Try a JDK runtime of v1.8
