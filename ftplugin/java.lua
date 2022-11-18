@@ -46,7 +46,7 @@ local workspace_dir = WORKSPACE_PATH .. project_name
 if vim.fn.has('win32') == 1 then
   local bundles = {}
   local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
-  vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages\\java-test\\extension\\server\\*.jar"), "\n"))
+  vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar"), "\n"))
   vim.list_extend(
     bundles,
     vim.split(
@@ -55,15 +55,16 @@ if vim.fn.has('win32') == 1 then
     )
   )
 
-print(HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config_" .. CONFIG )
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
   local config = {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
     cmd = {
       -- 💀
-      "C:/Users/jberen/scoop/apps/openjdk/current/bin/java.exe", -- or '\\path\\to\\java11_or_newer\\bin\\java'
-      -- "C:/Users/jberen/.sdkman/candidates/java/17.0.2-open/bin/java", -- or '/path/to/java11_or_newer/bin/java'
+      HOME .. "/scoop/apps/openjdk17/current/bin/java.exe", -- or '\\path\\to\\java11_or_newer\\bin\\java'
+      -- HOME .. "/scoop/apps/openjdk/current/bin/java.exe", -- or '\\path\\to\\java11_or_newer\\bin\\java'
+      -- "C:/Users/Jim/.sdkman/candidates/java/19.0.1-open/bin/java", -- or '/path/to/java11_or_newer/bin/java'
+      -- HOME .. "/.sdkman/candidates/java/17.0.5-amzn/bin/java", -- or '/path/to/java11_or_newer/bin/java'
       -- "java",
       -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
@@ -89,7 +90,7 @@ print(HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config_" .. CONFI
 
       -- 💀
       "-configuration",
-      HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config" .. CONFIG,
+      HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config_" .. CONFIG,
       -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
       -- Must point to the                      Change to one of `linux`, `win` or `mac`
       -- eclipse.jdt.ls installation            Depending on your system.
@@ -126,17 +127,18 @@ print(HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config_" .. CONFI
           updateBuildConfiguration = "interactive",
           runtimes = {
             {
-              name = "JavaSE-8",
-              path = "C:/tools/Corretto/jdk1.8.0_265",
-            },
-            {
-              name = "OpenJDK",
-              path = "C:/Users/jberen/scoop/apps/openjdk"
-            },
-            {
               name = "JavaSE-17",
-              path = "C:/Users/jberen/.sdkman/candidates/java/17.0.2-open"
+              path = HOME .. "/scoop/apps/openjdk17/17.0.2-8/",
+              default = true
             },
+            {
+              name = "JavaSE-19",
+              path = HOME .. "/scoop/apps/openjdk/19.0.1-10/"
+            },
+            -- {
+            --   name = "JavaSE-19",
+            --   path = HOME .. "/.sdkman/candidates/java/19.0.1-open/",
+            -- }
           },
         },
         maven = {
@@ -212,7 +214,7 @@ print(HOME .. "/AppData/Roaming/nvim-data/mason/packages/jdtls/config_" .. CONFI
   	local _, _ = pcall(vim.lsp.codelens.refresh)
   	require("jdtls.dap").setup_dap_main_class_configs()
   	require("jdtls").setup_dap({ hotcodereplace = "auto" })
-  	require("lvim.lsp").on_attach(client, bufnr)
+  	require("lvim.lsp").common_on_attach(client, bufnr)
   end
 
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
