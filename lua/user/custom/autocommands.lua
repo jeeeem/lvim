@@ -103,16 +103,16 @@ autocmd("VimResized", {
 })
 
 -- LSP Highlight Augroup
--- autocmd("ColorScheme", {
--- 	callback = function()
--- 		vim.cmd [[highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff]]
--- 		vim.cmd [[highlight DiagnosticFloatingError  guifg=#fff guibg=#fff]]
--- 		vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82]]
--- 		vim.cmd [[highlight LightBulbFloatWin guifg=#EED333 ]]
--- 		vim.cmd [[highlight FocusedSymbol cterm=italic ctermfg=4 ctermbg=11 gui=bold,italic guifg=red guibg=#FFF]]
--- 	end,
--- 	group = lsp,
--- })
+autocmd("ColorScheme", {
+	callback = function()
+		vim.cmd [[highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff]]
+		vim.cmd [[highlight DiagnosticFloatingError  guifg=#fff guibg=#fff]]
+		vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82]]
+		-- vim.cmd [[highlight LightBulbFloatWin guifg=#EED333 ]]
+		-- vim.cmd [[highlight FocusedSymbol cterm=italic ctermfg=4 ctermbg=11 gui=bold,italic guifg=red guibg=#FFF]]
+	end,
+	group = lsp,
+})
 
 -- autocmd({ "CursorHold", "CursorHoldI" }, {
 -- 	callback = function()
