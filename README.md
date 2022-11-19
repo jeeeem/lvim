@@ -22,7 +22,7 @@
 ### TODO:
 
 - General
-  - Delete cmd-tabnine in the runtime folder
+  - configure tmp-tabnine to use different OS
   - On treesitter on spellchecker
 
 - Theme
