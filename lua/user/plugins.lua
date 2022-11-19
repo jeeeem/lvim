@@ -1,5 +1,5 @@
 local function check_os()
-  if vim.fn.has('Windows') then
+  if vim.fn.has('win32') == 1 then
     return "& .\\install.ps1"
   end
 
@@ -32,17 +32,43 @@ lvim.plugins = {
   "folke/zen-mode.nvim",
   "folke/twilight.nvim",
 	"vimwiki/vimwiki",
+  "vim-pandoc/vim-pandoc-syntax",
+  "nvim-zh/colorful-winsep.nvim",
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = {"markdown", "markdown.pandoc"},
   },
-  "vim-pandoc/vim-pandoc-syntax",
-  "nvim-zh/colorful-winsep.nvim"
+  {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        -- add any options here
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = true, -- add a border to hover docs and signature help
+        },
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify"
+    }
+  }
   
   -- "nvim-treesitter/playground",
   -- "karb94/neoscroll.nvim",
-  -- "christianchiarulli/harpoon",
   -- "MattesGroeger/vim-bookmarks",
   -- "moll/vim-bbye",
   -- "f-person/git-blame.nvim",
@@ -115,17 +141,6 @@ lvim.plugins = {
   -- 	end,
   -- },
   -- Packer
-  -- {
-  -- 	"folke/noice.nvim",
-  -- 	event = "VimEnter",
-  -- 	config = function()
-  -- 		require("noice").setup()
-  -- 	end,
-  -- 	requires = {
-  -- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  -- 		"MunifTanjim/nui.nvim",
-  -- 	},
-  -- },
   -- "karb94/neoscroll.nvim",
 
   -- https://github.com/jose-elias-alvarez/typescript.nvim
