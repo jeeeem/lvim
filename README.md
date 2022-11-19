@@ -1,4 +1,4 @@
-[##](##) LunarVim Configuration
+## LunarVim Configuration
 
 ### Windows
 
