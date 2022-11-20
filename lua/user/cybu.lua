@@ -2,6 +2,7 @@ local ok, cybu = pcall(require, "cybu")
 if not ok then
   return
 end
+
 cybu.setup {
   position = {
     relative_to = "win", -- win, editor, cursor
@@ -29,5 +30,5 @@ cybu.setup {
 }
 -- vim.keymap.set("n", "<up>", "<Plug>(CybuPrev)")
 -- vim.keymap.set("n", "<down>", "<Plug>(CybuNext)")
-vim.keymap.set("n", "<s-h>", "<Plug>(CybuPrev)")
-vim.keymap.set("n", "<s-l>", "<Plug>(CybuNext)")
+vim.keymap.set("n", "<A-h>", "<Plug>(CybuPrev)")
+vim.keymap.set("n", "<A-l>", "<Plug>(CybuNext)")
