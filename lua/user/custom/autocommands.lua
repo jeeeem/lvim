@@ -102,6 +102,13 @@ autocmd("VimResized", {
 	group = general_settings,
 })
 
+autocmd("ColorScheme", {
+	callback = function()
+		vim.cmd [[highlight NvimSeparator guifg=#a94dc1]]
+	end,
+	group = general_settings,
+})
+
 -- LSP Highlight Augroup
 autocmd("ColorScheme", {
 	callback = function()
@@ -136,25 +143,27 @@ autocmd("FileType", {
 })
 
 -- Markdown Augroup
+-- TODO: Fix the markdown syntax
 autocmd(
 	{ "BufNewFile", "BufFilePre", "BufRead" },
-	{ pattern = "*.md", command = "set filetype=markdown.pandoc", group = markdown }
+	{ pattern = "*.md", command = "set filetype=markdown", group = markdown }
 )
 
+-- TODO: Fix the markdown syntax
 autocmd("FileType", {
 	pattern = { "vimwiki", "md" },
-	command = "set filetype=markdown.pandoc",
+	command = "set filetype=markdown",
 	group = markdown,
 })
 
-autocmd("FileType", {
-	pattern = { "markdown", "markdown.pandoc" },
-	-- callback = function()
-	-- 	vim.opt_local.wrap = true
-	-- 	vim.opt_local.spell = true
-	-- end,
-	group = markdown,
-})
+-- autocmd("FileType", {
+-- 	pattern = { "markdown", "markdown.pandoc" },
+-- 	callback = function()
+-- 		vim.set_local.wrap = true
+-- 		vim.set_local.spell = true
+-- 	end,
+-- 	group = markdown,
+-- })
 
 -- Spectre Augroup
 autocmd("ColorScheme", {
@@ -207,3 +216,7 @@ autocmd("BufRead", { command = "silent! loadview", group = fold })
 -- 	group = skeleton,
 -- })
 -- autocmd BufWinEnter * :set sessionoptions+=tabpages,globals
+
+-- TODO:
+-- Setup using Lunarvim Autocommands setup
+-- https://www.lunarvim.org/docs/configuration/autocommands

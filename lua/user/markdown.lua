@@ -16,7 +16,7 @@ vim.g.vimwiki_list = {
   {
     path = '~/vimwiki',
     index = 'README',
-    filetype = 'markdown.pandoc',
+    filetype = 'markdown',
     syntax = 'markdown',
     ext = '.md',
   },
