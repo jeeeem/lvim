@@ -145,8 +145,6 @@
 --   -- s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
 --   -- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
 -- }
-
-lvim.builtin.which_key.mappings["/"] = nil
 -- lvim.builtin.which_key.mappings[";"] = nil
 -- lvim.builtin.which_key.mappings["c"] = nil
 -- lvim.builtin.which_key.mappings["L"] = nil
@@ -188,3 +186,9 @@ lvim.builtin.which_key.mappings["/"] = nil
 -- }
 
 -- which_key.register(m_mappings, m_opts)
+
+-- Setup
+lvim.builtin.which_key.setup.plugins.registers = true
+
+-- Which-keymapping
+lvim.builtin.which_key.mappings["/"] = nil
