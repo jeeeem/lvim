@@ -21,6 +21,9 @@
   
 ### TODO:
 
+- Learn
+  - How extending treesitter queries works
+
 - General
   - configure tmp-tabnine to use different OS
   - On treesitter on spellchecker
@@ -35,6 +38,7 @@
   - markdown
     - MD syntax
     - vimwiki
+      - silenty call the commands
     - markdown preview
   -  todo-comments
     - powershell filetype
@@ -45,3 +49,7 @@
   - Deno
   - Java
     - Try a JDK runtime of v1.8
+
+### Issues:
+- Noice
+  - separate the highlight text group along with its color `xxx`
