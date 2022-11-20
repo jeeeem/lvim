@@ -7,11 +7,14 @@ local function check_os()
 end
 
 lvim.plugins = {
-  "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- LSP
   "mfussenegger/nvim-jdtls",
   "sigmaSd/deno-nvim",
+
+  -- Treesitter
+  "nvim-treesitter/playground",
+  "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- DAP
 
@@ -19,10 +22,31 @@ lvim.plugins = {
   -- "NoahTheDuke/vim-just" - https://github.com/casey/just#recipe-parameters
   -- "IndianBoy42/tree-sitter-just"
 
+  -- Utils
+  "kylechui/nvim-surround",
+  "nvim-zh/colorful-winsep.nvim",
+
+  -- UI
+  "j-hui/fidget.nvim",
+
+  -- Note-taking
+	-- "vimwiki/vimwiki",
+  {
+    "nvim-neorg/neorg",
+   ft = "norg",
+    after = "nvim-treesitter",
+    config = function()
+      require('neorg').setup {
+        load = {
+          ["core.defaults"] = {}
+        }
+      }
+    end,
+    requires = "nvim-lua/plenary.nvim"
+  },
+
   -- Others
   "ethanholz/nvim-lastplace", -- Last position of last edit
-  -- "j-hui/fidget.nvim",
-  "kylechui/nvim-surround",
   "ThePrimeagen/harpoon",
   "NvChad/nvim-colorizer.lua",
   "ghillb/cybu.nvim",
@@ -31,21 +55,25 @@ lvim.plugins = {
   "monaqa/dial.nvim",
   "folke/zen-mode.nvim",
   "folke/twilight.nvim",
-	"vimwiki/vimwiki",
-  "vim-pandoc/vim-pandoc-syntax",
-  "nvim-zh/colorful-winsep.nvim",
+  -- "vim-pandoc/vim-pandoc-syntax",
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
-    ft = {"markdown", "markdown.pandoc"},
+    ft = {"markdown"},
   },
   {
     "folke/noice.nvim",
+    -- config = function()
+    --   require("user.noice")
+    -- end,
     requires = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify"
     }
-  }
+  },
+
+  -- Convert to lua
+  "troydm/zoomwintab.vim"
   
   -- "nvim-treesitter/playground",
   -- "karb94/neoscroll.nvim",

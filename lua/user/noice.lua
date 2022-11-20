@@ -20,6 +20,15 @@ noice.setup({
   -- },
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    progress = {
+      enabled = false,
+      -- format = {
+      --   { "{data.progress.percentage} ", hl_group = "Comment" },
+      --   { "{spinner} ", hl_group = "NoiceLspProgressSpinner" },
+      --   { "{data.progress.title} ", hl_group = "Comment" },
+      -- },
+      -- format_done = {},
+    },
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       ["vim.lsp.util.stylize_markdown"] = true,
@@ -34,36 +43,7 @@ noice.setup({
     lsp_doc_border = true, -- add a border to hover docs and signature help
   },
   routes = {
-    {
-      filter = { event = "msg_show", min_height = 10 },
-      view = "split",
-      opts = { enter = true },
-    },
-    {
-      filter = { event = "msg_show", kind = "search_count" },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        find = "; before #",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        find = "; after #",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        find = " lines, ",
-      },
-      opts = { skip = true },
-    },
+    -- Remove which key notification
     {
       filter = {
         event = "msg_show",
@@ -71,20 +51,73 @@ noice.setup({
       },
       opts = { skip = true },
     },
+    -- Remove > indention notification
     {
       filter = {
         event = "msg_show",
-        find = "yanked",
+        find = ">ed",
       },
       opts = { skip = true },
     },
+    -- Remove < indention notification
     {
-      filter = { find = "No active Snippet" },
+      filter = {
+        event = "msg_show",
+        find = "<ed",
+      },
       opts = { skip = true },
     },
+    -- Remove Keyboard interrupt notification
     {
-      filter = { find = "waiting for cargo metadata" },
+      filter = {
+        event = "msg_show",
+        find = "Keyboard interrupt" },
       opts = { skip = true },
     },
+    -- {
+    --   filter = { event = "msg_show", min_height = 10 },
+    --   view = "split",
+    --   opts = { enter = true },
+    -- },
+    -- {
+    --   filter = { event = "msg_show", kind = "search_count" },
+    --   opts = { skip = true },
+    -- },
+    -- {
+    --   filter = {
+    --     event = "msg_show",
+    --     find = "; before #",
+    --   },
+    --   opts = { skip = true },
+    -- },
+    -- {
+    --   filter = {
+    --     event = "msg_show",
+    --     find = "; after #",
+    --   },
+    --   opts = { skip = true },
+    -- },
+    -- {
+    --   filter = {
+    --     event = "msg_show",
+    --     find = " lines, ",
+    --   },
+    --   opts = { skip = true },
+    -- },
+    -- {
+    --   filter = {
+    --     event = "msg_show",
+    --     find = "yanked",
+    --   },
+    --   opts = { skip = true },
+    -- },
+    -- {
+    --   filter = { find = "waiting for cargo metadata" },
+    --   opts = { skip = true },
+    -- },
+    -- {
+    --   filter = { find = "No active Snippet" },
+    --   opts = { skip = true },
+    -- },
   },
 })
