@@ -4,20 +4,46 @@ if not ok then
 end
 
 noice.setup({
-  -- popupmenu = {
-  --   position = "50%"
-  -- },
-  -- cmdline_popup = {
-  --   backend = "popup",
-  --   relative = "editor",
-  --   focusable = false,
-  --   enter = false,
-  --   zindex = 60,
+  popupmenu = {
+    position = "auto",
+    -- border = {
+    --   padding = { 5, 1 },
+    -- },
+  },
+  -- cmdline = {
   --   position = {
   --     row = "50%",
   --     col = "50%",
   --   },
+  --   size = {
+  --     height = "50%",
+  --     width = "50%",
+  --   },
   -- },
+  views = {
+    align = true,
+    cmdline_popup = {
+      position = {
+        row = 3,
+        col = "50%",
+      },
+      border = {
+        style = "rounded",
+        padding = { 0, 1 },
+      },
+    },
+    popupmenu = {
+      position = {
+        row = 3,
+        col = "50%",
+      },
+      -- size = {
+      --   width = 60,
+      --   height = "auto",
+      --   max_height = 3,
+      -- },
+    }
+  },
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
     progress = {
@@ -37,10 +63,44 @@ noice.setup({
   },
   presets = {
     bottom_search = false, -- use a classic bottom cmdline for search
-    command_palette = true, -- position the cmdline and popupmenu together
+    -- command_palette = true, -- position the cmdline and popupmenu together
     long_message_to_split = true, -- long messages will be sent to a split
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = true, -- add a border to hover docs and signature help
+    command_palette = {
+      views = {
+        cmdline_popup = {
+          position = {
+            row = 27,
+            col = "50%",
+          },
+          size = {
+            min_width = 60,
+            width = "auto",
+            height = "auto",
+          },
+        },
+        popupmenu = {
+          relative = "editor",
+          position = {
+            row = 30,
+            col = "50%",
+          },
+          size = {
+            width = 60,
+            height = "auto",
+            max_height = 15,
+          },
+          border = {
+            style = "rounded",
+            padding = { 0, 1 },
+          },
+          win_options = {
+            winhighlight = { Normal = "Normal", FloatBorder = "NoiceCmdlinePopupBorder" },
+          },
+        },
+      },
+    },
   },
   routes = {
     -- Remove which key notification
@@ -74,6 +134,14 @@ noice.setup({
         find = "Keyboard interrupt" },
       opts = { skip = true },
     },
+    -- Remove any lines notification
+    {
+      filter = {
+        event = "msg_show",
+        find = "lines",
+      },
+      opts = { skip = true },
+    },
     -- {
     --   filter = { event = "msg_show", min_height = 10 },
     --   view = "split",
@@ -94,13 +162,6 @@ noice.setup({
     --   filter = {
     --     event = "msg_show",
     --     find = "; after #",
-    --   },
-    --   opts = { skip = true },
-    -- },
-    -- {
-    --   filter = {
-    --     event = "msg_show",
-    --     find = " lines, ",
     --   },
     --   opts = { skip = true },
     -- },
