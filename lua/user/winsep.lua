@@ -19,18 +19,13 @@ winsep.setup({
     -- Executed after closing the window separator
   end,
   create_event = function()
-    -- TODO: Delete winsep when its only 2 windows available
-
     -- Executed after creating the window separator
-    -- local win_n = require("colorful-winsep.utils").getWinNumber()
-    -- if win_n == 2 then
-    --   local win_id = vim.fn.win_getid(vim.fn.winnr('h'))
-    --   local filetype = api.nvim_buf_get_option(vim.api.nvim_win_get_buf(win_id), 'filetype')
-    --   if filetype == "NvimTree" then
-    --     colorful_winsep.NvimSeparatorDel()
-    --   end
-    -- end
+    local win_n = require("colorful-winsep.utils").getWinNumber()
+    local win_id = vim.fn.win_getid(vim.fn.winnr('h'))
+    local filetype = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(win_id), 'filetype')
+    if win_n == 2 or filetype == "NvimTree" then
+      winsep.NvimSeparatorDel()
+    end
   end,
 })
-
 -- vim.cmd[[highlight NvimSeparator guifg=#a94dc1]]
