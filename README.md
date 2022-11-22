@@ -23,6 +23,7 @@
 
 - Learn
   - How extending treesitter queries works
+  - Integrate chezmoi tool
 
 - General
   - configure tmp-tabnine to use different OS

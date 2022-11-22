@@ -67,11 +67,15 @@ noice.setup({
     long_message_to_split = true, -- long messages will be sent to a split
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = true, -- add a border to hover docs and signature help
+    
+    -- TODO: centered layout based on the screen size
+    -- cmdline_popup.position.row = ?
+    -- popupmenu.position.row = ?
     command_palette = {
       views = {
         cmdline_popup = {
           position = {
-            row = 27,
+            row = "40%",
             col = "50%",
           },
           size = {
@@ -83,13 +87,13 @@ noice.setup({
         popupmenu = {
           relative = "editor",
           position = {
-            row = 30,
+            row = "48%",
             col = "50%",
           },
           size = {
             width = 60,
             height = "auto",
-            max_height = 15,
+            max_height = 5,
           },
           border = {
             style = "rounded",

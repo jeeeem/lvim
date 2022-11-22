@@ -46,26 +46,6 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
-lvim.builtin.cmp.cmdline.enable = true
-lvim.builtin.cmp.window.documentation = true
-lvim.builtin.cmp.window.completion = {
-  border = "rounded",
-  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-}
-lvim.builtin.cmp.formatting.source_names = {
-  nvim_lsp = "",
-  emoji = "",
-  path = "",
-  calc = "",
-  cmp_tabnine = "",
-  vsnip = "",
-  luasnip = "",
-  buffer = "",
-  tmux = "",
-  copilot = "",
-  treesitter = "",
-}
-
 -- User options
 
 local options = {

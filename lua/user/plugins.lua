@@ -25,6 +25,10 @@ lvim.plugins = {
   -- Utils
   "kylechui/nvim-surround",
   "nvim-zh/colorful-winsep.nvim",
+  {
+    "ggandor/flit.nvim",
+    requires = "ggandor/leap.nvim"
+  },
 
   -- UI
   "j-hui/fidget.nvim",
@@ -33,7 +37,7 @@ lvim.plugins = {
 	-- "vimwiki/vimwiki",
   {
     "nvim-neorg/neorg",
-   ft = "norg",
+    ft = "norg",
     after = "nvim-treesitter",
     config = function()
       require('neorg').setup {

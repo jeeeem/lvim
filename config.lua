@@ -6,6 +6,7 @@ reload("user.custom.autocommands")
 reload("user.keymaps")
 
 -- IDE Essentials
+reload("user.cmp")
 reload("user.lsp")
 reload("user.treesitter")
 
@@ -13,6 +14,7 @@ reload("user.treesitter")
 reload("user.colorizer")
 reload("user.cybu")
 reload("user.fidget")
+reload("user.flit")
 reload("user.markdown")
 reload("user.noice")
 reload("user.notify")
