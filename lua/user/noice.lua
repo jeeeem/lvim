@@ -4,45 +4,15 @@ if not ok then
 end
 
 noice.setup({
-  popupmenu = {
-    position = "auto",
-    -- border = {
-    --   padding = { 5, 1 },
-    -- },
-  },
-  -- cmdline = {
-  --   position = {
-  --     row = "50%",
-  --     col = "50%",
-  --   },
-  --   size = {
-  --     height = "50%",
-  --     width = "50%",
-  --   },
-  -- },
-  views = {
-    align = true,
-    cmdline_popup = {
-      position = {
-        row = 3,
-        col = "50%",
-      },
-      border = {
-        style = "rounded",
-        padding = { 0, 1 },
-      },
-    },
-    popupmenu = {
-      position = {
-        row = 3,
-        col = "50%",
-      },
-      -- size = {
-      --   width = 60,
-      --   height = "auto",
-      --   max_height = 3,
-      -- },
-    }
+  messages = {
+    -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+    -- This is a current Neovim limitation.
+    enabled = true, -- enables the Noice messages UI
+    view = "notify", -- default view for messages
+    view_error = "notify", -- view for errors
+    view_warn = "notify", -- view for warnings
+    view_history = "messages", -- view for :messages
+    view_search = false, -- view for search count messages. Set to `false` to disable
   },
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -63,14 +33,16 @@ noice.setup({
   },
   presets = {
     bottom_search = false, -- use a classic bottom cmdline for search
-    -- command_palette = true, -- position the cmdline and popupmenu together
     long_message_to_split = true, -- long messages will be sent to a split
-    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+    inc_rename = true, -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = true, -- add a border to hover docs and signature help
     
     -- TODO: centered layout based on the screen size
     -- cmdline_popup.position.row = ?
     -- popupmenu.position.row = ?
+
+    -- TODO: Programmatically centered the cmdline according to screen size
+    -- See cyby `position.relative_to` for reference
     command_palette = {
       views = {
         cmdline_popup = {
@@ -107,6 +79,11 @@ noice.setup({
     },
   },
   routes = {
+    -- Show Macro messages
+    {
+      view = "notify",
+      filter = { event = "msg_showmode" },
+    },
     -- Remove which key notification
     {
       filter = {
@@ -146,28 +123,40 @@ noice.setup({
       },
       opts = { skip = true },
     },
+    -- Remove undo changes
+    {
+      filter = {
+        event = "msg_show",
+        find = "; before #",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        find = "; after #",
+      },
+      opts = { skip = true },
+    },
+    -- Remove search count
+    -- {
+    --   filter = {
+    --     event = "msg_show",
+    --     kind = "search_count",
+    --   },
+    -- opts = { skip = true },
+    -- },
+    -- {
+    --   filter = {
+    --     event = "msg_show",
+    --     kind = "",
+    --   },
+    --   opts = { skip = true },
+    -- },
     -- {
     --   filter = { event = "msg_show", min_height = 10 },
     --   view = "split",
     --   opts = { enter = true },
-    -- },
-    -- {
-    --   filter = { event = "msg_show", kind = "search_count" },
-    --   opts = { skip = true },
-    -- },
-    -- {
-    --   filter = {
-    --     event = "msg_show",
-    --     find = "; before #",
-    --   },
-    --   opts = { skip = true },
-    -- },
-    -- {
-    --   filter = {
-    --     event = "msg_show",
-    --     find = "; after #",
-    --   },
-    --   opts = { skip = true },
     -- },
     -- {
     --   filter = {

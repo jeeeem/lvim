@@ -104,8 +104,6 @@ autocmd("VimResized", {
 
 autocmd("ColorScheme", {
 	callback = function()
-		vim.cmd [[highlight NvimSeparator guifg=#a94dc1]]
-
     -- hack until this bug fix "https://github.com/neovim/neovim/issues/20309"
     vim.cmd [[highlight Cursor cterm=bold gui=bold guifg=#c0caf5 guibg=#e0af68]]
 	end,
