@@ -102,12 +102,12 @@ autocmd("VimResized", {
 	group = general_settings,
 })
 
-autocmd("ColorScheme", {
-	callback = function()
-		vim.cmd [[highlight NvimSeparator guifg=#a94dc1]]
-	end,
-	group = general_settings,
-})
+-- autocmd("ColorScheme", {
+-- 	callback = function()
+-- 		vim.cmd [[highlight NvimSeparator guifg=#a94dc1]]
+-- 	end,
+-- 	group = general_settings,
+-- })
 
 -- LSP Highlight Augroup
 autocmd("ColorScheme", {

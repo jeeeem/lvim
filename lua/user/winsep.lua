@@ -6,8 +6,8 @@ end
 winsep.setup({
   -- highlight for Window separator
   highlight = {
-    guibg = "#111111",
-    guifg = "#111111",
+    -- guibg = "#111111",
+    guifg = "#a94dc1",
   },
   -- timer refresh rate
   interval = 30,

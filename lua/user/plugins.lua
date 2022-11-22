@@ -11,6 +11,11 @@ lvim.plugins = {
   -- LSP
   "mfussenegger/nvim-jdtls",
   "sigmaSd/deno-nvim",
+  {"smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+    end,
+  },
 
   -- Treesitter
   "nvim-treesitter/playground",
@@ -28,6 +33,11 @@ lvim.plugins = {
 
   -- UI
   "j-hui/fidget.nvim",
+  "petertriho/nvim-scrollbar",
+  "kevinhwang91/nvim-hlslens",
+
+  -- Theme
+  "catppuccin/nvim", as = "catppuccin",
 
   -- Note-taking
 	-- "vimwiki/vimwiki",
@@ -46,6 +56,7 @@ lvim.plugins = {
   },
 
   -- Others
+  "wakatime/vim-wakatime", -- Time Track your programming activity
   "ethanholz/nvim-lastplace", -- Last position of last edit
   "ThePrimeagen/harpoon",
   "NvChad/nvim-colorizer.lua",
@@ -55,6 +66,7 @@ lvim.plugins = {
   "monaqa/dial.nvim",
   "folke/zen-mode.nvim",
   "folke/twilight.nvim",
+  -- "folke/styler.nvim",
   -- "vim-pandoc/vim-pandoc-syntax",
   {
     "iamcco/markdown-preview.nvim",

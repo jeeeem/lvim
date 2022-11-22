@@ -9,6 +9,9 @@ reload("user.keymaps")
 reload("user.lsp")
 reload("user.treesitter")
 
+-- Theme
+-- TODO: Add more theme
+
 -- Plugin config
 reload("user.colorizer")
 reload("user.cybu")
@@ -18,7 +21,9 @@ reload("user.noice")
 reload("user.notify")
 reload("user.nvim-tree")
 reload("user.harpoon")
+reload("user.hlslens")
 reload("user.lastplace")
+reload("user.scrollbar")
 reload("user.spectre")
 reload("user.telescope")
 reload("user.todo")
@@ -26,3 +31,7 @@ reload("user.winsep")
 reload("user.whichkey")
 reload("user.zen")
 reload("user.zoomwintab")
+
+-- Experimental
+-- reload("user.styler")
+-- https://github.com/rareitems/anki.nvim

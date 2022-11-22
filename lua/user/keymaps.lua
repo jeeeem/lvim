@@ -4,7 +4,10 @@ local keymap_set = vim.keymap.set
 local keymap_del = vim.keymap.del
 
 lvim.leader = "space"
+
+-- Normal Mode
 lvim.keys.normal_mode["<C-s>"] = ":up<cr>"
+-- lvim.keys.normal_mode["<S-CR>"] = "O<Esc>"
 
 -- TODO: if there is no .git use `Telescope find_files` in the current directory
 keymap_set("n", "<C-p>", "<cmd>Telescope git_files<cr>", opts)
