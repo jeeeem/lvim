@@ -1,5 +1,5 @@
 lvim.builtin.terminal = {
-  active = false,
+  active = true,
   on_config_done = nil,
   -- size can be a number or function which is passed the current terminal
   size = 20,
@@ -30,6 +30,12 @@ lvim.builtin.terminal = {
       border = "Normal",
       background = "Normal",
     },
+  },
+  winbar = {
+    enabled = false,
+    name_formatter = function(term) --  term: Terminal
+      return term.name
+    end
   },
   -- Add executables on the config.lua
   -- { exec, keymap, name}

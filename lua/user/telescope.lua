@@ -1,45 +1,58 @@
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
+-- Telescope config
+-- https://gitlab.com/lostneophyte/dotfiles/-/blob/5d49006532bf57db9f7e09564cb43010f631c571/lvim/.config/lvim/lua/user/telescope.lua
+-- https://github.com/LunarVim/LunarVim/issues/3406
+
+-- lvim.builtin.telescope.pickers.find_files = {
+--      layout_strategy = "center",
+--      layout_config = { width = 0.80, height = 0.80, preview_width = nil, prompt_position = "top" }
 -- }
+
+-- lvim.builtin.telescope.pickers.live_grep = {
+--     layout_config = { height = 0.99, width = 0.99, preview_cutoff = 120, preview_width = 0.6, prompt_position = "top" },
+--     layout_strategy = "horizontal"
+-- }
+
+-- lvim.builtin.telescope.pickers.git_commits = {
+--     layout_strategy = "horizontal",
+--     layout_config = { height = 0.88, width = 0.88, preview_cutoff = 20, preview_width = 0.70, prompt_position = "bottom" }
+-- }
+
+-- lvim.builtin.telescope.pickers.man_pages = {
+--     layout_strategy = "horizontal",
+--     layout_config = { height = 0.99, width = 0.99, preview_cutoff = nil, preview_width = 0.80, prompt_position = "bottom" }
+-- }
+
+-- lvim.builtin.telescope.pickers.vim_options = { layout_config = { height = 0.66, width = 0.66 } }
+
+-- lvim.builtin.telescope.pickers.colorscheme = { layout_strategy = "cursor", layout_config = { width = 0.19 } }
 
 -- TODO: Change the layout of telescope same as noice layout
 
-lvim.builtin.telescope.defaults.layout_config = {
-  width = 0.90,
-  height = 0.85,
-  preview_cutoff = 120,
-  prompt_position = "top",
-  horizontal = {
-    preview_width = function(_, cols, _)
-      return math.floor(cols * 0.6)
-    end,
-  },
-  vertical = {
-    width = 0.9,
-    height = 0.95,
-    preview_height = 0.5,
-  },
-
-  flex = {
-    horizontal = {
-      preview_width = 0.9,
-    },
-  },
-}
+-- lvim.builtin.telescope = {
+--     defaults = {
+--       prompt_prefix = lvim.icons.ui.Telescope .. " ",
+--       selection_caret = lvim.icons.ui.Forward .. " ",
+--       entry_prefix = "  ",
+--       initial_mode = "insert",
+--       selection_strategy = "reset",
+--       sorting_strategy = "descending",
+--       layout_strategy = "horizontal",
+--       layout_config = {
+--         width = 0.75,
+--         preview_cutoff = 120,
+--         horizontal = {
+--           preview_width = function(_, cols, _)
+--             if cols < 120 then
+--               return math.floor(cols * 0.5)
+--             end
+--             return math.floor(cols * 0.6)
+--           end,
+--           mirror = false,
+--         },
+--         vertical = { mirror = false },
+--       },
+--   }
+-- }
 
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
 	".git/",
