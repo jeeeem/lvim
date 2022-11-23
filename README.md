@@ -24,6 +24,7 @@
 - Learn
   - How extending treesitter queries works
   - Integrate chezmoi tool
+  - research which is better asyncrun.vim vs overseer.nvim
 
 - General
   - configure tmp-tabnine to use different OS
@@ -33,7 +34,6 @@
   - Default Nerd-font
 
 - Configure Plugins
-  - which-keys
   - nvim-surround
   - harpoon
   - markdown
@@ -41,10 +41,8 @@
     - vimwiki
       - silenty call the commands
     - markdown preview
-  -  todo-comments
+  - todo-comments
     - powershell filetype
-  - CMP
-    - show preview in LSP completion
 
 - LSP
   - Deno
@@ -53,6 +51,11 @@
 
 - DAP
   - lua
+
+- Null-ls
+  - Vale
+    - for general writing
+    - https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
 
 ### Issues:
 - Noice

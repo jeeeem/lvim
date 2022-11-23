@@ -8,42 +8,88 @@ end
 
 lvim.plugins = {
 
-  -- LSP
+  -- LSP -- 
+  -- JAVA
   "mfussenegger/nvim-jdtls",
   "sigmaSd/deno-nvim",
-  {"smjonas/inc-rename.nvim",
-    config = function()
-      require("inc_rename").setup()
-    end,
-  },
 
-  -- Treesitter
+  -- Rust
+  -- "simrat39/rust-tools.nvim",
+  -- {
+  -- 	"saecki/crates.nvim",
+  -- 	tag = "v0.3.0",
+  -- 	requires = { "nvim-lua/plenary.nvim" },
+  -- 	config = function()
+  -- 		require("crates").setup({
+  -- 			null_ls = {
+  -- 				enabled = true,
+  -- 				name = "crates.nvim",
+  -- 			},
+  -- 		})
+  -- 	end,
+  -- },
+
+  -- JS/TS
+  -- "jose-elias-alvarez/typescript.nvim",
+
+  -- Go
+  -- "olexsmir/gopher.nvim",
+
+  -- Treesitter -- 
   "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
 
-  -- DAP
+  -- DAP --
+  -- "mfussenegger/nvim-dap-python",
+  -- "mxsdev/nvim-dap-vscode-js",
+  -- "leoluz/nvim-dap-go",
 
   -- Syntax highlight
   -- "NoahTheDuke/vim-just" - https://github.com/casey/just#recipe-parameters
   -- "IndianBoy42/tree-sitter-just"
 
-  -- Utils
+  -- Utils --
+  -- Code runner
+  "skywind3000/asyncrun.vim",
+  "skywind3000/asynctasks.vim",
+  -- "stevearc/overseer.nvim",
+  
+  -- Zen mode
+  "folke/zen-mode.nvim",
+  "folke/twilight.nvim",
+
   "kylechui/nvim-surround",
-  "nvim-zh/colorful-winsep.nvim",
+  "kevinhwang91/nvim-hlslens",
+  {"smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+    end,
+  },
   {
     "ggandor/flit.nvim",
     requires = "ggandor/leap.nvim"
   },
 
-  -- UI
+  -- Convert to lua
+  "troydm/zoomwintab.vim",
+
+  -- UI --
+  "NvChad/nvim-colorizer.lua",
+  "nvim-zh/colorful-winsep.nvim",
   "j-hui/fidget.nvim",
   "petertriho/nvim-scrollbar",
-  "kevinhwang91/nvim-hlslens",
+  {
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify"
+    }
+  },
 
-  -- Theme
+  -- Theme --
   "catppuccin/nvim", as = "catppuccin",
 
-  -- Note-taking
+  -- Note-taking --
 	-- "vimwiki/vimwiki",
   {
     "nvim-neorg/neorg",
@@ -56,43 +102,24 @@ lvim.plugins = {
         }
       }
     end,
-    requires = "nvim-lua/plenary.nvim"
+    -- requires = "nvim-lua/plenary.nvim"
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = {"markdown"},
   },
 
   -- Others
   "wakatime/vim-wakatime", -- Time Track your programming activity
   "ethanholz/nvim-lastplace", -- Last position of last edit
   "ThePrimeagen/harpoon",
-  "NvChad/nvim-colorizer.lua",
   "ghillb/cybu.nvim",
   "folke/todo-comments.nvim",
   "windwp/nvim-spectre",
   "monaqa/dial.nvim",
-  "folke/zen-mode.nvim",
-  "folke/twilight.nvim",
   -- "folke/styler.nvim",
   -- "vim-pandoc/vim-pandoc-syntax",
-  {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    ft = {"markdown"},
-  },
-  {
-    "folke/noice.nvim",
-    -- config = function()
-    --   require("user.noice")
-    -- end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify"
-    }
-  },
-
-  -- Convert to lua
-  "troydm/zoomwintab.vim"
-  
-  -- "nvim-treesitter/playground",
-  -- "karb94/neoscroll.nvim",
   -- "MattesGroeger/vim-bookmarks",
   -- "moll/vim-bbye",
   -- "f-person/git-blame.nvim",
@@ -109,25 +136,6 @@ lvim.plugins = {
   -- "nacro90/numb.nvim",
   -- "TimUntersberger/neogit",
   -- "sindrets/diffview.nvim",
-  -- "simrat39/rust-tools.nvim",
-  -- "olexsmir/gopher.nvim",
-  -- "leoluz/nvim-dap-go",
-  -- "mfussenegger/nvim-dap-python",
-  -- "jose-elias-alvarez/typescript.nvim",
-  -- "mxsdev/nvim-dap-vscode-js",
-  -- {
-  -- 	"saecki/crates.nvim",
-  -- 	tag = "v0.3.0",
-  -- 	requires = { "nvim-lua/plenary.nvim" },
-  -- 	config = function()
-  -- 		require("crates").setup({
-  -- 			null_ls = {
-  -- 				enabled = true,
-  -- 				name = "crates.nvim",
-  -- 			},
-  -- 		})
-  -- 	end,
-  -- },
   -- {
   -- 	"jinh0/eyeliner.nvim",
   -- 	config = function()
@@ -136,7 +144,6 @@ lvim.plugins = {
   -- 		})
   -- 	end,
   -- },
-  -- { "christianchiarulli/telescope-tabs", branch = "chris" },
   -- {
   -- 	"0x100101/lab.nvim",
   -- 	run = "cd js && npm ci",
@@ -144,7 +151,11 @@ lvim.plugins = {
 
   -- TODO: programmatically run sh/ps1 depends on the user OS
   -- { "tzachar/cmp-tabnine", run = check_os()},
-  -- { "tzachar/cmp-tabnine", run = "& .\\install.ps1"},
+  -- {
+  --  'tzachar/cmp-tabnine',
+  --   after = "nvim-cmp",
+  --   run='powershell ./install.ps1'
+  -- }
 
   -- {
   -- 	"zbirenbaum/copilot.lua",
@@ -166,8 +177,6 @@ lvim.plugins = {
   -- },
   -- Packer
   -- "karb94/neoscroll.nvim",
-
-  -- https://github.com/jose-elias-alvarez/typescript.nvim
   -- "rmagatti/auto-session",
   -- "rmagatti/session-lens"
 }
