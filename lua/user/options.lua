@@ -1,39 +1,7 @@
--- Windows Specifc configuration
--- if vim.loop.os_uname().sysname == "Windows NT" then
-
-if vim.fn.has('win32') == 1 then
-  -- Enable powershell as your default shell
-  -- lvim.builtin.terminal.shell = "pwsh.exe -NoLogo"
-  vim.opt.shell = "pwsh.exe -NoLogo"
-  vim.opt.shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-  vim.cmd [[
-      let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-      let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-      set shellquote= shellxquote=
-    ]]
-
-  -- Set a compatible clipboard manager
-  vim.g.clipboard = {
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf",
-    },
-  }
-end
-
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.colorscheme = "tokyonight"
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
-
-vim.opt.showtabline = 0 -- Remove tabline
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 -- Lvim default plugins
@@ -45,9 +13,17 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
--- User options
 
-local options = {
+local powershell_options = {
+  shell = vim.fn.executable "pwsh" and "pwsh" or "powershell",
+  shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+  shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+  shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+  shellquote = "",
+  shellxquote = "",
+}
+
+local general_options = {
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	cmdheight = 1, -- Space in neovim command line for displaying messages
@@ -119,8 +95,26 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
+local options = general_options
+
+if vim.fn.has('win32') == 1 then
+  options = vim.tbl_deep_extend('error', powershell_options, general_options)
+
+  -- Set a compatible clipboard manager
+  vim.g.clipboard = {
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+  }
+end
+
 for k, v in pairs(options) do
-	vim.opt[k] = v
+  vim.opt[k] = v
 end
 
 -- Change theme settings

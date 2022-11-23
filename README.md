@@ -51,6 +51,9 @@
   - Java
     - Try a JDK runtime of v1.8
 
+- DAP
+  - lua
+
 ### Issues:
 - Noice
   - separate the highlight text group along with its color `xxx`

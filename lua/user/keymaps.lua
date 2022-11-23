@@ -10,7 +10,7 @@ lvim.keys.normal_mode["<C-s>"] = ":up<cr>"
 -- lvim.keys.normal_mode["<S-CR>"] = "O<Esc>"
 
 -- TODO: if there is no .git use `Telescope find_files` in the current directory
-keymap_set("n", "<C-p>", "<cmd>Telescope git_files<cr>", opts)
+keymap_set("n", "<C-p>", "<cmd>lua require('lvim.core.telescope.custom-finders').find_project_files()<cr>", opts)
 keymap_set("", "<C-z>", "<Nop>", opts) -- Remove C-z suspending key
 
 -- Delete Lvim default moving text commands

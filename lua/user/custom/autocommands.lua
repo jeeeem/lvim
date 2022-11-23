@@ -74,11 +74,11 @@ autocmd("FileType", {
 	group = general_settings,
 })
 
-autocmd("FileType", {
-	pattern = { "undotree" },
-	command = "vertical resize 40",
-	group = general_settings,
-})
+-- autocmd("FileType", {
+-- 	pattern = { "undotree" },
+-- 	command = "vertical resize 40",
+-- 	group = general_settings,
+-- })
 
 -- autocmd("DapuiWindowsSetup BufWinLeave", {
 -- 	command = "vertical resize 40",
@@ -89,13 +89,6 @@ autocmd("BufWinEnter", {
 	command = "set formatoptions-=cro | set nohlsearch",
 	group = general_settings,
 })
-
--- autocmd("TextYankPost", {
--- 	callback = function()
--- 		vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
--- 	end,
--- 	group = general_settings,
--- })
 
 autocmd("VimResized", {
 	command = "tabdo wincmd =",
