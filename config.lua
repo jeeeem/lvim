@@ -15,8 +15,9 @@ reload("user.treesitter")
 
 -- Plugin config
 reload("user.bqf")
+reload("user.bufferline")
 reload("user.colorizer")
-reload("user.cybu")
+-- reload("user.cybu")
 reload("user.dashboard")
 reload("user.dial")
 reload("user.fidget")

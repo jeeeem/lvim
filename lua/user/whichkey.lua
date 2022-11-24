@@ -44,6 +44,49 @@ lvim.builtin.which_key.mappings["f"] = nil
 lvim.builtin.which_key.mappings["w"] = nil
 lvim.builtin.which_key.mappings["h"] = {"<cmd>lua toggle_hlsearch()<cr>", "Toggle Highlights"}
 
+lvim.builtin.which_key.mappings["b"] = {
+  name = " 﩯Buffer",
+  ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
+  ["2"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "goto 2" },
+  ["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
+  ["4"] = { "<Cmd>BufferLineGoToBuffer 4<CR>", "goto 4" },
+  ["5"] = { "<Cmd>BufferLineGoToBuffer 5<CR>", "goto 5" },
+  ["6"] = { "<Cmd>BufferLineGoToBuffer 6<CR>", "goto 6" },
+  ["7"] = { "<Cmd>BufferLineGoToBuffer 7<CR>", "goto 7" },
+  ["8"] = { "<Cmd>BufferLineGoToBuffer 8<CR>", "goto 8" },
+  ["9"] = { "<Cmd>BufferLineGoToBuffer 9<CR>", "goto 9" },
+  c = { "<cmd>BufferLinePick<cr>", "Choose buffer" },
+  C = {
+    "<cmd>BufferLinePickClose<cr>",
+    "Choose which buffer to close",
+  },
+  d = { "<cmd>BufferKill<cr>", "Buffer Kill" },
+  f = { "<cmd>Telescope buffers<cr>", "Find" },
+  D = {
+    "<cmd>BufferLineSortByDirectory<cr>",
+    "Sort by directory",
+  },
+  -- w = { "<cmd>BufferWipeout<cr>", "Wipeout" }, -- TODO: implement this for bufferline
+  h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+  l = {
+    "<cmd>BufferLineCloseRight<cr>",
+    "Close all to the right",
+  },
+  L = {
+    "<cmd>BufferLineSortByExtension<cr>",
+    "Sort by language",
+  },
+  p = { "<cmd>BufferLineTogglePin<cr>", "Pin buffer" },
+  R = {
+    "<cmd>BufferLineSortByRelativeDirectory<cr>",
+    "Sort by relative directory",
+  },
+  T = {
+    "<cmd>BufferLineSortByTabs<cr>",
+    "Sort by Tab",
+  },
+}
+
 lvim.builtin.which_key.mappings["d"] = {
   name = "Debug",
   t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
@@ -156,6 +199,15 @@ lvim.builtin.which_key.mappings["s"] = {
 }
 
 lvim.builtin.which_key.mappings["t"] = {
+  name = "Tabs",
+  c = { "<cmd>tabclose<cr>", "Close tab" },
+  e = { "<cmd>tabedit<cr>", "New Tab Edit" },
+  f = { "<cmd>tabfirst<cr>", "Move to first tab" },
+  l = { "<cmd>tablast<cr>", "Move to last tab" },
+  o = { "<cmd>tabonly<cr>", "Close other tab" },
+}
+
+lvim.builtin.which_key.mappings["T"] = {
   name = "Treesitter",
   -- TODO: do the noice redirect function to show it in a split popup, not a notif.
   i = { ":TSConfigInfo<cr>", "Config Info" },

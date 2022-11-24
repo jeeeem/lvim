@@ -97,6 +97,12 @@ scrollbar.setup({
         "prompt",
         "TelescopePrompt",
         "noice",
+        "NvimTree",
+        "dapui_scopes",
+        "dapui_breakpoints",
+        "dapui_watches",
+        "dapui_stacks",
+        "dap-repl",
     },
     autocmd = {
         render = {
