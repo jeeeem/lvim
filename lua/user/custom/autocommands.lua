@@ -86,7 +86,7 @@ autocmd("FileType", {
 -- })
 
 autocmd("BufWinEnter", {
-	command = "set formatoptions-=cro | set nohlsearch",
+	command = "set formatoptions-=cro",
 	group = general_settings,
 })
 

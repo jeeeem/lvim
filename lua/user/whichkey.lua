@@ -92,8 +92,9 @@ lvim.builtin.which_key.mappings["g"] = {
 lvim.builtin.which_key.mappings["l"] = {
   name = "LSP",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-  d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-  w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+  c = { "<cmd>TroubleClose<cr>", "Close Diagnostics" },
+  d = { "<cmd>TroubleToggle<cr>", "Trouble Diagnostics" },
+  w = { "<cmd>Telescope diagnostics<cr>", "Telescope Diagnostics" },
   f = { require("lvim.lsp.utils").format, "Format" },
   i = { "<cmd>LspInfo<cr>", "Info" },
   I = { "<cmd>Mason<cr>", "Mason Info" },
@@ -114,6 +115,7 @@ lvim.builtin.which_key.mappings["l"] = {
     "Rename keep",
     expr = true,
   },
+  R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
   S = {
     "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -128,8 +130,8 @@ lvim.builtin.which_key.mappings["p"] = {
   C = { "<cmd>PackerCompile<cr>", "Compile" },
   i = { "<cmd>PackerInstall<cr>", "Install" },
   r = { "<cmd>lua require('lvim.plugin-loader').recompile()<cr>", "Re-compile" },
-  s = { "<cmd>PackerSync<cr>", "Sync" },
-  S = { "<cmd>PackerStatus<cr>", "Status" },
+  s = { "<cmd>PackerStatus<cr>", "Status" },
+  S = { "<cmd>PackerSync<cr>", "Sync" },
   u = { "<cmd>PackerUpdate<cr>", "Update" },
 }
 

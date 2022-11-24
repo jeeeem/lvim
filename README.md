@@ -34,6 +34,12 @@
   - Default Nerd-font
 
 - Configure Plugins
+  - dashboard
+    - add readme shortcut
+  - bqf
+    - always on the below window
+  - trouble
+    - try the auto-open and close
   - nvim-surround
   - harpoon
   - markdown
