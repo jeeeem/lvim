@@ -42,7 +42,15 @@ lvim.builtin.which_key.mappings["b"] = nil
 lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["f"] = nil
 lvim.builtin.which_key.mappings["w"] = nil
-lvim.builtin.which_key.mappings["h"] = {"<cmd>lua toggle_hlsearch()<cr>", "Toggle Highlights"}
+lvim.builtin.which_key.mappings["h"] = nil
+
+lvim.builtin.which_key.mappings["a"] = {
+  name = "Actions",
+  h = { "<cmd>lua toggle_hlsearch()<cr>", "Toggle highlights" },
+  r = { "<cmd>lua toggle_relativenumber()<cr>", "Toggle relative number" },
+  t = { "<cmd>lua toggle_showtabline()<cr>", "Toggle show tabline" },
+  w = { "<cmd>lua toggle_wrap()<cr>", "Toggle wrap" },
+}
 
 lvim.builtin.which_key.mappings["b"] = {
   -- name = " 﩯Buffers",
@@ -62,7 +70,7 @@ lvim.builtin.which_key.mappings["b"] = {
     "Choose which buffer to close",
   },
   d = { "<cmd>BufferKill<cr>", "Buffer Kill" },
-  f = { "<cmd>Telescope buffers<cr>", "Find" },
+  f = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
   D = {
     "<cmd>BufferLineSortByDirectory<cr>",
     "Sort by directory",

@@ -126,11 +126,20 @@ toggle_hlsearch = function()
 	end
 end
 
--- Toggle relative line
+-- Toggle relative line number
 toggle_relativenumber = function()
 	if vim.wo.relativenumber then
 		vim.wo.relativenumber = false
 	else
 		vim.wo.relativenumber = true
+	end
+end
+
+-- Toggle show tabline
+toggle_showtabline = function()
+	if vim.o.showtabline == 0 then
+		vim.o.showtabline = 2
+	else
+		vim.o.showtabline = 0
 	end
 end

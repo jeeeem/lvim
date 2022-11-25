@@ -32,6 +32,8 @@
 
 - Theme
   - Default Nerd-font
+    - Jetbrain Mono
+    - Victor Mono (cursive italic)
 
 - Configure Plugins
   - dashboard

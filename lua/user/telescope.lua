@@ -27,6 +27,8 @@
 -- lvim.builtin.telescope.pickers.colorscheme = { layout_strategy = "cursor", layout_config = { width = 0.19 } }
 
 -- TODO: Change the layout of telescope same as noice layout
+-- TODO: Configure buffer pickers
+-- initial_mode = "insert"
 
 -- lvim.builtin.telescope = {
 --     defaults = {
