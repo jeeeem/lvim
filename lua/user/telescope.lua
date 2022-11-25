@@ -54,6 +54,16 @@
 --   }
 -- }
 
+local ok, telescope_tabs = pcall(require, 'telescope-tabs')
+if not ok then
+  return
+end
+
+telescope_tabs.setup({
+  show_preview = false,
+  close_tab_shortcut = "C-d",
+})
+
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
 	".git/",
 	"target/",

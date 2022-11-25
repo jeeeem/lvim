@@ -58,6 +58,7 @@ lvim.plugins = {
   "folke/trouble.nvim",
 
   -- Ergonomics
+  "LukasPietzschmann/telescope-tabs",
   {"tiagovla/scope.nvim",
     config = function()
       require("scope").setup()

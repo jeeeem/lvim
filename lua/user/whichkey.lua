@@ -45,7 +45,8 @@ lvim.builtin.which_key.mappings["w"] = nil
 lvim.builtin.which_key.mappings["h"] = {"<cmd>lua toggle_hlsearch()<cr>", "Toggle Highlights"}
 
 lvim.builtin.which_key.mappings["b"] = {
-  name = " 﩯Buffer",
+  -- name = " 﩯Buffers",
+  name = "Buffers",
   ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
   ["2"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "goto 2" },
   ["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
@@ -205,6 +206,7 @@ lvim.builtin.which_key.mappings["t"] = {
   f = { "<cmd>tabfirst<cr>", "Move to first tab" },
   l = { "<cmd>tablast<cr>", "Move to last tab" },
   o = { "<cmd>tabonly<cr>", "Close other tab" },
+  s = { ":Telescope telescope-tabs list_tabs<cr>", "Search tabs" },
 }
 
 lvim.builtin.which_key.mappings["T"] = {
