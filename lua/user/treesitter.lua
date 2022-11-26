@@ -1,9 +1,34 @@
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   -- "c",
+  -- "make",
   "lua",
   "java",
-  "python"
+  "python",
+  "bash",
+  "javascript",
+  "json",
+  "lua",
+  "typescript",
+  "tsx",
+  "css",
+  "rust",
+  "java",
+  "yaml",
+	"just",
+	"markdown",
+	"norg",
+	"regex",
+	"scss",
+	"toml",
+	"vim",
+	"jsonc",
+	"dockerfile",
+	"graphql",
+	"html",
+	"http",
+	"gdscript",
+	-- "godot_resource",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -11,6 +36,8 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Custom parsers
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+-- Powershell (ps1) parser
 parser_config.powershell = {
   install_info = {
     url = "https://github.com/jrsconfitto/tree-sitter-powershell",
@@ -18,6 +45,17 @@ parser_config.powershell = {
   },
   filetype = "ps1",
   used_by = { "psm1", "psd1", "pssc", "psxml", "cdxml" }
+}
+
+-- Just (justfile) parser
+parser_config.just = {
+  install_info = {
+    url = "https://github.com/IndianBoy42/tree-sitter-just",
+    files = { "src/parser.c", "src/scanner.cc" },
+    branch = "main",
+  },
+  filetype = "justfile",
+  maintainers = { "@IndianBoy42" },
 }
 
 
@@ -40,42 +78,42 @@ parser_config.powershell = {
 
 -- 	ensure_installed = "all",
 
--- 	-- ensure_installed = {
--- 	-- 	"bash",
--- 	-- 	"c",
--- 	-- 	"c_sharp",
--- 	-- 	"cmake",
--- 	-- 	"comment",
--- 	-- 	"css",
--- 	-- 	"dockerfile",
--- 	-- 	"gdscript",
--- 	-- 	"godot_resource",
--- 	-- 	"graphql",
--- 	-- 	"html",
--- 	-- 	"http",
--- 	-- 	"java",
--- 	-- 	"javascript",
--- 	-- 	"jsdoc",
--- 	-- 	"json",
--- 	-- 	"json5",
--- 	-- 	"jsonc",
--- 	-- 	"just",
--- 	-- 	"lua",
--- 	-- 	"make",
--- 	-- 	"markdown",
--- 	-- 	"norg",
--- 	-- 	"python",
--- 	-- 	"regex",
--- 	-- 	"rust",
--- 	-- 	"scss",
--- 	-- 	"solidity",
--- 	-- 	"todotxt",
--- 	-- 	"toml",
--- 	-- 	"tsx",
--- 	-- 	"vim",
--- 	-- 	"vue",
--- 	-- 	"yaml",
--- 	-- },
+-- ensure_installed = {
+-- 	"bash",
+-- 	"c",
+-- 	"c_sharp",
+-- 	"cmake",
+-- 	"comment",
+-- 	"css",
+-- 	"dockerfile",
+-- 	"gdscript",
+-- 	"godot_resource",
+-- 	"graphql",
+-- 	"html",
+-- 	"http",
+-- 	"java",
+-- 	"javascript",
+-- 	"jsdoc",
+-- 	"json",
+-- 	"json5",
+-- 	"jsonc",
+-- 	"just",
+-- 	"lua",
+-- 	"make",
+-- 	"markdown",
+-- 	"norg",
+-- 	"python",
+-- 	"regex",
+-- 	"rust",
+-- 	"scss",
+-- 	"solidity",
+-- 	"todotxt",
+-- 	"toml",
+-- 	"tsx",
+-- 	"vim",
+-- 	"vue",
+-- 	"yaml",
+-- },
 
 -- 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 -- 	ignore_install = { "" }, -- List of parsers to ignore installing

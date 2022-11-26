@@ -48,6 +48,7 @@ lvim.builtin.which_key.mappings["a"] = {
   name = "Actions",
   h = { "<cmd>lua toggle_hlsearch()<cr>", "Toggle highlights" },
   r = { "<cmd>lua toggle_relativenumber()<cr>", "Toggle relative number" },
+  s = { "<cmd>lua toggle_laststatus()<cr>", "Toggle status line" },
   t = { "<cmd>lua toggle_showtabline()<cr>", "Toggle show tabline" },
   w = { "<cmd>lua toggle_wrap()<cr>", "Toggle wrap" },
 }
@@ -189,7 +190,6 @@ lvim.builtin.which_key.mappings["p"] = {
 
 lvim.builtin.which_key.mappings["s"] = {
   name = "Search",
-  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
   c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
   f = { "<cmd>Telescope find_files<cr>", "Find File" },
   -- f = { require("lvim.core.telescope.custom-finders").find_project_files, "Find File" },
@@ -198,13 +198,14 @@ lvim.builtin.which_key.mappings["s"] = {
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
   r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
   R = { "<cmd>Telescope registers<cr>", "Registers" },
-  t = { "<cmd>Telescope live_grep<cr>", "Text" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
   p = {
     "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
     "Colorscheme with Preview",
   },
+  t = { "<cmd>Telescope live_grep<cr>", "Text" },
+  T = { "<cmd>TodoTelescope<cr>", "Todos" },
 }
 
 lvim.builtin.which_key.mappings["t"] = {
@@ -214,7 +215,7 @@ lvim.builtin.which_key.mappings["t"] = {
   f = { "<cmd>tabfirst<cr>", "Move to first tab" },
   l = { "<cmd>tablast<cr>", "Move to last tab" },
   o = { "<cmd>tabonly<cr>", "Close other tab" },
-  s = { ":Telescope telescope-tabs list_tabs<cr>", "Search tabs" },
+  s = { ":Telescope telescope-tabs list_tabs theme=dropdown<cr>", "Search tabs" },
 }
 
 lvim.builtin.which_key.mappings["T"] = {

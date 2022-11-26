@@ -31,40 +31,57 @@
 -- initial_mode = "insert"
 
 -- lvim.builtin.telescope = {
---     defaults = {
---       prompt_prefix = lvim.icons.ui.Telescope .. " ",
---       selection_caret = lvim.icons.ui.Forward .. " ",
---       entry_prefix = "  ",
---       initial_mode = "insert",
---       selection_strategy = "reset",
---       sorting_strategy = "descending",
---       layout_strategy = "horizontal",
---       layout_config = {
---         width = 0.75,
---         preview_cutoff = 120,
---         horizontal = {
---           preview_width = function(_, cols, _)
---             if cols < 120 then
---               return math.floor(cols * 0.5)
---             end
---             return math.floor(cols * 0.6)
---           end,
---           mirror = false,
---         },
---         vertical = { mirror = false },
---       },
+  --   defaults = {
+  --     prompt_prefix = lvim.icons.ui.Telescope .. " ",
+  --     selection_caret = lvim.icons.ui.Forward .. " ",
+  --     entry_prefix = "  ",
+  --     initial_mode = "insert",
+  --     selection_strategy = "reset",
+  --     sorting_strategy = "descending",
+  --     layout_strategy = "horizontal",
+  --     layout_config = {
+  --       width = 0.75,
+  --       preview_cutoff = 120,
+  --       horizontal = {
+  --         preview_width = function(_, cols, _)
+  --           if cols < 120 then
+  --             return math.floor(cols * 0.5)
+  --           end
+  --           return math.floor(cols * 0.6)
+  --         end,
+  --         mirror = false,
+  --       },
+  --       vertical = { mirror = false },
+  --     },
+  -- }
+--   pickers = {
+--     list_tabs= {
+--       initial_mode = "normal",
+--       theme="dropdown"
+--     }
+--   },
+--   extensions = {
+--     telescopeTabs = {
+--       list_tabs ={
+--         initial_mode = "normal",
+--         theme="dropdown"
+--       }
+--     },
 --   }
 -- }
 
-local ok, telescope_tabs = pcall(require, 'telescope-tabs')
-if not ok then
-  return
-end
+-- TODO: configure telescope-tabs window
 
-telescope_tabs.setup({
-  show_preview = false,
-  close_tab_shortcut = "C-d",
-})
+-- local ok, telescope_tabs = pcall(require, 'telescope-tabs')
+
+-- if not ok then
+--   return
+-- end
+
+-- telescope_tabs.setup({
+--   show_preview = false,
+--   close_tab_shortcut = "C-d",
+-- })
 
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
 	".git/",

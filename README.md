@@ -30,7 +30,7 @@
   - configure tmp-tabnine to use different OS
   - On treesitter on spellchecker
 
-- Theme
+- UI
   - Default Nerd-font
     - Jetbrain Mono
     - Victor Mono (cursive italic)
@@ -49,6 +49,8 @@
     - vimwiki
       - silenty call the commands
     - markdown preview
+  - mason
+    - config marksman
   - todo-comments
     - powershell filetype
 

@@ -143,3 +143,12 @@ toggle_showtabline = function()
 		vim.o.showtabline = 0
 	end
 end
+
+-- Toggle laststatus
+toggle_laststatus = function()
+	if vim.o.laststatus == 0 then
+		vim.o.laststatus = 3
+	else
+		vim.o.laststatus = 0
+	end
+end

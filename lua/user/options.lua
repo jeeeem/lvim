@@ -1,5 +1,5 @@
 -- general
-lvim.log.level = "warn"
+lvim.log.level = "info"
 lvim.format_on_save = false
 lvim.colorscheme = "tokyonight"
 

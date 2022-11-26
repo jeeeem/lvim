@@ -1,3 +1,4 @@
+-- TODO: create a module config that can be exported specifically -- Cybu keymap
 local ok, cybu = pcall(require, "cybu")
 
 if not ok then
@@ -29,7 +30,6 @@ cybu.setup {
     },
   },
 }
--- vim.keymap.set("n", "<up>", "<Plug>(CybuPrev)")
--- vim.keymap.set("n", "<down>", "<Plug>(CybuNext)")
-vim.keymap.set("n", "<A-h>", "<Plug>(CybuPrev)")
-vim.keymap.set("n", "<A-l>", "<Plug>(CybuNext)")
+
+-- vim.keymap.set("n", "<A-h>", "<Plug>(CybuPrev)")
+-- vim.keymap.set("n", "<A-l>", "<Plug>(CybuNext)")

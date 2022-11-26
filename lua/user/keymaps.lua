@@ -30,6 +30,22 @@ keymap_set("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap_set("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap_set("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- Open URL link
+-- keymap_set("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
+-- keymap_set("n", "gx", ":lua vim.fn.execute('!start ' .. vim.fn.expand('<cfile>'))<cr>", opts)
+keymap_set("n", "gx",
+  function ()
+    local url = vim.fn.expand("<cfile>")
 
--- Open url
-keymap_set("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
+    if vim.fn.has('win32') == 1 then
+      vim.fn.execute("!start " .. url)
+    elseif vim.fn.has('unix') == 1 then
+      vim.fn.execute("!xdg-open " .. url)
+    else
+      vim.notify("Cannot open the link in the browser")
+    end
+
+  end
+  , opts)
+
+
