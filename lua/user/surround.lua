@@ -5,3 +5,5 @@ if not ok then
 end
 
 surround.setup({})
+
+-- :h nvim-surround.configuration

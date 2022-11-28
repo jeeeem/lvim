@@ -7,7 +7,6 @@ local function check_os()
 end
 
 lvim.plugins = {
-
   -- LSP -- 
   -- JAVA
   "mfussenegger/nvim-jdtls",
@@ -37,6 +36,7 @@ lvim.plugins = {
 
   -- Treesitter -- 
   "nvim-treesitter/playground",
+  "p00f/nvim-ts-rainbow",
   "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- DAP --

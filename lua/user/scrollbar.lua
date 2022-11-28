@@ -103,6 +103,7 @@ scrollbar.setup({
         "dapui_watches",
         "dapui_stacks",
         "dap-repl",
+        "notify"
     },
     autocmd = {
         render = {

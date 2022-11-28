@@ -2,86 +2,112 @@
 -- https://gitlab.com/lostneophyte/dotfiles/-/blob/5d49006532bf57db9f7e09564cb43010f631c571/lvim/.config/lvim/lua/user/telescope.lua
 -- https://github.com/LunarVim/LunarVim/issues/3406
 
--- lvim.builtin.telescope.pickers.find_files = {
---      layout_strategy = "center",
---      layout_config = { width = 0.80, height = 0.80, preview_width = nil, prompt_position = "top" }
--- }
-
--- lvim.builtin.telescope.pickers.live_grep = {
---     layout_config = { height = 0.99, width = 0.99, preview_cutoff = 120, preview_width = 0.6, prompt_position = "top" },
---     layout_strategy = "horizontal"
--- }
-
--- lvim.builtin.telescope.pickers.git_commits = {
---     layout_strategy = "horizontal",
---     layout_config = { height = 0.88, width = 0.88, preview_cutoff = 20, preview_width = 0.70, prompt_position = "bottom" }
--- }
-
--- lvim.builtin.telescope.pickers.man_pages = {
---     layout_strategy = "horizontal",
---     layout_config = { height = 0.99, width = 0.99, preview_cutoff = nil, preview_width = 0.80, prompt_position = "bottom" }
--- }
-
--- lvim.builtin.telescope.pickers.vim_options = { layout_config = { height = 0.66, width = 0.66 } }
-
--- lvim.builtin.telescope.pickers.colorscheme = { layout_strategy = "cursor", layout_config = { width = 0.19 } }
-
--- TODO: Change the layout of telescope same as noice layout
--- TODO: Configure buffer pickers
--- initial_mode = "insert"
-
--- lvim.builtin.telescope = {
-  --   defaults = {
-  --     prompt_prefix = lvim.icons.ui.Telescope .. " ",
-  --     selection_caret = lvim.icons.ui.Forward .. " ",
-  --     entry_prefix = "  ",
-  --     initial_mode = "insert",
-  --     selection_strategy = "reset",
-  --     sorting_strategy = "descending",
-  --     layout_strategy = "horizontal",
-  --     layout_config = {
-  --       width = 0.75,
-  --       preview_cutoff = 120,
-  --       horizontal = {
-  --         preview_width = function(_, cols, _)
-  --           if cols < 120 then
-  --             return math.floor(cols * 0.5)
-  --           end
-  --           return math.floor(cols * 0.6)
-  --         end,
-  --         mirror = false,
-  --       },
-  --       vertical = { mirror = false },
-  --     },
-  -- }
---   pickers = {
---     list_tabs= {
---       initial_mode = "normal",
---       theme="dropdown"
---     }
---   },
---   extensions = {
---     telescopeTabs = {
---       list_tabs ={
---         initial_mode = "normal",
---         theme="dropdown"
---       }
---     },
---   }
--- }
+local a_ok, actions = pcall(require, "telescope.actions")
+if not a_ok then
+  return
+end
 
 -- TODO: configure telescope-tabs window
+local t_ok, telescope_tabs = pcall(require, 'telescope-tabs')
 
--- local ok, telescope_tabs = pcall(require, 'telescope-tabs')
+if not t_ok then
+  return
+end
 
--- if not ok then
---   return
--- end
+-- TODO: 
+-- Include the tab number that can be filtered
+telescope_tabs.setup({
+  show_preview = false,
+  close_tab_shortcut = "C-d",
+})
 
--- telescope_tabs.setup({
---   show_preview = false,
---   close_tab_shortcut = "C-d",
--- })
+-- TODO: 
+-- Change the layout of telescope same as noice layout
+-- - the horizontal size
+
+lvim.builtin.telescope.defaults ={
+  prompt_prefix = lvim.icons.ui.Telescope .. " ",
+  selection_caret = lvim.icons.ui.Forward .. " ",
+  entry_prefix = "  ",
+  initial_mode = "insert",
+  selection_strategy = "reset",
+  sorting_strategy = "descending",
+  layout_strategy = "vertical",
+  layout_config = {
+    width = 0.75,
+    preview_cutoff = 120,
+    horizontal = {
+      preview_width = function(_, cols, _)
+        if cols < 120 then
+          return math.floor(cols * 0.5)
+        end
+        return math.floor(cols * 0.6)
+      end,
+      mirror = false,
+    },
+    vertical = { mirror = false },
+  },
+}
+
+lvim.builtin.telescope.pickers ={
+  -- colorscheme = {
+  --   layout_strategy = "cursor",
+  --   layout_config = { width = 0.19 } 
+  -- },
+  find_files = {
+    theme = "dropdown",
+    hidden = true,
+    previewer = false,
+  },
+  live_grep = {
+    --@usage don't include the filename in the search results
+    only_sort_text = true,
+    theme = "dropdown",
+  },
+  grep_string = {
+    only_sort_text = true,
+    theme = "dropdown",
+  },
+  buffers = {
+    theme = "dropdown",
+    previewer = false,
+    initial_mode = "insert",
+    mappings = {
+      i = {
+        ["<C-d>"] = actions.delete_buffer,
+      },
+      n = {
+        ["dd"] = actions.delete_buffer,
+      },
+    },
+  },
+  planets = {
+    show_pluto = true,
+    show_moon = true,
+  },
+  git_files = {
+    theme = "dropdown",
+    hidden = true,
+    previewer = false,
+    show_untracked = true,
+  },
+  lsp_references = {
+    theme = "dropdown",
+    initial_mode = "normal",
+  },
+  lsp_definitions = {
+    theme = "dropdown",
+    initial_mode = "normal",
+  },
+  lsp_declarations = {
+    theme = "dropdown",
+    initial_mode = "normal",
+  },
+  lsp_implementations = {
+    theme = "dropdown",
+    initial_mode = "normal",
+  },
+}
 
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
 	".git/",
@@ -136,8 +162,6 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = {
 	"%.flac",
 	"%.tar.gz",
 }
-
-local _, actions = pcall(require, "telescope.actions")
 
 lvim.builtin.telescope.defaults.mappings = {
 	-- for input mode

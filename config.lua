@@ -45,3 +45,4 @@ reload("user.zoomwintab")
 -- Experimental
 -- reload("user.styler")
 -- https://github.com/rareitems/anki.nvim
+

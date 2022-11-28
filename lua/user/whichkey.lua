@@ -91,6 +91,7 @@ lvim.builtin.which_key.mappings["b"] = {
     "<cmd>BufferLineSortByRelativeDirectory<cr>",
     "Sort by relative directory",
   },
+  s = { "<cmd>Telescope buffers<cr>", "Search Buffers" },
   T = {
     "<cmd>BufferLineSortByTabs<cr>",
     "Sort by Tab",

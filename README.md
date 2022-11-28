@@ -30,6 +30,9 @@
   - configure tmp-tabnine to use different OS
   - On treesitter on spellchecker
 
+- Ergonomics:
+  - Default No-Name file when creating a tab
+
 - UI
   - Default Nerd-font
     - Jetbrain Mono
@@ -37,11 +40,10 @@
 
 - Configure Plugins
   - dashboard
-    - add readme shortcut
+    - add shortcuts for:
+      - vimwiki?
   - bqf
     - always on the below window
-  - trouble
-    - try the auto-open and close
   - nvim-surround
   - harpoon
   - markdown
@@ -50,7 +52,13 @@
       - silenty call the commands
     - markdown preview
   - mason
-    - config marksman
+    - markdown
+      - config marksman
+    - php
+      - Intelephense - lsp
+      - phpactor - lsp
+      - psalm - linter
+      - phpstan - linter
   - todo-comments
     - powershell filetype
 
