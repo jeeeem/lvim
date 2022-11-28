@@ -112,8 +112,10 @@ local M = {}
 toggle_wrap = function()
 	if vim.wo.wrap then
 		vim.wo.wrap = false
+    vim.notify("Wrap text off")
 	else
 		vim.wo.wrap = true
+    vim.notify("Wrap text on")
 	end
 end
 
@@ -121,8 +123,10 @@ end
 toggle_hlsearch = function()
 	if vim.o.hlsearch then
 		vim.o.hlsearch = false
+    vim.notify("Highlight search off")
 	else
 		vim.o.hlsearch = true
+    vim.notify("Highlight search on")
 	end
 end
 
@@ -130,25 +134,31 @@ end
 toggle_relativenumber = function()
 	if vim.wo.relativenumber then
 		vim.wo.relativenumber = false
+    vim.notify("Relative number off")
 	else
 		vim.wo.relativenumber = true
+    vim.notify("Relative number on")
 	end
 end
 
 -- Toggle show tabline
 toggle_showtabline = function()
-	if vim.o.showtabline == 0 then
-		vim.o.showtabline = 2
-	else
+	if vim.o.showtabline == 2 then
 		vim.o.showtabline = 0
+    vim.notify("Show Tabline off")
+	else
+		vim.o.showtabline = 2
+    vim.notify("Show Tabline on")
 	end
 end
 
 -- Toggle laststatus
 toggle_laststatus = function()
-	if vim.o.laststatus == 0 then
-		vim.o.laststatus = 3
-	else
+	if vim.o.laststatus == 3 then
 		vim.o.laststatus = 0
+    vim.notify("Show status line off")
+	else
+		vim.o.laststatus = 3
+    vim.notify("Show status line on")
 	end
 end

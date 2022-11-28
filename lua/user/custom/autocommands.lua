@@ -63,7 +63,7 @@ local skeleton = augroup("Skeleton Template", { clear = true })
 -- })
 
 autocmd("FileType", {
-	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
+	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "vim", "notify" },
 	command = "nnoremap <silent> <buffer> q :close<CR>",
 	group = general_settings,
 })
