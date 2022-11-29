@@ -29,6 +29,13 @@ lvim.builtin.cmp.formatting.source_names = {
   treesitter = "",
 }
 
+-- TODO: config autocomplete <c-space> to different keymap <c-/> or <c-y>
+-- ref: https://github.com/neovim/neovim/issues/8435
+
+-- lvim.builtin.cmp.mapping = cmp.mapping.preset.insert {
+--   ["<C-/>"] = cmp.mapping.complete(),
+-- }
+
 -- lvim.builtin.cmp = {
 --   mapping = {
 --     cmp.mapping.preset.insert {

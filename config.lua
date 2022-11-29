@@ -8,6 +8,7 @@ reload("user.keymaps")
 -- IDE Essentials
 reload("user.cmp")
 reload("user.lsp")
+-- reload("user.dap")
 reload("user.treesitter")
 
 -- Theme

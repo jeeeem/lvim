@@ -1,0 +1,3 @@
+-- TODO: Using https://github.com/Eandrju/cellular-automaton.nvim plugin as a screenasaver
+-- - Use the plugin animation when the neovim hits an idle time of specified time
+-- - try when it hits 5 minutes of idle time

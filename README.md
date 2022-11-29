@@ -68,7 +68,8 @@
     - Try a JDK runtime of v1.8
 
 - DAP
-  - lua
+  - icons
+  - lua debugger
 
 - Null-ls
   - Vale

@@ -122,6 +122,9 @@ lvim.plugins = {
     ft = {"markdown"},
   },
 
+  -- for fun
+  "Eandrju/cellular-automaton.nvim",
+
   -- Others
   "wakatime/vim-wakatime", -- Time Track your programming activity
   "ethanholz/nvim-lastplace", -- Last position of last edit

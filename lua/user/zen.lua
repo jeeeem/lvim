@@ -12,13 +12,12 @@ end
 
 -- Zen config
 -- TODO: Remove the parts when using zen mode
---  - gitsigns -- Gitsigns toggle_sgns
+--  - gitsigns -- Gitsigns toggle_sgns (DONE)
 --  - scrollbar -- ScrollbarHide
 --  - lualine -- lua require('lualine').hide({unhide=true})
 --    - https://github.com/nvim-lualine/lualine.nvim#disabling-lualine
 
 zen.setup {
-
 	plugins = {
 		options = {
 			enabled = true,
@@ -26,7 +25,7 @@ zen.setup {
 			showcmd = false, -- disables the command in the last line of the screen
 		},
 		twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
-		gitsigns = { enabled = false }, -- disables git signs
+		gitsigns = { enabled = true }, -- disables git signs
 		tmux = { enabled = false }, -- disables the tmux statusline
 	},
 	window = {

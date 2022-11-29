@@ -7,22 +7,19 @@ if not a_ok then
   return
 end
 
--- TODO: configure telescope-tabs window
 local t_ok, telescope_tabs = pcall(require, 'telescope-tabs')
 
 if not t_ok then
   return
 end
 
--- TODO: 
--- Include the tab number that can be filtered
+-- TODO: Include the tab number that can be filtered
 telescope_tabs.setup({
   show_preview = false,
   close_tab_shortcut = "C-d",
 })
 
--- TODO: 
--- Change the layout of telescope same as noice layout
+-- TODO: Change the layout of telescope same as noice layout
 -- - the horizontal size
 
 lvim.builtin.telescope.defaults ={
