@@ -471,3 +471,4 @@ end
 -- 1. More general config path
     -- data path
     -- more robust win32 / unix condition
+-- 2. add dap config for selenium

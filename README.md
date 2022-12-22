@@ -26,6 +26,9 @@
   - Integrate chezmoi tool
   - research which is better asyncrun.vim vs overseer.nvim
 
+  - Vim 
+    - how to search for a specific line numbers and return the searched number of words
+
 - General
   - configure tmp-tabnine to use different OS
   - On treesitter on spellchecker
@@ -51,6 +54,8 @@
     - vimwiki
       - silenty call the commands
     - markdown preview
+
+  <!-- LSP -->
   - mason
     - markdown
       - config marksman
@@ -59,6 +64,8 @@
       - phpactor - lsp
       - psalm - linter
       - phpstan - linter
+    - configure cucumber lsp
+
   - todo-comments
     - powershell filetype
 
@@ -77,5 +84,6 @@
     - https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
 
 ### Issues:
+
 - Noice
   - separate the highlight text group along with its color `xxx`

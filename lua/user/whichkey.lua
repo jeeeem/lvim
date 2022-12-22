@@ -192,8 +192,7 @@ lvim.builtin.which_key.mappings["p"] = {
 lvim.builtin.which_key.mappings["s"] = {
   name = "Search",
   c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-  f = { "<cmd>Telescope find_files<cr>", "Find File" },
-  -- f = { require("lvim.core.telescope.custom-finders").find_project_files, "Find File" },
+  f = { "<cmd>lua require('lvim.core.telescope.custom-finders').find_project_files()<cr>", "Find File" },
   h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
   H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -213,8 +212,10 @@ lvim.builtin.which_key.mappings["t"] = {
   name = "Tabs",
   c = { "<cmd>tabclose<cr>", "Close tab" },
   e = { "<cmd>tabedit<cr>", "New Tab Edit" },
-  f = { "<cmd>tabfirst<cr>", "Move to first tab" },
-  l = { "<cmd>tablast<cr>", "Move to last tab" },
+  F = { "<cmd>tabfirst<cr>", "Navigate to first tab" },
+  h = { "<cmd>-tabmove<cr>", "Move the tab page to the left" },
+  l = { "<cmd>+tabmove<cr>", "Move the tab page to the right" },
+  L = { "<cmd>tablast<cr>", "Navigate to last tab" },
   o = { "<cmd>tabonly<cr>", "Close other tab" },
   s = { ":Telescope telescope-tabs list_tabs theme=dropdown<cr>", "Search tabs" },
 }

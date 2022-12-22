@@ -10,8 +10,21 @@ lvim.keys.normal_mode["<C-s>"] = ":up<cr>"
 -- lvim.keys.normal_mode["<S-CR>"] = "O<Esc>"
 
 -- TODO: if there is no .git use `Telescope find_files` in the current directory
-keymap_set("n", "<C-p>", "<cmd>lua require('lvim.core.telescope.custom-finders').find_project_files()<cr>", opts)
+keymap_set("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
 keymap_set("", "<C-z>", "<Nop>", opts) -- Remove C-z suspending key
+
+-- Centered the searched text
+keymap_set(
+  'c', '<CR>',
+  function() return vim.fn.getcmdtype() == '/' and '<CR>zzzv' or '<CR>' end,
+  { expr = true }
+)
+
+-- keymap_set(
+--   'n', 'n',
+--   function() return vim.fn.getcmdtype() == '/' and 'nzzzv' or '<CR>' end,
+--   opts
+-- )
 
 -- Delete Lvim default moving text commands
 keymap_del("n", "<A-j>")

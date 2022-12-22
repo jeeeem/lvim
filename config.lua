@@ -31,6 +31,7 @@ reload("user.nvim-tree")
 reload("user.harpoon")
 reload("user.hlslens")
 reload("user.lastplace")
+reload("user.screensaver")
 reload("user.scrollbar")
 reload("user.spectre")
 reload("user.surround")
@@ -46,4 +47,3 @@ reload("user.zoomwintab")
 -- Experimental
 -- reload("user.styler")
 -- https://github.com/rareitems/anki.nvim
-

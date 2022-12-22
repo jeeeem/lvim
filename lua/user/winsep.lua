@@ -1,3 +1,4 @@
+-- https://github.com/nvim-zh/colorful-winsep.nvim
 local ok, winsep = pcall(require, "colorful-winsep")
 if not ok then
   return
@@ -6,8 +7,8 @@ end
 winsep.setup({
   -- highlight for Window separator
   highlight = {
-    -- guibg = "#111111",
-    guifg = "#a94dc1",
+    -- bg = "#111111",
+    fg = "#a94dc1",
   },
   -- timer refresh rate
   interval = 30,

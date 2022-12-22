@@ -1,5 +1,6 @@
 lvim.builtin.terminal = {
   active = true,
+  auto_scroll = false,
   on_config_done = nil,
   -- size can be a number or function which is passed the current terminal
   size = 20,
@@ -37,17 +38,9 @@ lvim.builtin.terminal = {
       return term.name
     end
   },
-  -- Add executables on the config.lua
-  -- { exec, keymap, name}
-  -- lvim.builtin.terminal.execs = {{}} to overwrite
-  -- lvim.builtin.terminal.execs[#lvim.builtin.terminal.execs+1] = {"gdb", "tg", "GNU Debugger"}
-  -- TODO: pls add mappings in which key and refactor this
   execs = {
     { vim.o.shell, "<M-1>", "Horizontal Terminal", "horizontal", 0.3 },
     { vim.o.shell, "<M-2>", "Float Terminal", "float", nil },
     -- { vim.o.shell, "<M-3>", "Vertical Terminal", "vertical", 0.4 },
   },
 }
-
--- which key binding
- -- :lua require 'lvim.core.terminal'.lazygit_toggle()

@@ -3,6 +3,8 @@ if not ok then
   return
 end
 
+-- TODO: redirect code actions to popup(?) window or default qf
+
 noice.setup({
   messages = {
     -- NOTE: If you enable messages, then the cmdline is enabled automatically.
@@ -143,6 +145,14 @@ noice.setup({
       },
       opts = { skip = true },
     },
+    -- Remove File Watcher
+    -- {
+    --   filter = {
+    --     event = "msg_show",
+    --     find = "halting watcher",
+    --   },
+    --   opts = { skip = true },
+    -- },
     -- Remove search count
     -- {
     --   filter = {

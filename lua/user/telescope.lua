@@ -55,6 +55,7 @@ lvim.builtin.telescope.pickers ={
     theme = "dropdown",
     hidden = true,
     previewer = false,
+    find_command = {"rg", "--ignore", "-L", "--hidden", "--files"}
   },
   live_grep = {
     --@usage don't include the filename in the search results

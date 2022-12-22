@@ -23,6 +23,8 @@ local git = augroup("Git Settings", { clear = true })
 local lsp = augroup("Lsp Settings", { clear = true })
 local markdown = augroup("Markdown Settings", { clear = true })
 local spectre = augroup("Specter Highlights", { clear = true })
+
+-- create skeleton when creating .feature file
 local skeleton = augroup("Skeleton Template", { clear = true })
 
 -- :h expand
@@ -62,17 +64,18 @@ local skeleton = augroup("Skeleton Template", { clear = true })
 -- 	end,
 -- })
 
-autocmd("FileType", {
-	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "vim", "notify" },
-	command = "nnoremap <silent> <buffer> q :close<CR>",
-	group = general_settings,
-})
+-- autocmd("FileType", {
+-- 	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "vim", "notify" },
+-- 	command = "nnoremap <silent> <buffer> q :close<CR>",
+-- 	group = general_settings,
+-- })
 
-autocmd("FileType", {
-	pattern = "qf",
-	command = "set nobuflisted",
-	group = general_settings,
-})
+
+-- autocmd("FileType", {
+-- 	pattern = "qf",
+-- 	command = "set nobuflisted",
+-- 	group = general_settings,
+-- })
 
 -- autocmd("FileType", {
 -- 	pattern = { "undotree" },
@@ -86,33 +89,33 @@ autocmd("FileType", {
 -- })
 
 autocmd("BufWinEnter", {
-	command = "set formatoptions-=cro",
-	group = general_settings,
+  command = "set formatoptions-=cro",
+  group = general_settings,
 })
 
-autocmd("VimResized", {
-	command = "tabdo wincmd =",
-	group = general_settings,
-})
+-- autocmd("VimResized", {
+-- 	command = "tabdo wincmd =",
+-- 	group = general_settings,
+-- })
 
 autocmd("ColorScheme", {
-	callback = function()
+  callback = function()
     -- hack until this bug fix "https://github.com/neovim/neovim/issues/20309"
     vim.cmd [[highlight Cursor cterm=bold gui=bold guifg=#c0caf5 guibg=#e0af68]]
-	end,
-	group = general_settings,
+  end,
+  group = general_settings,
 })
 
 -- LSP Highlight Augroup
 autocmd("ColorScheme", {
-	callback = function()
-		vim.cmd [[highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff]]
-		vim.cmd [[highlight DiagnosticFloatingError  guifg=#fff guibg=#fff]]
-		vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82]]
-		-- vim.cmd [[highlight LightBulbFloatWin guifg=#EED333 ]]
-		-- vim.cmd [[highlight FocusedSymbol cterm=italic ctermfg=4 ctermbg=11 gui=bold,italic guifg=red guibg=#FFF]]
-	end,
-	group = lsp,
+  callback = function()
+    vim.cmd [[highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff]]
+    vim.cmd [[highlight DiagnosticFloatingError  guifg=#fff guibg=#fff]]
+    vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82]]
+    -- vim.cmd [[highlight LightBulbFloatWin guifg=#EED333 ]]
+    -- vim.cmd [[highlight FocusedSymbol cterm=italic ctermfg=4 ctermbg=11 gui=bold,italic guifg=red guibg=#FFF]]
+  end,
+  group = lsp,
 })
 
 -- autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -131,23 +134,23 @@ autocmd("ColorScheme", {
 
 -- Git Settings Augroup
 autocmd("FileType", {
-	pattern = "gitcommit",
-	command = "setlocal wrap | setlocal spell",
-	group = git,
+  pattern = "gitcommit",
+  command = "setlocal wrap | setlocal spell",
+  group = git,
 })
 
 -- Markdown Augroup
 -- TODO: Fix the markdown syntax
 autocmd(
-	{ "BufNewFile", "BufFilePre", "BufRead" },
-	{ pattern = "*.md", command = "set filetype=markdown", group = markdown }
+  { "BufNewFile", "BufFilePre", "BufRead" },
+  { pattern = "*.md", command = "set filetype=markdown", group = markdown }
 )
 
 -- TODO: Fix the markdown syntax
 autocmd("FileType", {
-	pattern = { "vimwiki", "md" },
-	command = "set filetype=markdown",
-	group = markdown,
+  pattern = { "vimwiki", "md" },
+  command = "set filetype=markdown",
+  group = markdown,
 })
 
 -- autocmd("FileType", {
@@ -161,11 +164,11 @@ autocmd("FileType", {
 
 -- Spectre Augroup
 autocmd("ColorScheme", {
-	callback = function()
-		vim.cmd [[highlight DiffChange guifg=#f53131 guibg=#fff]]
-		vim.cmd [[highlight DiffDelete guifg=#00FF00 guibg=#fff]]
-	end,
-	group = spectre,
+  callback = function()
+    vim.cmd [[highlight DiffChange guifg=#f53131 guibg=#fff]]
+    vim.cmd [[highlight DiffDelete guifg=#00FF00 guibg=#fff]]
+  end,
+  group = spectre,
 })
 
 -- Fold Augroup
@@ -211,6 +214,30 @@ autocmd("BufRead", { command = "silent! loadview", group = fold })
 -- })
 -- autocmd BufWinEnter * :set sessionoptions+=tabpages,globals
 
+-- Fixed the auto-switch to last tab when window resizing
+-- https://github.com/LunarVim/LunarVim/issues/3007
+vim.api.nvim_del_augroup_by_name('_auto_resize')
+
 -- TODO:
 -- Setup using Lunarvim Autocommands setup
 -- https://www.lunarvim.org/docs/configuration/autocommands
+
+-- get all autocmds
+-- vim.pretty_print(vim.api.nvim_get_autocmds {group="_buffer_mappings"})
+lvim.autocommands = {
+  {
+    "FileType",
+    {
+      group = "_buffer_mappings",
+      pattern = {
+        "spectre_panel",
+        "vim",
+        "notify",
+      },
+      callback = function()
+        vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true })
+        vim.opt_local.buflisted = false
+      end,
+    }
+  }
+}

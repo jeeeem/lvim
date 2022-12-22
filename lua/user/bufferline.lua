@@ -6,5 +6,8 @@ lvim.keys.normal_mode["<A-l>"] = "<Cmd>BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMovePrev<CR>"
 lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMoveNext<CR>"
 
--- Use cybu when tabline is off
+-- TODO: Use cybu when tabline is off
 -- import cybu keymap
+-- buffer wipeout, delete all buffers except under the cursor
+  -- delele the left and right buffer sequentially
+-- buffer window wipeout, delete all buffers except the available windows ids

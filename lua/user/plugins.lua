@@ -46,7 +46,7 @@ lvim.plugins = {
 
   -- Syntax highlight
   -- "NoahTheDuke/vim-just" - https://github.com/casey/just#recipe-parameters
-  -- "IndianBoy42/tree-sitter-just"
+  "IndianBoy42/tree-sitter-just",
 
   -- LSP Utils --
   -- Code runner

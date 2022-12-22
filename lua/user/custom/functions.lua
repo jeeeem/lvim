@@ -162,3 +162,6 @@ toggle_laststatus = function()
     vim.notify("Show status line on")
 	end
 end
+
+-- TODO: create functions
+    -- get cwd() and copy in to clipboard
