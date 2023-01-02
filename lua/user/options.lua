@@ -3,11 +3,9 @@ lvim.log.level = "info"
 lvim.format_on_save = false
 lvim.colorscheme = "tokyonight"
 
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
--- Lvim default plugins
-lvim.builtin.bufferline.active = false
 lvim.builtin.breadcrumbs.active = true
-lvim.builtin.dap.active = true
+lvim.reload_config_on_save = true
+lvim.lsp.installer.setup.automatic_installation = false
 
 local powershell_options = {
   shell = vim.fn.executable "pwsh" and "pwsh" or "powershell",

@@ -1,6 +1,5 @@
 -- LSP testing for lua filetype
 print("Hello Neovim")
-
 -- Vim api cheatsheet
 -- local filename = vim.api.nvim_buf_get_name(0)
 -- local fsize = vim.fn.getfsize(filename)

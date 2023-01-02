@@ -1,19 +1,19 @@
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
--- lvim.lsp.installer.setup.ensure_installed = {
---     "sumneko_lua",
---     "jsonls",
--- }
+lvim.lsp.installer.setup.ensure_installed = {
+    "sumneko_lua",
+    "jsonls",
+}
 
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
 -- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
 -- lvim.lsp.installer.setup.ui.border = "rounded"
--- lvim.lsp.installer.setup.ui.keymaps = {
---     uninstall_server = "d",
---     toggle_server_expand = "o",
--- }
+lvim.lsp.installer.setup.ui.keymaps = {
+    uninstall_server = "X",
+    toggle_server_expand = "o",
+}
 
 -- ---@usage disable automatic installation of servers
 -- lvim.lsp.installer.setup.automatic_installation = false
@@ -40,3 +40,13 @@
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
+require("lvim.lsp.manager").setup("cucumber_language_server", {
+  settings = {
+    cucumber = {
+      features = { 'features/**/*.feature' },
+      -- glue = { 'features/step_definitions/*.java', 'features/step_definitions/*.ts' }
+    }
+  }
+})
+
+require("user.lsp.dap")

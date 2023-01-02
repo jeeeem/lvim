@@ -8,7 +8,6 @@ reload("user.keymaps")
 -- IDE Essentials
 reload("user.cmp")
 reload("user.lsp")
--- reload("user.dap")
 reload("user.treesitter")
 
 -- Theme
@@ -30,8 +29,8 @@ reload("user.notify")
 reload("user.nvim-tree")
 reload("user.harpoon")
 reload("user.hlslens")
-reload("user.lastplace")
 reload("user.screensaver")
+reload("user.lastplace")
 reload("user.scrollbar")
 reload("user.spectre")
 reload("user.surround")

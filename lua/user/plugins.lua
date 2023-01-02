@@ -40,9 +40,11 @@ lvim.plugins = {
   "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- DAP --
+  -- "rcarriga/cmp-dap"
   -- "mfussenegger/nvim-dap-python",
   -- "mxsdev/nvim-dap-vscode-js",
   -- "leoluz/nvim-dap-go",
+  "jbyuki/one-small-step-for-vimkind",
 
   -- Syntax highlight
   -- "NoahTheDuke/vim-just" - https://github.com/casey/just#recipe-parameters
@@ -59,6 +61,7 @@ lvim.plugins = {
 
   -- Ergonomics
   "LukasPietzschmann/telescope-tabs",
+  -- "numToStr/Navigator.nvim",
   {"tiagovla/scope.nvim",
     config = function()
       require("scope").setup()
@@ -103,19 +106,20 @@ lvim.plugins = {
 
   -- Note-taking --
 	-- "vimwiki/vimwiki",
-  {
-    "nvim-neorg/neorg",
-    ft = "norg",
-    after = "nvim-treesitter",
-    config = function()
-      require('neorg').setup {
-        load = {
-          ["core.defaults"] = {}
-        }
-      }
-    end,
-    -- requires = "nvim-lua/plenary.nvim"
-  },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   ft = "norg",
+  --   run = ":Neorg sync-parsers",
+  --   after = "nvim-treesitter",
+  --   config = function()
+  --     require('neorg').setup {
+  --       load = {
+  --         ["core.defaults"] = {}
+  --       }
+  --     }
+  --   end,
+  --   -- requires = "nvim-lua/plenary.nvim"
+  -- },
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",

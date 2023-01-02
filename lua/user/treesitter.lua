@@ -11,7 +11,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"just",
 	"markdown",
 	"markdown_inline",
-	"norg",
+	-- "norg",
 	"regex",
 	"scss",
 	"toml",

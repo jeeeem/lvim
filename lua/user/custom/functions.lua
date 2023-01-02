@@ -119,13 +119,15 @@ toggle_wrap = function()
 	end
 end
 
--- Toggle hlsearch
+-- Toggle hlsearch w/ hlslens searching
 toggle_hlsearch = function()
 	if vim.o.hlsearch then
 		vim.o.hlsearch = false
+    vim.cmd[[HlSearchLensDisable]]
     vim.notify("Highlight search off")
 	else
 		vim.o.hlsearch = true
+    vim.cmd[[HlSearchLensEnable]]
     vim.notify("Highlight search on")
 	end
 end

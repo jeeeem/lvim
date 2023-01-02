@@ -142,5 +142,11 @@ lvim.builtin.nvimtree = {
         },
       },
     },
+    -- Temp fix until https://github.com/nvim-tree/nvim-tree.lua/issues/1822
+    filesystem_watchers = {
+      enable = true,
+      debounce_delay = 50,
+      ignore_dirs = {[[C:\\Users\\Jim\\infor-selenium\\dragon-cssiqa-testscripts\\hrt\\target]]}
+    }
   },
 }

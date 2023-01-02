@@ -8,6 +8,7 @@ lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMoveNext<CR>"
 
 -- TODO: Use cybu when tabline is off
 -- import cybu keymap
--- buffer wipeout, delete all buffers except under the cursor
+-- BUFFER WIPEOUT, delete all buffers except under the cursor
   -- delele the left and right buffer sequentially
--- buffer window wipeout, delete all buffers except the available windows ids
+-- BUFFER WINDOW WIPEOUT, delete all buffers except the available windows ids
+-- ref: https://github.com/ojroques/nvim-bufdel
