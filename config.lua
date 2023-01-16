@@ -12,6 +12,7 @@ reload("user.treesitter")
 
 -- Theme
 -- TODO: Add more theme
+-- reload("user.theme")
 
 -- Plugin config
 reload("user.bqf")
@@ -24,6 +25,7 @@ reload("user.fidget")
 reload("user.flit")
 reload("user.git")
 reload("user.markdown")
+reload("user.mini")
 reload("user.noice")
 reload("user.notify")
 reload("user.nvim-tree")
