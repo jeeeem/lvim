@@ -11,7 +11,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"just",
 	"markdown",
 	"markdown_inline",
-	-- "norg",
+	"norg",
 	"regex",
 	"scss",
 	"toml",
@@ -60,7 +60,6 @@ parser_config.just = {
   filetype = "justfile",
   maintainers = { "@IndianBoy42" },
 }
-
 
 -- local c_status_ok, configs = pcall(require, "nvim-treesitter.configs")
 

@@ -7,7 +7,7 @@ local function check_os()
 end
 
 lvim.plugins = {
-  -- LSP -- 
+  -- LSP --
   -- JAVA
   "mfussenegger/nvim-jdtls",
   "sigmaSd/deno-nvim",
@@ -17,7 +17,7 @@ lvim.plugins = {
   -- {
   -- 	"saecki/crates.nvim",
   -- 	tag = "v0.3.0",
-  -- 	requires = { "nvim-lua/plenary.nvim" },
+  -- 	dependencies = { "nvim-lua/plenary.nvim" },
   -- 	config = function()
   -- 		require("crates").setup({
   -- 			null_ls = {
@@ -34,7 +34,7 @@ lvim.plugins = {
   -- Go
   -- "olexsmir/gopher.nvim",
 
-  -- Treesitter -- 
+  -- Treesitter --
   "nvim-treesitter/playground",
   "p00f/nvim-ts-rainbow",
   "nvim-treesitter/nvim-treesitter-textobjects",
@@ -62,12 +62,13 @@ lvim.plugins = {
   -- Ergonomics
   "LukasPietzschmann/telescope-tabs",
   -- "numToStr/Navigator.nvim",
+  "echasnovski/mini.nvim",
   {"tiagovla/scope.nvim",
     config = function()
       require("scope").setup()
     end
   }, -- Tab-buffers scoping
-  
+
   -- Zen mode
   "folke/zen-mode.nvim",
   "folke/twilight.nvim",
@@ -81,7 +82,7 @@ lvim.plugins = {
   },
   {
     "ggandor/flit.nvim",
-    requires = "ggandor/leap.nvim"
+    dependencies = "ggandor/leap.nvim"
   },
 
   -- Convert to lua
@@ -95,7 +96,7 @@ lvim.plugins = {
   "petertriho/nvim-scrollbar",
   {
     "folke/noice.nvim",
-    requires = {
+    dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify"
     }
@@ -106,23 +107,23 @@ lvim.plugins = {
 
   -- Note-taking --
 	-- "vimwiki/vimwiki",
-  -- {
-  --   "nvim-neorg/neorg",
-  --   ft = "norg",
-  --   run = ":Neorg sync-parsers",
-  --   after = "nvim-treesitter",
-  --   config = function()
-  --     require('neorg').setup {
-  --       load = {
-  --         ["core.defaults"] = {}
-  --       }
-  --     }
-  --   end,
-  --   -- requires = "nvim-lua/plenary.nvim"
-  -- },
+  {
+    "nvim-neorg/neorg",
+    ft = "norg",
+    build = ":Neorg sync-parsers",
+    after = "nvim-treesitter",
+    config = function()
+      require('neorg').setup {
+        load = {
+          ["core.defaults"] = {}
+        }
+      }
+    end,
+    -- dependencies = "nvim-lua/plenary.nvim"
+  },
   {
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
+    build = "cd app && npm install",
     ft = {"markdown"},
   },
 
@@ -165,7 +166,7 @@ lvim.plugins = {
   -- },
   -- {
   -- 	"0x100101/lab.nvim",
-  -- 	run = "cd js && npm ci",
+  -- 	build = "cd js && npm ci",
   -- },
 
   -- TODO: programmatically run sh/ps1 depends on the user OS
@@ -173,7 +174,7 @@ lvim.plugins = {
   -- {
   --  'tzachar/cmp-tabnine',
   --   after = "nvim-cmp",
-  --   run='powershell ./install.ps1'
+  --   build='powershell ./install.ps1'
   -- }
 
   -- {

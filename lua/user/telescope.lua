@@ -22,29 +22,58 @@ telescope_tabs.setup({
 -- TODO: Change the layout of telescope same as noice layout
 -- - the horizontal size
 
-lvim.builtin.telescope.defaults ={
+lvim.builtin.telescope.defaults = {
   prompt_prefix = lvim.icons.ui.Telescope .. " ",
   selection_caret = lvim.icons.ui.Forward .. " ",
   entry_prefix = "  ",
   initial_mode = "insert",
   selection_strategy = "reset",
-  sorting_strategy = "descending",
-  layout_strategy = "vertical",
-  layout_config = {
-    width = 0.75,
-    preview_cutoff = 120,
-    horizontal = {
-      preview_width = function(_, cols, _)
-        if cols < 120 then
-          return math.floor(cols * 0.5)
-        end
-        return math.floor(cols * 0.6)
-      end,
-      mirror = false,
-    },
-    vertical = { mirror = false },
+  sorting_strategy = nil,
+  layout_strategy = nil,
+  layout_config = nil,
+  vimgrep_arguments = {
+    "rg",
+    "--color=never",
+    "--no-heading",
+    "--with-filename",
+    "--line-number",
+    "--column",
+    "--smart-case",
+    "--hidden",
+    "--glob=!.git/",
   },
+  file_ignore_patterns = {},
+  path_display = { "smart" },
+  winblend = 0,
+  border = {},
+  borderchars = nil,
+  color_devicons = true,
+  set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 }
+
+-- lvim.builtin.telescope.defaults ={
+--   prompt_prefix = lvim.icons.ui.Telescope .. " ",
+--   selection_caret = lvim.icons.ui.Forward .. " ",
+--   entry_prefix = "  ",
+--   initial_mode = "insert",
+--   selection_strategy = "reset",
+--   sorting_strategy = "descending",
+--   layout_strategy = "vertical",
+--   layout_config = {
+--     width = 0.75,
+--     preview_cutoff = 120,
+--     horizontal = {
+--       preview_width = function(_, cols, _)
+--         if cols < 120 then
+--           return math.floor(cols * 0.5)
+--         end
+--         return math.floor(cols * 0.6)
+--       end,
+--       mirror = false,
+--     },
+--     vertical = { mirror = false },
+--   },
+-- }
 
 lvim.builtin.telescope.pickers ={
   -- colorscheme = {
@@ -88,6 +117,9 @@ lvim.builtin.telescope.pickers ={
     hidden = true,
     previewer = false,
     show_untracked = true,
+  },
+  colorscheme = {
+    enable_preview = true,
   },
   lsp_references = {
     theme = "dropdown",

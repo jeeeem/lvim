@@ -13,7 +13,7 @@ winsep.setup({
   -- timer refresh rate
   interval = 30,
   -- This plugin will not be activated for filetype in the following table.
-  no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
+  no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree"},
   -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
   symbols = { "━", "┃", "┏", "┓", "┗", "┛" },
   close_event = function()
@@ -21,7 +21,7 @@ winsep.setup({
   end,
   create_event = function()
     -- Executed after creating the window separator
-    local win_n = require("colorful-winsep.utils").getWinNumber()
+    local win_n = require("colorful-winsep.utils").calculate_number_windows()
     local win_id = vim.fn.win_getid(vim.fn.winnr('h'))
     local filetype = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(win_id), 'filetype')
     if win_n == 2 then

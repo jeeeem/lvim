@@ -25,6 +25,7 @@ lvim.keys.normal_mode["<C-s>"] = ":up<cr>"
 -- lvim.keys.normal_mode["<S-CR>"] = "O<Esc>"
 
 -- TODO: if there is no .git use `Telescope find_files` in the current directory
+-- Remove .git directory files
 set("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
 set("", "<C-z>", "<Nop>", opts) -- Remove C-z suspending key
 

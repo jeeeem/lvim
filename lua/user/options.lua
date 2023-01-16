@@ -88,6 +88,8 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
+-- statuscolumn
+
 local options = general_options
 
 if vim.fn.has('win32') == 1 then

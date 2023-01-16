@@ -178,15 +178,35 @@ lvim.builtin.which_key.mappings["l"] = {
   e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 }
 
+lvim.builtin.which_key.mappings["m"] = {
+  name = "Mark Harpoon",
+  ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Navigate to 1st mark file" },
+  ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Navigate to 2nd mark file" },
+  ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to 3rd mark file" },
+  ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Navigate to 4th mark file" },
+  ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Navigate to 5th mark file" },
+  ["6"] = { "<cmd>lua require('harpoon.ui').nav_file(6)<cr>", "Navigate to 6th mark file" },
+  ["7"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Navigate to 7th mark file" },
+  ["8"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Navigate to 8th mark file" },
+  ["9"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Navigate to 9th mark file" },
+  ["0"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Navigate to 10th mark file" },
+  a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add file" },
+  n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Next Mark" },
+  p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Previous Mark" },
+  q = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Quick Menu" },
+  s = { "<cmd>Telescope harpoon marks<cr>", "Telescope harpoon marks" },
+}
+
 lvim.builtin.which_key.mappings["p"] = {
-  name = "Packer",
-  c = { "<cmd>PackerClean<cr>", "Clean" },
-  C = { "<cmd>PackerCompile<cr>", "Compile" },
-  i = { "<cmd>PackerInstall<cr>", "Install" },
-  r = { "<cmd>lua require('lvim.plugin-loader').recompile()<cr>", "Re-compile" },
-  s = { "<cmd>PackerStatus<cr>", "Status" },
-  S = { "<cmd>PackerSync<cr>", "Sync" },
-  u = { "<cmd>PackerUpdate<cr>", "Update" },
+  name = "Plugins",
+  i = { "<cmd>Lazy install<cr>", "Install" },
+  s = { "<cmd>Lazy clear<cr>", "Status" },
+  S = { "<cmd>Lazy sync<cr>", "Sync" },
+  c = { "<cmd>Lazy clean<cr>", "Clean" },
+  u = { "<cmd>Lazy update<cr>", "Update" },
+  p = { "<cmd>Lazy profile<cr>", "Profile" },
+  l = { "<cmd>Lazy log<cr>", "Log" },
+  d = { "<cmd>Lazy debug<cr>", "Debug" },
 }
 
 lvim.builtin.which_key.mappings["s"] = {

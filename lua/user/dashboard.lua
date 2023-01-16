@@ -25,6 +25,8 @@ local banner = {
 }
 
 -- TODO: use module M = {}
+-- Add new button in the dashboard interface
+  -- Vimwiki
 
 -- lvim.builtin.alpha.mode = "custom"
 -- local alpha_opts = require("user.dashboard").config()
