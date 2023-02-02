@@ -45,6 +45,8 @@
     - `:h editorconfig`
   - Session management
     - https://github.com/jedrzejboczar/possession.nvim
+  - Silicon
+    - https://github.com/krivahtoo/silicon.nvim
 
 - UI
   - Default Nerd-font
@@ -52,6 +54,7 @@
     - Victor Mono (cursive italic)
   - new `statuscolumn`
     - https://www.reddit.com/r/neovim/comments/107ms1s/the_new_signcolumn_merge_allows_us_to_set_a/
+    - https://www.reddit.com/r/neovim/comments/10j0vyf/finally_figured_out_a_statuscolumn_i_am_happy/
 
 - Configure Plugins
   - dashboard

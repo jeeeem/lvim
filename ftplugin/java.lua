@@ -395,7 +395,7 @@ elseif vim.fn.has('unix') == 1 then
   	local _, _ = pcall(vim.lsp.codelens.refresh)
   	require("jdtls.dap").setup_dap_main_class_configs()
   	require("jdtls").setup_dap({ hotcodereplace = "auto" })
-  	require("lvim.lsp").on_attach(client, bufnr)
+  	require("lvim.lsp").common_on_attach(client, bufnr)
   end
 
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {

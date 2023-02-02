@@ -4,8 +4,8 @@ local set = vim.keymap.set
 local del = vim.keymap.del
 
 -- `:h map-table`
---            Mode  | Norm | Ins | Cmd | Vis | Sel | Opr | Term | Lang |  
--- Command        +------+-----+-----+-----+-----+-----+------+------+  
+--            Mode  | Norm | Ins | Cmd | Vis | Sel | Opr | Term | Lang |
+-- Command        +------+-----+-----+-----+-----+-----+------+------+
 -- [nore]map      | yes  |  -  |  -  | yes | yes | yes |  -   |  -   |
 -- n[nore]map     | yes  |  -  |  -  |  -  |  -  |  -  |  -   |  -   |
 -- [nore]map!     |  -   | yes | yes |  -  |  -  |  -  |  -   |  -   |
@@ -29,6 +29,9 @@ lvim.keys.normal_mode["<C-s>"] = ":up<cr>"
 set("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
 set("", "<C-z>", "<Nop>", opts) -- Remove C-z suspending key
 
+-- Insert blank line by pressing 'Enter'
+set('n', '<cr>', 'o<Esc>')
+
 -- Centered the searched text
 set(
   'c', '<CR>',
@@ -44,15 +47,15 @@ set('n','N', 'Nzzzv', opts)
 del("n", "<A-j>")
 del("n", "<A-k>")
 
--- keymap_del({"n","t"}, "<C-h>")
--- keymap_del({"n","t"}, "<C-l>")
--- keymap_del({"n","t"}, "<C-j>")
--- keymap_del({"n","t"}, "<C-k>")
+-- del({"n","t"}, "<C-h>")
+-- del({"n","t"}, "<C-l>")
+-- del({"n","t"}, "<C-j>")
+-- del({"n","t"}, "<C-k>")
 
--- vim.keymap.set({'n', 't'}, '<C-h>', '<CMD>NavigatorLeft<CR>')
--- vim.keymap.set({'n', 't'}, '<C-l>', '<CMD>NavigatorRight<CR>')
--- vim.keymap.set({'n', 't'}, '<C-k>', '<CMD>NavigatorUp<CR>')
--- vim.keymap.set({'n', 't'}, '<C-j>', '<CMD>NavigatorDown<CR>')
+-- set({'n', 't'}, '<C-h>', '<CMD>lua require("Navigator").left()<CR>')
+-- set({'n', 't'}, '<C-l>', '<CMD>lua require("Navigator").right()<CR>')
+-- set({'n', 't'}, '<C-k>', '<CMD>lua require("Navigator").up()<CR>')
+-- set({'n', 't'}, '<C-j>', '<CMD>lua require("Navigator").down()<CR>')
 
 -- Insert mode
 -- Press jk fast to enter

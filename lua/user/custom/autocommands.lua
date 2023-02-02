@@ -1,3 +1,29 @@
+-- :h expand
+-- %		current file name
+-- #		alternate file name
+-- #n		alternate file name n
+-- <cfile>		file name under the cursor
+-- <afile>		autocmd file name
+-- <abuf>		autocmd buffer number (as a String!)
+-- <amatch>	autocmd matched name
+-- <sfile>		sourced script file or function name
+-- <slnum>		sourced script line number or function
+--     line number
+-- <sflnum>	script file line number, also when in
+--     a function
+-- <SID>		"<SNR>123_"  where "123" is the
+--     current script ID  |<SID>|
+-- <cword>		word under the cursor
+-- <cWORD>		WORD under the cursor
+-- <client>	the {clientid} of the last received
+--     message |server2client()|
+-- Modifiers:
+-- :p		expand to full path
+-- :h		head (last path component removed)
+-- :t		tail (last path component only)
+-- :r		root (one extension removed)
+-- :e		extension only
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)aut
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
@@ -27,32 +53,6 @@ local spectre = augroup("Specter Highlights", { clear = true })
 -- create skeleton when creating .feature file
 local skeleton = augroup("Skeleton Template", { clear = true })
 
--- :h expand
--- %		current file name
--- #		alternate file name
--- #n		alternate file name n
--- <cfile>		file name under the cursor
--- <afile>		autocmd file name
--- <abuf>		autocmd buffer number (as a String!)
--- <amatch>	autocmd matched name
--- <sfile>		sourced script file or function name
--- <slnum>		sourced script line number or function
---     line number
--- <sflnum>	script file line number, also when in
---     a function
--- <SID>		"<SNR>123_"  where "123" is the
---     current script ID  |<SID>|
--- <cword>		word under the cursor
--- <cWORD>		WORD under the cursor
--- <client>	the {clientid} of the last received
---     message |server2client()|
--- Modifiers:
--- :p		expand to full path
--- :h		head (last path component removed)
--- :t		tail (last path component only)
--- :r		root (one extension removed)
--- :e		extension only
-
 -- General settings Augroup
 -- autocmd({ "User" }, {
 -- 	pattern = { "AlphaReady" },
@@ -69,7 +69,6 @@ local skeleton = augroup("Skeleton Template", { clear = true })
 -- 	command = "nnoremap <silent> <buffer> q :close<CR>",
 -- 	group = general_settings,
 -- })
-
 
 -- autocmd("FileType", {
 -- 	pattern = "qf",

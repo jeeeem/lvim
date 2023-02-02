@@ -4,6 +4,9 @@ if not ok then
   return
 end
 
+-- TODO: disable auto jump to trouble buffer
+-- back to previous buffer when closing the trouble buffer
+
 trouble.setup {
   position = "bottom", -- position of the list can be: bottom, top, left, right
   height = 10, -- height of the trouble list when position is top or bottom
