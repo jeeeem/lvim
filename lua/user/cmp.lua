@@ -15,6 +15,7 @@ lvim.builtin.cmp.window.completion = {
   border = "rounded",
   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 }
+-- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
 lvim.builtin.cmp.formatting.source_names = {
   nvim_lsp = "",
   emoji = "",

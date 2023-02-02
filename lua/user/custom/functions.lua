@@ -102,6 +102,16 @@ local M = {}
 -- 	vim.cmd [[DapVirtualTextForceRefresh]]
 -- end
 
+get_home_dir = function ()
+  local home_dir = os.getenv "HOME"
+  if vim.fn.has('win32') == 1 then
+    home_dir = os.getenv('USERPROFILE')
+  elseif vim.fn.has('unix') == 1 then
+    home_dir = os.getenv('HOME')
+  end
+  return home_dir
+end
+
 -- Toggle Options
 -- TODO: Dynamic function for toggling neovim defaults
 -- function (args) {

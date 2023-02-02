@@ -7,3 +7,5 @@ end
 surround.setup({})
 
 -- :h nvim-surround.configuration
+
+-- https://github.com/XXiaoA/ns-textobject.nvim

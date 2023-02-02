@@ -17,6 +17,13 @@ end
 telescope_tabs.setup({
   show_preview = false,
   close_tab_shortcut = "C-d",
+  entry_formatter = function(tab_id, buffer_ids, file_names, file_paths, is_current)
+    local entry_string = table.concat(file_names, ', ')
+    return string.format('%d: %s%s', tab_id, entry_string, is_current and ' <' or '')
+  end,
+  entry_ordinal = function(tab_id, buffer_ids, file_names, file_paths, is_current)
+    return table.concat(file_names, ' ')
+  end,
 })
 
 -- TODO: Change the layout of telescope same as noice layout
@@ -78,7 +85,7 @@ lvim.builtin.telescope.defaults = {
 lvim.builtin.telescope.pickers ={
   -- colorscheme = {
   --   layout_strategy = "cursor",
-  --   layout_config = { width = 0.19 } 
+  --   layout_config = { width = 0.19 }
   -- },
   find_files = {
     theme = "dropdown",

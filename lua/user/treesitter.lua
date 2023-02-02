@@ -1,3 +1,5 @@
+-- TODO: https://www.reddit.com/r/neovim/comments/10c5pvw/useful_cr_map_for_normal_mode/
+
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   -- "c",

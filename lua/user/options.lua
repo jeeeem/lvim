@@ -89,6 +89,8 @@ vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
 -- statuscolumn
+-- https://www.reddit.com/r/neovim/comments/10bmy9w/lets_see_your_status_columns/
+-- https://github.com/luukvbaal/statuscol.nvim
 
 local options = general_options
 
@@ -111,7 +113,3 @@ end
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
--- Change theme settings
--- lvim.builtin.theme.options.dim_inactive = true
--- lvim.builtin.theme.options.style = "storm"

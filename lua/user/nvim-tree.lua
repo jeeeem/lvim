@@ -8,6 +8,12 @@
 -- lvim.builtin.nvimtree.setup.renderer.highlight_git = nil
 -- lvim.builtin.nvimtree.setup.renderer.icons.show.git = nil
 
+-- lvim.builtin.nvimtree.setup.filesystem_watchers = {
+--   enable = true,
+--   debounce_delay = 50,
+--   ignore_dirs = {[[C:\\Users\\Jim\\selenium\\dragon-cssiqa-testscripts\\hrt\\target]]}
+-- }
+
 lvim.builtin.nvimtree = {
   active = true,
   on_config_done = nil,
