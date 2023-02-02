@@ -146,7 +146,7 @@ lvim.builtin.nvimtree = {
     filesystem_watchers = {
       enable = true,
       debounce_delay = 50,
-      ignore_dirs = {[[C:\\Users\\Jim\\selenium\\dragon-cssiqa-testscripts\\hrt\\target]]}
+      ignore_dirs = {[[C:\\Users\\jberen\\selenium\\dragon-cssiqa-testscripts\\hrt\\target]]}
     }
   },
 }

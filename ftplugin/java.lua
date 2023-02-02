@@ -11,7 +11,7 @@ if not status then
 	return
 end
 
--- -- Determine OS
+-- Determine OS
 if vim.fn.has('win32') == 1 then
   HOME = os.getenv('USERPROFILE')
 elseif vim.fn.has('unix') == 1 then
