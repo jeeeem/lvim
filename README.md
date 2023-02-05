@@ -47,6 +47,8 @@
     - https://github.com/jedrzejboczar/possession.nvim
   - Silicon
     - https://github.com/krivahtoo/silicon.nvim
+  - Breadcrumbs
+    - https://github.com/utilyre/barbecue.nvim
 
 - UI
   - Default Nerd-font
@@ -72,24 +74,20 @@
   - ufo (folding)
     - https://github.com/kevinhwang91/nvim-ufo
 
-  <!-- LSP -->
-  - mason
-    - markdown
-      - config marksman
-    - php
-      - Intelephense - lsp
-      - phpactor - lsp
-      - psalm - linter
-      - phpstan - linter
-    - configure cucumber lsp
-
-  - todo-comments
-    - powershell filetype
-
 - LSP
-  - Deno
   - Java
     - Try a JDK runtime of v1.8
+  - Rust
+  - Markdown
+    - config marksman
+  - PHP
+    - Intelephense - lsp
+    - phpactor - lsp
+    - psalm - linter
+    - phpstan - linter
+  - configure cucumber lsp
+- todo-comments
+  - powershell filetype
 
 - DAP
   - lua debugger

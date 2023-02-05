@@ -46,6 +46,8 @@ lvim.builtin.which_key.mappings["h"] = nil
 
 lvim.builtin.which_key.mappings["a"] = {
   name = "Actions",
+  d = { "<cmd>BDelete! hidden<cr>", "Delete hidden buffers" },
+  D = { "<cmd>BWipeout other<cr>", "Delete all buffers except current focused" },
   h = { "<cmd>lua toggle_hlsearch()<cr>", "Toggle highlights" },
   r = { "<cmd>lua toggle_relativenumber()<cr>", "Toggle relative number" },
   s = { "<cmd>lua toggle_laststatus()<cr>", "Toggle status line" },
