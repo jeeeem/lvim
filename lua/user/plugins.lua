@@ -168,9 +168,9 @@ lvim.plugins = {
         ["core.norg.dirman"] = { -- Manages Neorg workspaces
           config = {
             workspaces = {
-              notes = "~/norg",
-            },
+              notes = "~/norg-notes",
           },
+            default_workspace = "notes",
         },
       },
     },
