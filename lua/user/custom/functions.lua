@@ -118,6 +118,18 @@ end
 -- Take option arguement and change its value to true or false
 -- }
 
+-- Toggle hlsearch w/ hlslens searching
+toggle_conceallevel = function()
+	if vim.o.conceallevel == 2  then
+    vim.o.conceallevel = 0
+    vim.notify("Show Conceal off")
+	else
+    vim.o.conceallevel = 2
+    vim.notify("Show Conceal on")
+	end
+end
+
+
 -- Toggle wrap
 toggle_wrap = function()
 	if vim.wo.wrap then
