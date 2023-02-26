@@ -36,7 +36,7 @@ lvim.plugins = {
 
   -- Treesitter --
   "nvim-treesitter/playground",
-  "p00f/nvim-ts-rainbow",
+  -- "p00f/nvim-ts-rainbow", -- archived repo
   "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- DAP --
@@ -62,6 +62,10 @@ lvim.plugins = {
   -- Ergonomics
   "LukasPietzschmann/telescope-tabs",
   "kazhala/close-buffers.nvim",
+  -- "ibhagwan/fzf-lua", # not working in windows
+  {"kevinhwang91/nvim-ufo",
+    dependencies = "kevinhwang91/promise-async"
+  },
   {
     'nyngwang/NeoZoom.lua',
     -- config = function ()
@@ -142,6 +146,7 @@ lvim.plugins = {
   "petertriho/nvim-scrollbar",
   {
     "folke/noice.nvim",
+    -- event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify"

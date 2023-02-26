@@ -124,7 +124,7 @@ scrollbar.setup({
         },
     },
     handlers = {
-        cursor = true,
+        cursor = false,
         diagnostic = true,
         gitsigns = true, -- Requires gitsigns
         handle = true,

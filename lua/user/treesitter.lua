@@ -37,7 +37,7 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
-lvim.builtin.treesitter.rainbow.enable = false
+-- lvim.builtin.treesitter.rainbow.enable = false
 
 -- Custom parsers
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

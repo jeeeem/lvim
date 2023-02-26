@@ -17,7 +17,22 @@ noice.setup({
     view_search = false, -- view for search count messages. Set to `false` to disable
   },
   lsp = {
-    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    signature = {
+      enabled = false,
+      auto_open = {
+        enabled = true,
+        trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
+        luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
+        throttle = 50, -- Debounce lsp signature help request by 50ms
+      },
+      view = nil, -- when nil, use defaults from documentation
+      opts = {}, -- merged with defaults from documentation
+    },
+     hover = {
+      enabled = false,
+      view = nil, -- when nil, use defaults from documentation
+      opts = {}, -- merged with defaults from documentation
+    },-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
     progress = {
       enabled = false,
       -- format = {
@@ -28,8 +43,10 @@ noice.setup({
       -- format_done = {},
     },
     override = {
+      ["vim.lsp.handlers.hover"] = true,
+      ["vim.lsp.handlers.signature_hover"] = true,
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
+      ["vim.lsp.util.stylize_markdown"] = false,
       ["cmp.entry.get_documentation"] = true,
     },
   },
