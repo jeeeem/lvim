@@ -73,6 +73,9 @@
   - spectre
   - ufo (folding)
     - https://github.com/kevinhwang91/nvim-ufo
+  - neorg
+    - todo colored icons
+       - green for done, red for pending
 
 - LSP
   - Java

@@ -46,6 +46,7 @@ lvim.builtin.which_key.mappings["h"] = nil
 
 lvim.builtin.which_key.mappings["a"] = {
   name = "Actions",
+  c = { "<cmd>lua toggle_conceallevel()<cr>", "Toggle conceal level" },
   d = { "<cmd>BDelete! hidden<cr>", "Delete hidden buffers" },
   D = { "<cmd>BWipeout other<cr>", "Delete all buffers except current focused" },
   h = { "<cmd>lua toggle_hlsearch()<cr>", "Toggle highlights" },
@@ -178,6 +179,14 @@ lvim.builtin.which_key.mappings["l"] = {
     "Workspace Symbols",
   },
   e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+}
+
+lvim.builtin.which_key.mappings["n"] = {
+  name = "Notes",
+  i = { "<cmd>Neorg index<cr>", "Neorg Index" },
+  -- w = { "<cmd>Neorg workspace<cr>", "Neorg workspace" },
+  r = { "<cmd>Neorg return<cr>", "Neorg Return" },
+  n = { "<cmd>Neorg workspace notes<cr>", "Neorg Notes Workspace" },
 }
 
 lvim.builtin.which_key.mappings["m"] = {

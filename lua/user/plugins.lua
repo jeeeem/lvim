@@ -164,13 +164,18 @@ lvim.plugins = {
     opts = {
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.norg.concealer"] = {  -- Adds pretty icons to your documents
+        -- https://github.com/nvim-neorg/neorg/wiki/Concealer
+        },
         ["core.norg.dirman"] = { -- Manages Neorg workspaces
+        -- https://github.com/nvim-neorg/neorg/wiki/Dirman
           config = {
             workspaces = {
               notes = "~/norg-notes",
-          },
+            },
             default_workspace = "notes",
+            index = "index.norg",
+          },
         },
       },
     },
