@@ -119,6 +119,7 @@ end
 -- }
 
 -- Toggle hlsearch w/ hlslens searching
+-- TODO: add `Neorg toggle-concealer` when inside of .norg file
 toggle_conceallevel = function()
 	if vim.o.conceallevel == 2  then
     vim.o.conceallevel = 0
