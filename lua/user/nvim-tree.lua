@@ -18,11 +18,6 @@ lvim.builtin.nvimtree = {
   active = true,
   on_config_done = nil,
   setup = {
-    -- ignore_ft_on_setup = { -- deprecated
-    --   "startify",
-    --   "dashboard",
-    --   "alpha",
-    -- },
     auto_reload_on_write = false,
     hijack_directories = {
       enable = false,

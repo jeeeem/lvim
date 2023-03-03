@@ -37,7 +37,44 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
--- lvim.builtin.treesitter.rainbow.enable = false
+lvim.builtin.treesitter.rainbow = {
+  enable = true,
+  -- disable = { "jsx", "cpp"  }, -- list of languages you want to disable the plugin for
+  -- disable = vim.tbl_filter(
+  --    function(p)
+  --        local disable = true
+  --        for _, lang in pairs(enabled_list) do
+  --          if p==lang then disable = false end
+  --        end
+  --        return disable
+  --    end,
+  --    parsers.available_parsers()
+  --  )
+  -- Which query to use for finding delimiters
+  query = 'rainbow-parens',
+  -- Highlight the entire buffer all at once
+  strategy = require 'ts-rainbow.strategy.global',
+  extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+  max_file_lines = 1000, -- Do not enable for files with more than n lines, int
+  -- colors = {
+  -- 	"#EBCB8B",
+  -- 	"#D08770",
+  -- 	"#BF616A",
+  -- 	"#A3BE8C",
+  -- 	"#B48EAD",
+  -- 	"#8FBCBB",
+  -- 	"#81A1C1",
+  -- }, -- table of hex strings
+  -- termcolors = {
+  --   "Red",
+  --   "Green",
+  --   "Yellow",
+  --   "Blue",
+  --   "Magenta",
+  --   "Cyan",
+  --   "White",
+  -- }, -- table of colour name strings
+}
 
 -- Custom parsers
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

@@ -127,12 +127,12 @@ if vim.fn.has('win32') == 1 then
           runtimes = {
             {
               name = "JavaSE-17",
-              path = HOME .. "/scoop/apps/openjdk17/17.0.2-8/",
+              path = HOME .. "/scoop/apps/openjdk17/current/",
               default = true
             },
             {
               name = "JavaSE-19",
-              path = HOME .. "/scoop/apps/openjdk/19.0.1-10/"
+              path = HOME .. "/scoop/apps/openjdk/current/"
             },
             -- {
             --   name = "JavaSE-19",

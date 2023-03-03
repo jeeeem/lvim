@@ -101,4 +101,10 @@
     - https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
 
 ### Issues:
-- None
+    - 
+
+### Fixes:
+  - nvim-jdtls
+    - "Client 1 quit with exit code 13 and signal 0"
+      - jdtls lsp is not working in a java project
+        - `LvimCacheReset` and Delete workspace project in %USERPROFILE%/workspace/{project}
