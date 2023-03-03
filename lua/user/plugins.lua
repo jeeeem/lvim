@@ -37,6 +37,7 @@ lvim.plugins = {
   -- Treesitter --
   "nvim-treesitter/playground",
   -- "p00f/nvim-ts-rainbow", -- archived repo
+  "HiPhish/nvim-ts-rainbow2",
   "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- DAP --
@@ -60,9 +61,6 @@ lvim.plugins = {
   "folke/trouble.nvim",
 
   -- Ergonomics
-  "LukasPietzschmann/telescope-tabs",
-  "kazhala/close-buffers.nvim",
-  -- "ibhagwan/fzf-lua", # not working in windows
   {"kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async"
   },
@@ -75,12 +73,16 @@ lvim.plugins = {
       require('Navigator').setup()
     end
   },
-  "echasnovski/mini.nvim",
   {"tiagovla/scope.nvim",
     config = function()
       require("scope").setup()
     end
   }, -- Tab-buffers scoping
+  "stevearc/oil.nvim",
+  "LukasPietzschmann/telescope-tabs",
+  "kazhala/close-buffers.nvim",
+  -- "ibhagwan/fzf-lua", # not working in windows
+  "echasnovski/mini.nvim",
   "nyngwang/NeoZoom.lua",
 
   -- Zen mode
