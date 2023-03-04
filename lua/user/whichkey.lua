@@ -239,6 +239,13 @@ lvim.builtin.which_key.mappings["s"] = {
   T = { "<cmd>TodoTelescope<cr>", "Todos" },
 }
 
+lvim.builtin.which_key.mappings["S"] = {
+  name = "Session",
+  l = { "<cmd>lua require('persistence').load()<cr>", "Load session in the current directory" },
+  r = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+  s = { "<cmd>lua require('persistence').stop()<cr>", "Stop session saving" },
+}
+
 lvim.builtin.which_key.mappings["t"] = {
   name = "Tabs",
   c = { "<cmd>tabclose<cr>", "Close tab" },
