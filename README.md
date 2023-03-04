@@ -43,8 +43,6 @@
     - https://github.com/neovim/neovim/pull/21633
     - https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
     - `:h editorconfig`
-  - Session management
-    - https://github.com/jedrzejboczar/possession.nvim
   - Silicon
     - https://github.com/krivahtoo/silicon.nvim
   - Breadcrumbs
@@ -101,10 +99,10 @@
     - https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
 
 ### Issues:
-    - 
+- None
 
 ### Fixes:
-  - nvim-jdtls
-    - "Client 1 quit with exit code 13 and signal 0"
-      - jdtls lsp is not working in a java project
-        - `LvimCacheReset` and Delete workspace project in %USERPROFILE%/workspace/{project}
+- nvim-jdtls
+  - "Client 1 quit with exit code 13 and signal 0"
+    - jdtls lsp is not working in a java project
+      - `LvimCacheReset` and Delete workspace project in %USERPROFILE%/workspace/{project}
