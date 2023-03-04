@@ -129,6 +129,7 @@ function M.get_sections()
       spacing = 1,
     },
     entries = {
+      { "R", lvim.icons.ui.SignIn .. "  Restore last session", "<CMD>lua require('persistence').load({ last = true })<CR>" },
       { "f", lvim.icons.ui.FindFile .. "  Find File", "<CMD>Telescope find_files<CR>" },
       { "n", lvim.icons.ui.NewFile .. "  New File", "<CMD>ene!<CR>" },
       { "p", lvim.icons.ui.Project .. "  Projects ", "<CMD>Telescope projects<CR>" },
