@@ -229,9 +229,10 @@ lvim.autocommands = {
     {
       group = "_buffer_mappings",
       pattern = {
+        "notify",
+        "query",
         "spectre_panel",
         "vim",
-        "notify",
       },
       callback = function()
         vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true })

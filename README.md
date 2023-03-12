@@ -22,10 +22,9 @@
 ### TODO:
 - Learn
   - How extending treesitter queries works
-  - Integrate chezmoi tool
+  - Integrate with chezmoi tool
   - research which is better asyncrun.vim vs overseer.nvim
-  - Vim
-    - how to search for a specific line numbers and return the searched number of words
+  - how to search for a range of line numbers and return the searched number of words
 
 - General
   - configure tmp-tabnine to use different OS
@@ -34,6 +33,7 @@
     - https://github.com/VonHeikemen/lsp-zero.nvim
   - vscode config
     - https://github.com/JulesNP/nvim/blob/main/init.lua
+  - create minimal config
 
 - Ergonomics:
   - Default No-Name file when creating a tab
@@ -53,10 +53,13 @@
     - Jetbrain Mono
     - Victor Mono (cursive italic)
   - new `statuscolumn`
+    - configure status column to separate diagnostics/todo signs from git signs
     - https://www.reddit.com/r/neovim/comments/107ms1s/the_new_signcolumn_merge_allows_us_to_set_a/
     - https://www.reddit.com/r/neovim/comments/10j0vyf/finally_figured_out_a_statuscolumn_i_am_happy/
 
 - Configure Plugins
+  - lsp
+    - https://github.com/ray-x/lsp_signature.nvim
   - dashboard
     - add shortcuts for:
       - vimwiki?
@@ -74,21 +77,21 @@
   - neorg
     - todo colored icons
        - green for done, red for pending
+  - todo-comments
+    - powershell filetype
 
 - LSP
-  - Java
-    - Try a JDK runtime of v1.8
+  - python
+    - ruff-lsp & ruff linter
   - Rust
   - Markdown
-    - config marksman
+    - marksman
   - PHP
     - Intelephense - lsp
     - phpactor - lsp
     - psalm - linter
     - phpstan - linter
-  - configure cucumber lsp
-- todo-comments
-  - powershell filetype
+  - cucumber lsp
 
 - DAP
   - lua debugger
