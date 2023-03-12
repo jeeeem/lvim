@@ -41,14 +41,16 @@ lvim.builtin.which_key.mappings["/"] = nil
 lvim.builtin.which_key.mappings["b"] = nil
 lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["f"] = nil
-lvim.builtin.which_key.mappings["w"] = nil
 lvim.builtin.which_key.mappings["h"] = nil
+lvim.builtin.which_key.mappings["o"] = { "<cmd>Oil<CR>", "Oil" }
+lvim.builtin.which_key.mappings["q"] = nil
+lvim.builtin.which_key.mappings["w"] = nil
 
 lvim.builtin.which_key.mappings["a"] = {
   name = "Actions",
+  D = { "<cmd>BWipeout other<cr>", "Delete all buffers except current focused" },
   c = { "<cmd>lua toggle_conceallevel()<cr>", "Toggle conceal level" },
   d = { "<cmd>BDelete! hidden<cr>", "Delete hidden buffers" },
-  D = { "<cmd>BWipeout other<cr>", "Delete all buffers except current focused" },
   h = { "<cmd>lua toggle_hlsearch()<cr>", "Toggle highlights" },
   r = { "<cmd>lua toggle_relativenumber()<cr>", "Toggle relative number" },
   s = { "<cmd>lua toggle_laststatus()<cr>", "Toggle status line" },
@@ -144,6 +146,13 @@ lvim.builtin.which_key.mappings["g"] = {
     "<cmd>Gitsigns diffthis HEAD<cr>",
     "Git Diff",
   },
+}
+
+lvim.builtin.which_key.mappings["j"] = {
+  name = "Jump Portal",
+  c = { "<cmd>Portal changelist<cr>", "Portal changelist" },
+  i = { "<cmd>Portal jumplist forward<cr>", "Portal jumplist forward" },
+  o = { "<cmd>Portal jumplist backward<cr>", "Portal jumplist backward" },
 }
 
 lvim.builtin.which_key.mappings["l"] = {

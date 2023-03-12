@@ -150,7 +150,10 @@ lvim.plugins = {
     lazy = true,
     event = "VeryLazy",
   },
-  "stevearc/oil.nvim",
+  {
+    "stevearc/oil.nvim",
+    event = "User DirOpened"
+  },
   "LukasPietzschmann/telescope-tabs",
   {
     "echasnovski/mini.move",
@@ -167,8 +170,19 @@ lvim.plugins = {
     event = "VeryLazy",
     version = false
   },
-  "ThePrimeagen/harpoon",
-  -- "ibhagwan/fzf-lua", # not working in windows
+  {
+    "cbochs/portal.nvim",
+    event = "VeryLazy",
+    -- Optional dependencies
+    dependencies = {
+      -- "cbochs/grapple.nvim",
+      "ThePrimeagen/harpoon"
+    },
+  },
+  {
+    "ibhagwan/fzf-lua",
+    enabled = vim.fn.has('unix') == 1 -- enable only when in unix system
+  },
 
   -- Session Management
   {
@@ -241,9 +255,9 @@ lvim.plugins = {
     opts = {
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
-        -- ["core.norg.concealer"] = {  -- Adds pretty icons to your documents
-        -- -- https://github.com/nvim-neorg/neorg/wiki/Concealer
-        -- },
+        ["core.norg.concealer"] = {  -- Adds pretty icons to your documents
+        -- https://github.com/nvim-neorg/neorg/wiki/Concealer
+        },
         ["core.norg.dirman"] = { -- Manages Neorg workspaces
         -- https://github.com/nvim-neorg/neorg/wiki/Dirman
           config = {
