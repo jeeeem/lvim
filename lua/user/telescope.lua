@@ -93,6 +93,9 @@ lvim.builtin.telescope.pickers ={
     previewer = false,
     find_command = {"rg", "--ignore", "-L", "--hidden", "--files"}
   },
+  -- harpoon = {
+  --   show_preview = false,
+  -- },
   live_grep = {
     --@usage don't include the filename in the search results
     only_sort_text = true,
