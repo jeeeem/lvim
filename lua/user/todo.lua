@@ -25,9 +25,9 @@ todo_comments.setup {
     },
     TODO = { icon = icons.ui.Check, color = hint_blue, alt = { "TIP" } },
     HACK = { icon = icons.ui.Fire, color = warning_orange },
-    WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "WARNING", "XXX" } },
-    PERF = { icon = icons.ui.Dashboard, color = perf_purple, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "TEST" } },
-    NOTE = { icon = icons.ui.Note, color = note_green, alt = { "INFO" } },
+    WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "WARNING"} },
+    PERF = { icon = icons.ui.Dashboard, color = perf_purple, alt = { "PERFORMANCE", "OPTIMIZE", "TEST" } },
+    NOTE = { icon = icons.ui.Note, color = note_green, alt = { "INFO", "INQUIRY" } },
   },
   -- merge_keywords = true, -- when true, custom keywords will be merged with the defaults
   -- highlighting of the line containing the todo comment
