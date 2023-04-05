@@ -100,6 +100,11 @@ lvim.plugins = {
   --   end
   -- },
   {
+    "SmiteshP/nvim-navbuddy",
+    event = "VeryLazy",
+    dependencies = "SmiteshP/nvim-navic"
+  },
+  {
     "kevinhwang91/nvim-hlslens",
     event = "BufReadPost",
   },

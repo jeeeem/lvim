@@ -239,6 +239,7 @@ lvim.builtin.telescope.defaults.mappings = {
 		["<C-l>"] = actions.complete_tag,
 		["<C-h>"] = actions.which_key, -- keys from pressing <C-h>
 		["<esc>"] = actions.close,
+		-- ["<C-w>"] = actions.to_fuzzy_refine,
 	},
 	-- for normal mode
 	n = {

@@ -11,6 +11,8 @@ if not status then
 	return
 end
 
+local navbuddy = require("nvim-navbuddy")
+
 -- Determine OS
 if vim.fn.has('win32') == 1 then
   HOME = os.getenv('USERPROFILE')
@@ -214,6 +216,7 @@ if vim.fn.has('win32') == 1 then
   	require("jdtls.dap").setup_dap_main_class_configs()
   	require("jdtls").setup_dap({ hotcodereplace = "auto" })
   	require("lvim.lsp").common_on_attach(client, bufnr)
+    -- navbuddy.attach(client, bufnr)
   end
 
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
