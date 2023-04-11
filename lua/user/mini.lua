@@ -61,6 +61,7 @@ if not mbs_ok then
   return
 end
 
+-- TODO: steal the toggle prefix so we can remove mini.basics plugin
 basic.setup(
   {
     -- Options. Set to `false` to disable.
