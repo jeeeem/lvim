@@ -23,7 +23,6 @@
 - Learn
   - How extending treesitter queries works
   - Integrate with chezmoi tool
-  - research which is better asyncrun.vim vs overseer.nvim
   - how to search for a range of line numbers and return the searched number of words
 
 - General
@@ -53,13 +52,19 @@
     - Jetbrain Mono
     - Victor Mono (cursive italic)
   - new `statuscolumn`
+    - https://github.com/luukvbaal/statuscol.nvim
     - configure status column to separate diagnostics/todo signs from git signs
     - https://www.reddit.com/r/neovim/comments/107ms1s/the_new_signcolumn_merge_allows_us_to_set_a/
     - https://www.reddit.com/r/neovim/comments/10j0vyf/finally_figured_out_a_statuscolumn_i_am_happy/
 
-- Configure Plugins
-  - lsp
+- Plugins
+  - lsp ergonomic
     - https://github.com/ray-x/lsp_signature.nvim
+    - lsp_lines
+      - https://www.reddit.com/r/neovim/comments/12aqs6w/i_wish_neovim_had_strong_lsp_defaults_like_helix/
+    - navbuddy
+      - https://github.com/SmiteshP/nvim-navbuddy
+    - https://github.com/m-demare/hlargs.nvim
   - dashboard
     - add shortcuts for:
       - vimwiki?
@@ -79,6 +84,9 @@
        - green for done, red for pending
   - todo-comments
     - powershell filetype
+  - smarts-splits.nvim
+  - task runner
+    - research which is better asyncrun.vim vs overseer.nvim
 
 - LSP
   - python
@@ -91,15 +99,36 @@
     - phpactor - lsp
     - psalm - linter
     - phpstan - linter
-  - cucumber lsp
+  - cucumber
+    - configure
+  - yaml
+    - spring schema
+    - https://www.reddit.com/r/neovim/comments/10qrriw/neovim_k8s_yaml_autocompletion/
+  - lemminx
+    - maven auto complete
+  - java
+    - global nlsp-settings
 
 - DAP
   - lua debugger
 
 - Null-ls
+  - java
+    - google format
   - Vale
     - for general writing
     - https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
+
+- Snippets
+  - lua
+    - pcall
+  - java
+    - general
+      - package
+      - interface
+      - debug (sysout)
+    - infor specifics
+      - Element
 
 ### Issues:
 - None

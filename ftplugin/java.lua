@@ -1,40 +1,40 @@
 ---@diagnostic disable: lowercase-global
 
+-- https://github.com/mfussenegger/nvim-jdtls/wiki/Sample-Configurations
+
 vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt_local.cmdheight = 2 -- more space in the neovim command line for displaying messages
 
-local capabilities = require("lvim.lsp").common_capabilities()
-
 local status, jdtls = pcall(require, "jdtls")
 if not status then
-	return
+  return
 end
-
-local navbuddy = require("nvim-navbuddy")
 
 -- Determine OS
-if vim.fn.has('win32') == 1 then
-  HOME = os.getenv('USERPROFILE')
-elseif vim.fn.has('unix') == 1 then
-  HOME = os.getenv('HOME')
-end
+-- if vim.fn.has('win32') == 1 then
+--   HOME = os.getenv('USERPROFILE')
+-- elseif vim.fn.has('unix') == 1 then
+--   HOME = os.getenv('HOME')
+-- end
+local HOME = vim.env.HOME
+WORKSPACE_PATH = HOME .. "/workspace/"
 
 if vim.fn.has("win32") == 1 then
-	WORKSPACE_PATH = HOME .. "/workspace/"
-	CONFIG = "win"
+  CONFIG = "win"
 elseif vim.fn.has("unix") == 1 then
-	WORKSPACE_PATH = HOME .. "/workspace/"
-	CONFIG = "linux"
+  CONFIG = "linux"
+elseif vim.fn.has("mac") == 1 then
+  CONFIG = "mac"
 else
-	print("Unsupported system")
+  vim.notify("Unsupported system", vim.log.levels.ERROR)
 end
 
 -- Find root of project
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 if root_dir == "" then
-	return
+  return
 end
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
@@ -56,7 +56,7 @@ if vim.fn.has('win32') == 1 then
     )
   )
 
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+  -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
   local config = {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -103,18 +103,37 @@ if vim.fn.has('win32') == 1 then
     },
 
     -- on_attach = require("lvim.lsp").on_attach,
-    capabilities = capabilities,
-
+    on_init = require("lvim.lsp").common_on_init,
+    on_exit = require("lvim.lsp").common_on_exit,
+    capabilities = require("lvim.lsp").common_capabilities(),
     -- 💀
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
     root_dir = root_dir,
 
+    flags = {
+      allow_incremental_sync = true,
+      server_side_fuzzy_completion = true,
+    },
+    -- Language server `initializationOptions`
+    -- You need to extend the `bundles` with paths to jar files
+    -- if you want to use additional eclipse.jdt.ls plugins.
+    --
+    -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
+    --
+    -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
+    init_options = {
+      -- bundles = {},
+      bundles = bundles,
+    },
+    settings = {}
+  }
+
+  config.settings = {
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- or https://github.com/redhat-developer/vscode-java#supported-vs-code-settings
     -- for a list of options
-    settings = {
       java = {
         -- jdt = {
         --   ls = {
@@ -161,9 +180,10 @@ if vim.fn.has('win32') == 1 then
         },
         format = {
           enabled = false,
-          -- settings = {
-          --   profile = "asdf"
-          -- }
+          settings = {
+            profile = "GoogleStyle",
+            url = HOME .. "/.config/lvim/.java-google-formatter.xml",
+          },
         },
       },
       signatureHelp = { enabled = true },
@@ -186,37 +206,28 @@ if vim.fn.has('win32') == 1 then
           staticStarThreshold = 9999,
         },
       },
+      -- https://www.jetbrains.com/help/idea/generating-code.html
+      -- https://github.com/eclipse/eclipse.jdt.ls/issues/1892
       codeGeneration = {
+        hashCodeEquals = {
+          useInstanceof = true,
+          useJava7Objects = true
+        },
         toString = {
           template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+          codeStyle = "STRING_CONCATENATION"
         },
         useBlocks = true,
+        generateComments = true,
       },
-    },
-
-    flags = {
-      allow_incremental_sync = true,
-    },
-
-    -- Language server `initializationOptions`
-    -- You need to extend the `bundles` with paths to jar files
-    -- if you want to use additional eclipse.jdt.ls plugins.
-    --
-    -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
-    --
-    -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
-    init_options = {
-      -- bundles = {},
-      bundles = bundles,
-    },
   }
 
   config["on_attach"] = function(client, bufnr)
   	local _, _ = pcall(vim.lsp.codelens.refresh)
+    on_attach = require("lvim.lsp").common_on_attach(client, bufnr)
   	require("jdtls.dap").setup_dap_main_class_configs()
   	require("jdtls").setup_dap({ hotcodereplace = "auto" })
-  	require("lvim.lsp").common_on_attach(client, bufnr)
-    -- navbuddy.attach(client, bufnr)
+    vim.cmd[[LspSettings update jdtls]]
   end
 
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -230,14 +241,12 @@ if vim.fn.has('win32') == 1 then
   -- or attaches to an existing client & server depending on the `root_dir`.
   jdtls.start_or_attach(config)
 
-  vim.cmd(
-  	[[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)]]
-  )
-  vim.cmd([[command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()]])
-  -- vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
-  -- -- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
-  -- vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
-  -- -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
+  vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+  vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
+  vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
+  -- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
+  vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
+  -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
 elseif vim.fn.has('unix') == 1 then
   local bundles = {}
@@ -369,9 +378,15 @@ elseif vim.fn.has('unix') == 1 then
           staticStarThreshold = 9999,
         },
       },
+      -- https://github.com/eclipse/eclipse.jdt.ls/issues/1892
       codeGeneration = {
+        hashCodeEquals = {
+          useInstanceof = true,
+          useJava07Objects = true
+        },
         toString = {
-          template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+          -- template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+          codeStyle = "STRING_BUILDER_CHAINED"
         },
         useBlocks = true,
       },
@@ -395,25 +410,25 @@ elseif vim.fn.has('unix') == 1 then
   }
 
   config["on_attach"] = function(client, bufnr)
-  	local _, _ = pcall(vim.lsp.codelens.refresh)
-  	require("jdtls.dap").setup_dap_main_class_configs()
-  	require("jdtls").setup_dap({ hotcodereplace = "auto" })
-  	require("lvim.lsp").common_on_attach(client, bufnr)
+    local _, _ = pcall(vim.lsp.codelens.refresh)
+    require("jdtls.dap").setup_dap_main_class_configs()
+    require("jdtls").setup_dap({ hotcodereplace = "auto" })
+    require("lvim.lsp").common_on_attach(client, bufnr)
   end
 
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  	pattern = { "*.java" },
-  	callback = function()
-  		local _, _ = pcall(vim.lsp.codelens.refresh)
-  	end,
-  })
+    pattern = { "*.java" },
+    callback = function()
+      local _, _ = pcall(vim.lsp.codelens.refresh)
+    end,
+})
 
   -- This starts a new client & server,
   -- or attaches to an existing client & server depending on the `root_dir`.
   jdtls.start_or_attach(config)
 
   vim.cmd(
-  	[[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)]]
+    [[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)]]
   )
   vim.cmd([[command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()]])
   -- vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
@@ -422,56 +437,56 @@ elseif vim.fn.has('unix') == 1 then
   -- -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 end
 
--- local status_ok, which_key = pcall(require, "which-key")
--- if not status_ok then
--- 	return
--- end
+local status_ok, which_key = pcall(require, "which-key")
+if not status_ok then
+  return
+end
 
--- local opts = {
--- 	mode = "n", -- NORMAL mode
--- 	prefix = "<leader>",
--- 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
--- 	silent = true, -- use `silent` when creating keymaps
--- 	noremap = true, -- use `noremap` when creating keymaps
--- 	nowait = true, -- use `nowait` when creating keymaps
--- }
+local opts = {
+  mode = "n", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
 
--- local vopts = {
--- 	mode = "v", -- VISUAL mode
--- 	prefix = "<leader>",
--- 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
--- 	silent = true, -- use `silent` when creating keymaps
--- 	noremap = true, -- use `noremap` when creating keymaps
--- 	nowait = true, -- use `nowait` when creating keymaps
--- }
+local vopts = {
+  mode = "v", -- VISUAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
 
--- local mappings = {
--- 	C = {
--- 		name = "Java",
--- 		o = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports" },
--- 		v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
--- 		c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
--- 		t = { "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test Method" },
--- 		T = { "<Cmd>lua require'jdtls'.test_class()<CR>", "Test Class" },
--- 		u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
--- 	},
--- }
+local mappings = {
+  J = {
+    name = "Java",
+    o = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports" },
+    v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
+    c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
+    t = { "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test Method" },
+    T = { "<Cmd>lua require'jdtls'.test_class()<CR>", "Test Class" },
+    u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
+  },
+}
 
--- local vmappings = {
--- 	C = {
--- 		name = "Java",
--- 		v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
--- 		c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
--- 		m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
--- 	},
--- }
+local vmappings = {
+  J = {
+    name = "Java",
+    v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
+    c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
+    m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
+  },
+}
 
--- which_key.register(mappings, opts)
--- which_key.register(vmappings, vopts)
--- which_key.register(vmappings, vopts)
+which_key.register(mappings, opts)
+which_key.register(vmappings, vopts)
+which_key.register(vmappings, vopts)
 
 -- TODO:
 -- 1. More general config path
-    -- data path
-    -- more robust win32 / unix condition
+-- data path
+-- more robust win32 / unix condition
 -- 2. add dap config for selenium

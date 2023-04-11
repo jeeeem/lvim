@@ -101,8 +101,12 @@ lvim.plugins = {
   -- },
   {
     "SmiteshP/nvim-navbuddy",
-    event = "VeryLazy",
-    dependencies = "SmiteshP/nvim-navic"
+    -- event = "VeryLazy",
+    -- cmd = "Navbuddy",
+    lazy = false,
+    dependencies = {
+      "SmiteshP/nvim-navic",
+    },
   },
   {
     "kevinhwang91/nvim-hlslens",
@@ -188,6 +192,14 @@ lvim.plugins = {
     "ibhagwan/fzf-lua",
     enabled = vim.fn.has('unix') == 1 -- enable only when in unix system
   },
+  {
+    "chrisgrieser/nvim-genghis",
+    event = "VeryLazy",
+  },
+  {
+    "mbbill/undotree",
+    cmd = {'UndotreeToggle'}
+  },
 
   -- Session Management
   {
@@ -250,37 +262,51 @@ lvim.plugins = {
   },
 
   -- Note-taking --
-  -- "vimwiki/vimwiki",
-  {
-    "nvim-neorg/neorg",
-    ft = "norg",
-    event = "VeryLazy",
-    build = ":Neorg sync-parsers",
-    dependencies = "nvim-treesitter",
-    opts = {
-      load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.norg.concealer"] = {  -- Adds pretty icons to your documents
-        -- https://github.com/nvim-neorg/neorg/wiki/Concealer
-        },
-        ["core.norg.dirman"] = { -- Manages Neorg workspaces
-        -- https://github.com/nvim-neorg/neorg/wiki/Dirman
-          config = {
-            workspaces = {
-              notes = "~/norg-notes",
-            },
-            default_workspace = "notes",
-            index = "index.norg",
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   ft = "norg",
+  --   event = "VeryLazy",
+  --   build = ":Neorg sync-parsers",
+  --   dependencies = "nvim-treesitter",
+  --   opts = {
+  --     load = {
+  --       ["core.defaults"] = {}, -- Loads default behaviour
+  --       ["core.norg.concealer"] = {  -- Adds pretty icons to your documents
+  --       -- https://github.com/nvim-neorg/neorg/wiki/Concealer
+  --       },
+  --       ["core.norg.dirman"] = { -- Manages Neorg workspaces
+  --       -- https://github.com/nvim-neorg/neorg/wiki/Dirman
+  --         config = {
+  --           workspaces = {
+  --             notes = "~/norg-notes",
+  --           },
+  --           default_workspace = "notes",
+  --           index = "index.norg",
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
     ft = {"markdown"},
   },
+  {
+    "epwalsh/obsidian.nvim",
+    event = "VeryLazy",
+    config = function ()
+      require("obsidian").setup({
+        dir = "~/vimwiki",
+        completion = {
+          nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
+        },
+      })
+    end
+
+
+  },
+  -- "vimwiki/vimwiki",
 
   -- for fun
   {
@@ -296,7 +322,6 @@ lvim.plugins = {
     event = "BufReadPost",
   },
   {
-    -- TODO: lazy load in keys
     "monaqa/dial.nvim",
     event = "VeryLazy",
   },
