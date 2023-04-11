@@ -1,0 +1,9 @@
+{
+  "java.format.enabled": true,
+  "java.codeGeneration.hashCodeEquals.useJava7Objects": true,
+  "java.codeGeneration.hashCodeEquals.useInstanceof": true,
+  "java.codeGeneration.generateComments": true,
+  "java.codeGeneration.useBlocks": true,
+  "java.codeGeneration.toString.codeStyle": "STRING_CONCATENATION"
+}
+

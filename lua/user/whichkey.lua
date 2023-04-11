@@ -48,14 +48,16 @@ lvim.builtin.which_key.mappings["w"] = nil
 
 lvim.builtin.which_key.mappings["a"] = {
   name = "Actions",
-  D = { "<cmd>BWipeout other<cr>", "Delete all buffers except current focused" },
   c = { "<cmd>lua toggle_conceallevel()<cr>", "Toggle conceal level" },
   d = { "<cmd>BDelete! hidden<cr>", "Delete hidden buffers" },
-  h = { "<cmd>lua toggle_hlsearch()<cr>", "Toggle highlights" },
-  r = { "<cmd>lua toggle_relativenumber()<cr>", "Toggle relative number" },
+  D = { "<cmd>BWipeout other<cr>", "Delete all buffers except current focused" },
+  -- h = { "<cmd>lua toggle_hlsearch()<cr>", "Toggle highlights" },
+  -- r = { "<cmd>lua toggle_relativenumber()<cr>", "Toggle relative number" },
+  o = { "<cmd>ObsidianOpen<cr>", "Open Obsidian" },
   s = { "<cmd>lua toggle_laststatus()<cr>", "Toggle status line" },
   t = { "<cmd>lua toggle_showtabline()<cr>", "Toggle show tabline" },
-  w = { "<cmd>lua toggle_wrap()<cr>", "Toggle wrap" },
+  u = { "<cmd>UndotreeToggle<cr>", "Toggle undotree" },
+  -- w = { "<cmd>lua toggle_wrap()<cr>", "Toggle wrap" },
 }
 
 lvim.builtin.which_key.mappings["b"] = {
@@ -160,19 +162,14 @@ lvim.builtin.which_key.mappings["l"] = {
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
   c = { "<cmd>TroubleClose<cr>", "Close Diagnostics" },
   d = { "<cmd>TroubleToggle<cr>", "Trouble Diagnostics" },
-  w = { "<cmd>Telescope diagnostics<cr>", "Telescope Diagnostics" },
+  e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
   f = { require("lvim.lsp.utils").format, "Format" },
   i = { "<cmd>LspInfo<cr>", "Info" },
   I = { "<cmd>Mason<cr>", "Mason Info" },
-  j = {
-    vim.diagnostic.goto_next,
-    "Next Diagnostic",
-  },
-  k = {
-    vim.diagnostic.goto_prev,
-    "Prev Diagnostic",
-  },
+  j = {vim.diagnostic.goto_next, "Next Diagnostic"},
+  k = {vim.diagnostic.goto_prev, "Prev Diagnostic"},
   l = { vim.lsp.codelens.run, "CodeLens Action" },
+  n = { "<cmd>Navbuddy<cr>", "Toggle Navbuddy" },
   q = { vim.diagnostic.setloclist, "Quickfix" },
   r = {
     function()
@@ -187,7 +184,9 @@ lvim.builtin.which_key.mappings["l"] = {
     "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
     "Workspace Symbols",
   },
-  e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+  -- TODO: get buffer lsp
+  -- u = { "<cmd>LspSettings update<cr>", "Nlsp-settings update" },
+  w = { "<cmd>Telescope diagnostics<cr>", "Telescope Diagnostics" },
 }
 
 lvim.builtin.which_key.mappings["n"] = {
@@ -231,6 +230,7 @@ lvim.builtin.which_key.mappings["p"] = {
 
 lvim.builtin.which_key.mappings["s"] = {
   name = "Search",
+  b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer Search" },
   c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
   g = { "<cmd>lua require('lvim.core.telescope.custom-finders').find_project_files()<cr>", "Find Git Files" },
   h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -244,7 +244,7 @@ lvim.builtin.which_key.mappings["s"] = {
     "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
     "Colorscheme with Preview",
   },
-  t = { "<cmd>Telescope live_grep<cr>", "Text" },
+  t = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
   T = { "<cmd>TodoTelescope<cr>", "Todos" },
 }
 

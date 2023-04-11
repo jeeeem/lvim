@@ -142,7 +142,7 @@ function M.get_sections()
         "<CMD>edit " .. require("lvim.config"):get_user_config_path() .. " <CR>",
       },
       { "q", lvim.icons.ui.Close .. "  Quit", "<CMD>quit<CR>" },
-      -- { "w", lvim.icons.ui.Folder .. "  Vimwiki", "<CMD>edit ~/vimwiki/<CR>" },
+      -- { "v", lvim.icons.ui.Folder .. "  Vimwiki", "<CMD>edit ~/vimwiki/<CR>" },
     },
   }
   return {

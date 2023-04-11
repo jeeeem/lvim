@@ -87,9 +87,12 @@ local skeleton = augroup("Skeleton Template", { clear = true })
 -- 	group = general_settings,
 -- })
 
-autocmd("BufWinEnter", {
-  command = "set formatoptions-=cro",
+autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove { "c", "r", "o" }
+  end,
   group = general_settings,
+  desc = "Disable New Line Comment",
 })
 
 -- autocmd("VimResized", {
@@ -221,6 +224,7 @@ vim.api.nvim_del_augroup_by_name('_auto_resize')
 -- Setup using Lunarvim Autocommands setup
 -- https://www.lunarvim.org/docs/configuration/autocommands
 
+
 -- get all autocmds
 -- vim.pretty_print(vim.api.nvim_get_autocmds {group="_buffer_mappings"})
 lvim.autocommands = {
@@ -233,6 +237,12 @@ lvim.autocommands = {
         "query",
         "spectre_panel",
         "vim",
+        "dapui_scopes",
+        "dapui_breakpoints",
+        "dapui_stacks",
+        "dapui_watches",
+        "dapui_console",
+        "dap-repl"
       },
       callback = function()
         vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true })
