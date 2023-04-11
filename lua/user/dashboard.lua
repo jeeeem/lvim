@@ -130,6 +130,7 @@ function M.get_sections()
     },
     entries = {
       { "R", lvim.icons.ui.SignIn .. "  Restore last session", "<CMD>lua require('persistence').load({ last = true })<CR>" },
+      { "L", lvim.icons.ui.SignIn .. "  Load session in current directory", "<CMD>lua require('persistence').load()<CR>" },
       { "f", lvim.icons.ui.FindFile .. "  Find File", "<CMD>Telescope find_files<CR>" },
       { "n", lvim.icons.ui.NewFile .. "  New File", "<CMD>ene!<CR>" },
       { "p", lvim.icons.ui.Project .. "  Projects ", "<CMD>Telescope projects<CR>" },
