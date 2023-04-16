@@ -36,6 +36,7 @@ local general_options = {
 	smartindent = true, -- make indenting smarter again
 	splitbelow = true, -- force all horizontal splits to go below current window
 	splitright = true, -- force all vertical splits to go to the right of current window
+  splitkeep = "screen", -- keep the text on the same screen line
 	swapfile = false, -- creates a swapfile
 	termguicolors = true, -- set term gui colors (most terminals support this)
 	timeoutlen = 300, -- time to wait for a mapped sequence to complete (in milliseconds)
@@ -85,6 +86,7 @@ vim.opt.fillchars = {
 -- vim.bo.formatoptions = vim.o.formatoptions:gsub("c", "")
 -- vim.o.formatoptions = vim.o.formatoptions .. "tcrqnj"
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+---@diagnostic disable-next-line: param-type-mismatch
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
