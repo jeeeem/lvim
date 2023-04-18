@@ -87,6 +87,8 @@
   - smarts-splits.nvim
   - task runner
     - research which is better asyncrun.vim vs overseer.nvim
+  - refactoring
+    - https://github.com/ThePrimeagen/refactoring.nvim
 
 - LSP
   - python
@@ -118,6 +120,11 @@
   - Vale
     - for general writing
     - https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
+  - typescript
+    - code actions
+    - format
+  - lua
+    - format
 
 - Snippets
   - lua

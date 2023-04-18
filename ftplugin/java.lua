@@ -227,7 +227,8 @@ if vim.fn.has('win32') == 1 then
     on_attach = require("lvim.lsp").common_on_attach(client, bufnr)
   	require("jdtls.dap").setup_dap_main_class_configs()
   	require("jdtls").setup_dap({ hotcodereplace = "auto" })
-    vim.cmd[[LspSettings update jdtls]]
+    -- TODO: Update local nlsp-settings after LspAttach
+    -- vim.cmd[[LspSettings update jdtls]]
   end
 
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
