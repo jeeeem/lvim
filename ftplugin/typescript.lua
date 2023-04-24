@@ -5,7 +5,7 @@ if not ok then
 end
 
 local deno_root_markers = {"deno.json", "deno.jsonc"}
-local ts_root_markers = {"package.json"}
+local ts_root_markers = {"package.json", "tsconfig.json", "jsconfig.json", ".git"}
 
 local deno_opts = {
   root_dir = lsp.util.root_pattern(deno_root_markers)

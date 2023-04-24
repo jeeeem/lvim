@@ -5,14 +5,13 @@ reload("user.custom.functions")
 reload("user.custom.autocommands")
 reload("user.keymaps")
 
+-- Theme
+reload("user.theme")
+
 -- IDE Essentials
 reload("user.cmp")
 reload("user.lsp")
 reload("user.treesitter")
-
--- Theme
--- TODO: Add more theme
--- reload("user.theme")
 
 -- Plugin config
 reload("user.bqf")

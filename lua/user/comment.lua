@@ -4,4 +4,4 @@ if not ok then
   return
 end
 
-ft.set('ps1', '#%s')
+-- ft.set('ps1', '#%s')

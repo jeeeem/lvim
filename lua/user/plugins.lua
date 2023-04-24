@@ -200,6 +200,7 @@ lvim.plugins = {
     "mbbill/undotree",
     cmd = {'UndotreeToggle'}
   },
+  'mrjones2014/smart-splits.nvim',
 
   -- Session Management
   {
@@ -260,6 +261,7 @@ lvim.plugins = {
   {"catppuccin/nvim",
     name = "catppuccin"
   },
+  "xiyaowong/transparent.nvim",
 
   -- Note-taking --
   -- {

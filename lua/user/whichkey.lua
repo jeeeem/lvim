@@ -56,6 +56,7 @@ lvim.builtin.which_key.mappings["a"] = {
   o = { "<cmd>ObsidianOpen<cr>", "Open Obsidian" },
   s = { "<cmd>lua toggle_laststatus()<cr>", "Toggle status line" },
   t = { "<cmd>lua toggle_showtabline()<cr>", "Toggle show tabline" },
+  T = { "<cmd>TransparentToggle<cr>", "Toggle transparency" },
   u = { "<cmd>UndotreeToggle<cr>", "Toggle undotree" },
   -- w = { "<cmd>lua toggle_wrap()<cr>", "Toggle wrap" },
 }

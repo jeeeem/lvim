@@ -1,8 +1,6 @@
 -- general
 lvim.log.level = "info"
 lvim.format_on_save = false
-lvim.colorscheme = "tokyonight"
-
 lvim.builtin.breadcrumbs.active = true
 lvim.reload_config_on_save = true
 lvim.lsp.installer.setup.automatic_installation = false
