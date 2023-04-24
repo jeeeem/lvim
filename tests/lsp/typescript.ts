@@ -1,4 +1,3 @@
-"use strict";
 function greet(arg : string) {
   console.log(`Hello ${arg}`);
 

@@ -1,4 +1,5 @@
 lvim.builtin.bufferline.active = true
+lvim.builtin.bufferline.options.always_show_bufferline = true
 
 lvim.keys.normal_mode["<S-x>"] = "<Cmd>lua require('user.bufferline').delete_buffer()<CR>"
 lvim.keys.normal_mode["<A-h>"] = "<Cmd>BufferLineCyclePrev<CR>"

@@ -110,6 +110,12 @@
     - maven auto complete
   - java
     - global nlsp-settings
+  - js/ts
+    - rome
+      - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rome
+    - pretty-ts-error
+      - https://github.com/yoavbls/pretty-ts-errors/issues/21
+
 
 - DAP
   - lua debugger
@@ -121,10 +127,15 @@
     - for general writing
     - https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
   - typescript
+    - rome
+      - formatter
+      - linter
+      - https://github.com/rome/tools/discussions/3544#discussioncomment-4094318
     - code actions
-    - format
   - lua
-    - format
+    - formatter
+  - python
+    - black
 
 - Snippets
   - lua
