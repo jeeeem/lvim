@@ -48,7 +48,8 @@ lvim.builtin.nvimtree = {
       timeout = 200,
     },
     view = {
-      width = 30,
+      -- TODO: auto layout based on max width
+      width = 50,
       hide_root_folder = false,
       side = "left",
       mappings = {

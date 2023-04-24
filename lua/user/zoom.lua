@@ -14,7 +14,7 @@ zoom.setup{
       height = 0.85,
     },
     -- NOTE: check :help nvim_open_win() for possible border values.
-    border = 'rounded',
+    border = 'thicc', -- rounded | thicc
   },
   exclude_filetypes = { 'lspinfo', 'mason', 'lazy', 'fzf', 'qf' },
   exclude_buftypes = { 'terminal' },
