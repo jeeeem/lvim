@@ -43,7 +43,7 @@ oil.setup {
     -- ["<C-s>"] = "actions.select_vsplit",
     -- ["<C-h>"] = "actions.select_split",
     -- ["<C-l>"] = "actions.refresh",
-    ["-"] = "actions.parent",
+    -- ["-"] = "actions.parent",
     ["<C-h>"] = false,
     ["<C-l>"] = false,
     ["<C-p>"] = false,
