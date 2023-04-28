@@ -89,6 +89,9 @@
     - research which is better asyncrun.vim vs overseer.nvim
   - refactoring
     - https://github.com/ThePrimeagen/refactoring.nvim
+  - nvim-treesitter/nvim-treesitter-context
+    - https://github.com/nvim-treesitter/nvim-treesitter-context
+
 
 - LSP
   - python

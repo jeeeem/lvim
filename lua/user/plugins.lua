@@ -94,16 +94,9 @@ lvim.plugins = {
   },
 
   -- Ergonomics
-  -- {"numToStr/Navigator.nvim",
-  --   config = function()
-  --     require('Navigator').setup()
-  --   end
-  -- },
   {
     "SmiteshP/nvim-navbuddy",
-    -- event = "VeryLazy",
-    -- cmd = "Navbuddy",
-    lazy = false,
+    cmd = "Navbuddy",
     dependencies = {
       "SmiteshP/nvim-navic",
     },
@@ -200,7 +193,15 @@ lvim.plugins = {
     "mbbill/undotree",
     cmd = {'UndotreeToggle'}
   },
-  'mrjones2014/smart-splits.nvim',
+  {
+    'mizlan/iswap.nvim',
+    cmd = {'ISwapNode', 'ISwapWith', 'ISwapWithLeft', 'ISwapWithRight'},
+    dependencies = "nvim-treesitter",
+  },
+  {
+    'mrjones2014/smart-splits.nvim',
+    event = "BufWinEnter",
+  },
 
   -- Session Management
   {

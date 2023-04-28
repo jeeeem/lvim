@@ -55,6 +55,7 @@ lvim.builtin.which_key.mappings["a"] = {
   -- r = { "<cmd>lua toggle_relativenumber()<cr>", "Toggle relative number" },
   o = { "<cmd>ObsidianOpen<cr>", "Open Obsidian" },
   s = { "<cmd>lua toggle_laststatus()<cr>", "Toggle status line" },
+  S = { "<cmd>ScrollbarToggle<cr>", "Toggle scrollbar" },
   t = { "<cmd>lua toggle_showtabline()<cr>", "Toggle show tabline" },
   T = { "<cmd>TransparentToggle<cr>", "Toggle transparency" },
   u = { "<cmd>UndotreeToggle<cr>", "Toggle undotree" },
@@ -149,6 +150,17 @@ lvim.builtin.which_key.mappings["g"] = {
     "<cmd>Gitsigns diffthis HEAD<cr>",
     "Git Diff",
   },
+}
+
+lvim.builtin.which_key.mappings["i"] = {
+  name = "Swap Nodes",
+  c = { "<cmd>ISwapNode<cr>", "Choose swap node" },
+  i = { "<cmd>ISwapWith<cr>", "Auto swap node" },
+  -- I = { "<cmd>ISwapWith<cr>", "Auto swap node" },
+  h = { "<cmd>ISwapWithLeft<cr>", "Auto swap node to the left" },
+  -- H = { "<cmd>ISwapNodeWithLeft<cr>", "Swap node to the left" },
+  l = { "<cmd>ISwapWithRight<cr>", "Auto swap node to the right" },
+  -- L = { "<cmd>ISwapNodeWithRight<cr>", "Swap node to the right" },
 }
 
 lvim.builtin.which_key.mappings["j"] = {
