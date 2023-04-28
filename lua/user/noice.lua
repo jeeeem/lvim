@@ -49,6 +49,24 @@ noice.setup({
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
+    message = {
+      -- Messages shown by lsp servers
+      enabled = true,
+      view = "notify",
+      opts = {},
+    },
+    -- defaults for hover and signature help
+    documentation = {
+      view = "hover",
+      ---@type NoiceViewOptions
+      opts = {
+        lang = "markdown",
+        replace = true,
+        render = "plain",
+        format = { "{message}" },
+        win_options = { concealcursor = "n", conceallevel = 3 },
+      },
+    },
   },
   presets = {
     bottom_search = false, -- use a classic bottom cmdline for search
@@ -107,6 +125,10 @@ noice.setup({
     {
       view = "notify",
       filter = { event = "msg_showmode" },
+    },
+    {
+      view = "split",
+      filter = { event = "msg_show", min_height = 20 },
     },
     -- Remove which key notification
     {
@@ -207,3 +229,7 @@ noice.setup({
     -- },
   },
 })
+
+vim.keymap.set("c", "<S-Enter>", function()
+  noice.redirect(vim.fn.getcmdline())
+end, { desc = "Redirect Cmdline" })

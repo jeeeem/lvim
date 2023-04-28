@@ -40,6 +40,7 @@ lvim.builtin.which_key.setup = {
 lvim.builtin.which_key.mappings["/"] = nil
 lvim.builtin.which_key.mappings["b"] = nil
 lvim.builtin.which_key.mappings["c"] = nil
+lvim.builtin.which_key.mappings["E"] = { "<cmd>NvimTreeFocus<CR>", "Focus to Explorer" }
 lvim.builtin.which_key.mappings["f"] = nil
 lvim.builtin.which_key.mappings["h"] = nil
 lvim.builtin.which_key.mappings["o"] = { "<cmd>Oil<CR>", "Oil" }
