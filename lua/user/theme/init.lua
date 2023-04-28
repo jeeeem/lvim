@@ -19,6 +19,7 @@ transparent.setup({
     'FloatBorder',
     'NvimTreeWinSeparator',
     'NvimTreeNormal',
+    'NvimTreeNormalNC',
     'TroubleNormal',
     'TelescopeNormal',
     'TelescopeBorder',

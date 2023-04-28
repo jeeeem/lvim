@@ -247,6 +247,10 @@ lvim.plugins = {
     }
   },
   {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+  },
+  {
     "NvChad/nvim-colorizer.lua",
     event = "BufReadPre",
   },
