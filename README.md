@@ -46,6 +46,8 @@
     - https://github.com/krivahtoo/silicon.nvim
   - Breadcrumbs
     - https://github.com/utilyre/barbecue.nvim
+  - create simple plugin using this
+    - https://vimtricks.com/p/vim-copy-line
 
 - UI
   - Default Nerd-font
@@ -92,7 +94,6 @@
   - nvim-treesitter/nvim-treesitter-context
     - https://github.com/nvim-treesitter/nvim-treesitter-context
 
-
 - LSP
   - python
     - ruff-lsp & ruff linter
@@ -119,7 +120,6 @@
       - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rome
     - pretty-ts-error
       - https://github.com/yoavbls/pretty-ts-errors/issues/21
-
 
 - DAP
   - lua debugger
