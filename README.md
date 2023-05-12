@@ -102,6 +102,7 @@
   - PHP
     - Intelephense - lsp
     - phpactor - lsp
+       - https://github.com/adalessa/laravel.nvim
     - psalm - linter
     - phpstan - linter
   - cucumber

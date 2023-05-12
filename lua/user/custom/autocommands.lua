@@ -123,6 +123,8 @@ autocmd("ColorScheme", {
 -- LSP Highlight Augroup
 autocmd("ColorScheme", {
   callback = function()
+    -- vim.cmd [[highlight NormalFloat guifg=#29a4bd guibg=#1f2335]]
+    -- vim.cmd [[highlight FloatBorder guifg=#29a4bd guibg=#1f2335]]
     vim.cmd [[highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff]]
     vim.cmd [[highlight DiagnosticFloatingError  guifg=#fff guibg=#fff]]
     vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82]]

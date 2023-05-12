@@ -29,7 +29,7 @@ noice.setup({
       opts = {}, -- merged with defaults from documentation
     },
      hover = {
-      enabled = false,
+      enabled = true,
       view = nil, -- when nil, use defaults from documentation
       opts = {}, -- merged with defaults from documentation
     },-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
