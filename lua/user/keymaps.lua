@@ -58,6 +58,8 @@ del("n", "<A-k>")
 -- set({'n', 't'}, '<C-j>', '<CMD>lua require("Navigator").down()<CR>')
 
 -- Insert mode
+-- https://www.reddit.com/r/neovim/comments/v309ol/nvim_lsp_does_not_update_when_exiting_insert_mode/
+set("i", "<C-c>", "<ESC>", opts)
 -- Press jk fast to enter
 set("i", "jk", "<ESC>", opts)
 
