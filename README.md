@@ -48,6 +48,8 @@
     - https://github.com/utilyre/barbecue.nvim
   - create simple plugin using this
     - https://vimtricks.com/p/vim-copy-line
+  - copilot
+    - https://medium.com/aimonks/a-guide-to-integrating-lunarvim-github-copilot-61d92f764913
 
 - UI
   - Default Nerd-font
@@ -100,6 +102,7 @@
   - Rust
   - Markdown
     - marksman
+      - https://medium.com/@chrisatmachine/lunarvim-improve-markdown-editing-with-marksman-739d06c73a26
   - PHP
     - Intelephense - lsp
     - phpactor - lsp
