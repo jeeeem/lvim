@@ -96,8 +96,10 @@ basic.setup(
   }
 )
 
+-- - https://github.com/echasnovski/mini.nvim
 -- https://github.com/echasnovski/mini.ai
 -- https://github.com/echasnovski/mini.align
 -- https://github.com/echasnovski/mini.bufremove
 -- https://github.com/echasnovski/mini.sessions
--- https://github.com/folke/persistence.nvim
+-- ai, pairs, comment, animate, hipatterns, indentscope, splitjoin, surround, bufremove
+-- 'mini.ai', 'mini.animation', 'mini.align', 'mini.bracketed', 'mini.map', 'mini.surround'

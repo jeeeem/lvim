@@ -166,9 +166,11 @@ lvim.builtin.which_key.mappings["i"] = {
 
 lvim.builtin.which_key.mappings["j"] = {
   name = "Jump Portal",
-  c = { "<cmd>Portal changelist<cr>", "Portal changelist" },
+  c = { "<cmd>lua require('portal.builtin').changelist.tunnel()<cr>", "Portal changelist" },
+  h = { "<cmd>lua require('portal.builtin').harpoon.tunnel()<cr>", "Portal harpoon" },
   i = { "<cmd>Portal jumplist forward<cr>", "Portal jumplist forward" },
   o = { "<cmd>Portal jumplist backward<cr>", "Portal jumplist backward" },
+  q = { "<cmd>lua require('portal.builtin').quickfix.tunnel()<cr>", "Portal quicklist" },
 }
 
 lvim.builtin.which_key.mappings["l"] = {
