@@ -178,7 +178,8 @@
       - Element
 
 ### Issues:
-- None
+- bqf
+  - not going back to previous cursor position when the preview is on the previous cursor
 
 ### Fixes:
 - nvim-jdtls
