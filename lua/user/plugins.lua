@@ -13,9 +13,11 @@ lvim.plugins = {
     "mfussenegger/nvim-jdtls",
     ft = "java"
   },
+
+  -- DENO
   -- "sigmaSd/deno-nvim",
 
-  -- Rust
+  -- RUST
   -- "simrat39/rust-tools.nvim",
   -- {
   -- 	"saecki/crates.nvim",
@@ -34,8 +36,8 @@ lvim.plugins = {
   -- JS/TS
   -- "jose-elias-alvarez/typescript.nvim",
 
-  -- Go
-  -- "olexsmir/gopher.nvim",
+  -- GO
+  -- "ray-x/go.nvim",
 
   -- Treesitter --
   {
@@ -156,7 +158,6 @@ lvim.plugins = {
     "stevearc/oil.nvim",
     event = "User DirOpened"
   },
-  "LukasPietzschmann/telescope-tabs",
   {
     "echasnovski/mini.move",
     event = "VeryLazy",
@@ -200,8 +201,9 @@ lvim.plugins = {
   },
   {
     'mrjones2014/smart-splits.nvim',
-    event = "BufWinEnter",
+    -- event = "BufWinEnter",
   },
+  "LukasPietzschmann/telescope-tabs",
 
   -- Session Management
   {

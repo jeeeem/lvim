@@ -64,11 +64,15 @@
 - Plugins
   - lsp ergonomic
     - https://github.com/ray-x/lsp_signature.nvim
+    - https://github.com/ray-x/navigator.lua
     - lsp_lines
-      - https://www.reddit.com/r/neovim/comments/12aqs6w/i_wish_neovim_had_strong_lsp_defaults_like_helix/
+      - use `gL` keymap
+        - https://git.sr.ht/~whynothugo/lsp_lines.nvim
+        - https://www.reddit.com/r/neovim/comments/12aqs6w/i_wish_neovim_had_strong_lsp_defaults_like_helix/
     - navbuddy
       - https://github.com/SmiteshP/nvim-navbuddy
     - https://github.com/m-demare/hlargs.nvim
+    - https://github.com/lvimuser/lsp-inlayhints.nvim
   - dashboard
     - add shortcuts for:
       - vimwiki?
@@ -80,6 +84,8 @@
     - vimwiki
       - silenty call the commands
     - markdown preview
+    - https://github.com/folke/paint.nvim
+      - https://www.reddit.com/r/neovim/comments/13mwsfo/how_do_i_show_markdown_headings_in_different/
   - spectre
   - ufo (folding)
     - https://github.com/kevinhwang91/nvim-ufo
@@ -95,6 +101,17 @@
     - https://github.com/ThePrimeagen/refactoring.nvim
   - nvim-treesitter/nvim-treesitter-context
     - https://github.com/nvim-treesitter/nvim-treesitter-context
+  - mini
+    - ai
+    - align
+    - pairs
+    - comment
+    - animate
+    - hipatterns
+    - indentscope
+    - splitjoin
+    - surround
+    - bufremove
 
 - LSP
   - python
@@ -123,6 +140,11 @@
       - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rome
     - pretty-ts-error
       - https://github.com/yoavbls/pretty-ts-errors/issues/21
+  - go
+    - https://github.com/ray-x/go.nvim
+  - assembly
+    - https://github.com/bergercookie/asm-lsp
+    - https://www.reddit.com/r/neovim/comments/x3kekm/how_do_you_write_assembly_with_neovim/
 
 - DAP
   - lua debugger
