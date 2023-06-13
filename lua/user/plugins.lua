@@ -98,7 +98,7 @@ lvim.plugins = {
   -- Ergonomics
   {
     "SmiteshP/nvim-navbuddy",
-    cmd = "Navbuddy",
+    -- cmd = "Navbuddy",
     dependencies = {
       "SmiteshP/nvim-navic",
     },
@@ -260,8 +260,11 @@ lvim.plugins = {
     "kevinhwang91/nvim-bqf",
     event = "WinEnter",
   },
+  {
+    "j-hui/fidget.nvim",
+    branch = "legacy"
+  },
   "nvim-zh/colorful-winsep.nvim",
-  "j-hui/fidget.nvim",
   "petertriho/nvim-scrollbar",
 
   -- Theme --
