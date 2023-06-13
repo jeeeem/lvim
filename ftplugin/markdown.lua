@@ -2,6 +2,7 @@ vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt.cmdheight=1
 vim.opt.conceallevel=0
+vim.opt.textwidth=120
 
 local ok, wk = pcall(require, "which-key")
 if not ok then

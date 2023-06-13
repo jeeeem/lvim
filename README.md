@@ -177,6 +177,10 @@
     - infor specifics
       - Element
 
+- Config
+  - try this telescope picker config
+    - https://github.com/nvim-telescope/telescope.nvim/issues/2014#issuecomment-1541423345
+
 ### Issues:
 - bqf
   - not going back to previous cursor position when the preview is on the previous cursor
