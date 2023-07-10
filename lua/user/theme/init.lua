@@ -46,9 +46,3 @@ vim.g.transparent_groups = vim.list_extend(
     return v.hl_group
   end, vim.tbl_values(require('bufferline.config').highlights))
 )
-
--- Possible colorschemes
-  -- https://github.com/projekt0n/github-nvim-theme
-  -- https://github.com/EdenEast/nightfox.nvim
-  -- https://github.com/catppuccin/nvim
-  -- https://github.com/Mofiqul/vscode.nvim

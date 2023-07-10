@@ -83,6 +83,7 @@ smart_splits.setup({
   -- by checking the $TERM_PROGRAM environment variable,
   -- and the $KITTY_LISTEN_ON environment variable for Kitty
   multiplexer_integration = nil;
+  -- multiplexer_integration = "wezterm";
   -- disable multiplexer navigation if current multiplexer pane is zoomed
   -- this functionality is only supported on tmux and Wezterm due to kitty
   -- not having a way to check if a pane is zoomed
@@ -92,43 +93,6 @@ smart_splits.setup({
   -- see https://sw.kovidgoyal.net/kitty/conf/#opt-kitty.remote_control_password
   kitty_password = nil,
 })
-
--- resizing splits
--- amount defaults to 3 if not specified
--- use absolute values, no + or -
--- the functions also check for a range,
--- so for example if you bind `<A-h>` to `resize_left`,
--- then `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
-
--- require('smart-splits').resize_up(1)
--- require('smart-splits').resize_down(1)
--- require('smart-splits').resize_left(1)
--- require('smart-splits').resize_right(1)
--- moving between splits
--- You can override config.at_edge and
--- config.move_cursor_same_row via opts
--- See Configuration.
--- require('smart-splits').move_cursor_up({ same_row = boolean, at_edge = 'wrap' | 'split' | 'stop' })
-
--- require('smart-splits').move_cursor_up()
--- require('smart-splits').move_cursor_down()
--- require('smart-splits').move_cursor_left()
--- require('smart-splits').move_cursor_right()
--- Swapping buffers directionally with the window to the specified direction
-
--- require('smart-splits').swap_buf_up()
--- require('smart-splits').swap_buf_down()
--- require('smart-splits').swap_buf_left()
--- require('smart-splits').swap_buf_right()
--- the buffer swap functions can also take an `opts` table to override the
--- default behavior of whether or not the cursor follows the buffer
--- require('smart-splits').swap_buf_right({ move_cursor = true })
--- persistent resize mode
--- temporarily remap your configured resize keys to
--- smart resize left, down, up, and right, respectively,
--- press <ESC> to stop resize mode (unless you've set a different key in config)
--- resize keys also accept a range, e.e. pressing `5j` will resize down 5 times the default_amount
--- require('smart-splits').start_resize_mode()
 
 vim.keymap.del({"n","t"}, "<C-h>")
 vim.keymap.del({"n","t"}, "<C-l>")
