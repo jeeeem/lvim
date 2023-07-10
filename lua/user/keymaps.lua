@@ -35,13 +35,17 @@ set('n', '<cr>', 'o<Esc>')
 -- Centered the searched text
 set(
   'c', '<CR>',
-  function() return vim.fn.getcmdtype() == '/' and '<CR>zzzv' or '<CR>' end,
+  function() return vim.fn.getcmdtype() == '/' and '<CR>zz' or '<CR>' end,
   { expr = true }
 )
 
+-- Centered while navigating half a screen
+set('n','<c-u>', '<c-u>zz', opts)
+set('n','<c-d>', '<c-d>zz', opts)
+
 -- Centered while navigating searched text
-set('n','n', 'nzzzv', opts)
-set('n','N', 'Nzzzv', opts)
+set('n','n', 'nzz', opts)
+set('n','N', 'Nzz', opts)
 
 -- Delete Lvim default moving text commands
 del("n", "<A-j>")
