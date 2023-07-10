@@ -40,11 +40,11 @@ lvim.plugins = {
   -- "ray-x/go.nvim",
 
   -- Treesitter --
-  {
-    "nvim-treesitter/playground",
-    event = "VeryLazy",
-    cmd = "TSPlaygroundToggle"
-  },
+  -- {
+  --  "nvim-treesitter/playground",
+  --  event = "VeryLazy",
+  --  cmd = "TSPlaygroundToggle"
+  -- },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     lazy = true,
@@ -199,10 +199,10 @@ lvim.plugins = {
     cmd = {'ISwapNode', 'ISwapWith', 'ISwapWithLeft', 'ISwapWithRight'},
     dependencies = "nvim-treesitter",
   },
-  {
-    'mrjones2014/smart-splits.nvim',
-    -- event = "BufWinEnter",
-  },
+  -- {
+  --   'mrjones2014/smart-splits.nvim',
+  --   -- event = "BufWinEnter",
+  -- },
   "LukasPietzschmann/telescope-tabs",
 
   -- Session Management
