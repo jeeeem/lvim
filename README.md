@@ -24,6 +24,8 @@
   - How extending treesitter queries works
   - Integrate with chezmoi tool
   - how to search for a range of line numbers and return the searched number of words
+  - luasnip
+    - https://www.youtube.com/playlist?list=PL0EgBggsoPCnZ3a6c0pZuQRMgS_Z8-Fnr
 
 - General
   - configure tmp-tabnine to use different OS
@@ -50,6 +52,14 @@
     - https://vimtricks.com/p/vim-copy-line
   - copilot
     - https://medium.com/aimonks/a-guide-to-integrating-lunarvim-github-copilot-61d92f764913
+  - window picker
+    - https://github.com/s1n7ax/nvim-window-picker
+  - hardtime
+    - https://github.com/m4xshen/hardtime.nvim
+  - gitignore.nvim
+    - https://github.com/wintermute-cell/gitignore.nvim
+  - lightbulb.nvim
+    - https://github.com/kosayoda/nvim-lightbulb
 
 - UI
   - Default Nerd-font
@@ -60,6 +70,9 @@
     - configure status column to separate diagnostics/todo signs from git signs
     - https://www.reddit.com/r/neovim/comments/107ms1s/the_new_signcolumn_merge_allows_us_to_set_a/
     - https://www.reddit.com/r/neovim/comments/10j0vyf/finally_figured_out_a_statuscolumn_i_am_happy/
+  - edgy
+    - https://github.com/folke/edgy.nvim
+    - https://www.lazyvim.org/plugins/extras/ui.edgy
 
 - Plugins
   - lsp ergonomic
@@ -101,6 +114,20 @@
     - https://github.com/ThePrimeagen/refactoring.nvim
   - nvim-treesitter/nvim-treesitter-context
     - https://github.com/nvim-treesitter/nvim-treesitter-context
+  - vim-visual-multi
+    - https://github.com/mg979/vim-visual-multi
+  - dropbar
+    - https://github.com/Bekaboo/dropbar.nvim
+  - markmap
+    - https://github.com/Zeioth/markmap.nvim
+  - block
+    - https://github.com/HampusHauffman/block.nvim
+  - flash.nvim
+    - https://github.com/folke/flash.nvim
+  - NotebookNavigator.nvim
+    - https://github.com/GCBallesteros/NotebookNavigator.nvim
+  - image
+    - https://github.com/3rd/image.nvim
   - mini
     - ai
     - align
@@ -112,6 +139,14 @@
     - splitjoin
     - surround
     - bufremove
+    - files
+
+- Theme
+  - https://github.com/svermeulen/text-to-colorscheme
+  - https://github.com/projekt0n/github-nvim-theme
+  - https://github.com/EdenEast/nightfox.nvim
+  - https://github.com/catppuccin/nvim
+  - https://github.com/Mofiqul/vscode.nvim
 
 - LSP
   - python
@@ -140,11 +175,14 @@
       - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rome
     - pretty-ts-error
       - https://github.com/yoavbls/pretty-ts-errors/issues/21
+    - https://github.com/pmizio/typescript-tools.nvim
   - go
     - https://github.com/ray-x/go.nvim
   - assembly
     - https://github.com/bergercookie/asm-lsp
     - https://www.reddit.com/r/neovim/comments/x3kekm/how_do_you_write_assembly_with_neovim/
+  - emmet
+    - https://github.com/olrtg/emmet-language-server
 
 - DAP
   - lua debugger
