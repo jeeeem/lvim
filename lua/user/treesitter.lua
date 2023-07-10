@@ -44,6 +44,15 @@ lvim.builtin.treesitter.rainbow = {
   extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
   max_file_lines = 1000, -- Do not enable for files with more than n lines, int
 }
+lvim.builtin.treesitter.incremental_selection = {
+  enable = true,
+  keymaps = {
+    -- init_selection = "<Enter>",
+    node_incremental = "<Enter>",
+    node_decremental = "<BS>",
+    -- scope_incremental = "grc",
+  },
+}
 
 -- Custom parsers
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
