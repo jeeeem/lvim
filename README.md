@@ -226,6 +226,9 @@
 ### Issues:
 - bqf
   - not going back to previous cursor position when the preview is on the previous cursor
+- lsp
+  - cucumber
+    - make it work, does not attach to cucumber file
 
 ### Fixes:
 - nvim-jdtls
