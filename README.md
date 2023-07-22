@@ -126,8 +126,12 @@
     - https://github.com/folke/flash.nvim
   - NotebookNavigator.nvim
     - https://github.com/GCBallesteros/NotebookNavigator.nvim
-  - image
+  - image.nvim
     - https://github.com/3rd/image.nvim
+  - hypersonic.nvim
+    - https://github.com/tomiis4/hypersonic.nvim
+  - rainbow (change from nvim-ts-rainbow2)
+    - https://github.com/hiphish/rainbow-delimiters.nvim
   - mini
     - ai
     - align
