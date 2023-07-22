@@ -98,7 +98,7 @@ lvim.plugins = {
   -- Ergonomics
   {
     "SmiteshP/nvim-navbuddy",
-    -- cmd = "Navbuddy",
+    cmd = "Navbuddy",
     dependencies = {
       "SmiteshP/nvim-navic",
     },
