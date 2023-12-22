@@ -1,8 +1,6 @@
-vim.opt_local.shiftwidth = 2
-vim.opt_local.tabstop = 2
-vim.opt.cmdheight=1
-vim.opt.conceallevel=0
-vim.opt.textwidth=140
+vim.opt.cmdheight = 1
+vim.opt.conceallevel = 0
+vim.opt.textwidth = 140
 
 local ok, wk = pcall(require, "which-key")
 if not ok then
@@ -21,7 +19,6 @@ local opts = {
 local mappings = {
   ["am"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle markdown preview" }
 }
-
 
 -- TODO: How to unregister mapping after closing all buffers related to markdown filetype
 wk.register(mappings, opts)

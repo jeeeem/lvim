@@ -7,12 +7,19 @@ lvim.lsp.installer.setup.automatic_installation = false
 
 local M = {
   powershell_options = {
+    -- POWERSHELL
     shell = vim.fn.executable "pwsh" and "pwsh" or "powershell",
     shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
     shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
     shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
     shellquote = "",
     shellxquote = "",
+    -- NUSHELL
+    -- shell = 'nu',
+    -- shell = vim.fn.executable "nu",
+    -- shellcmdflag = '-c',
+    -- shellquote = "",
+    -- shellxquote = "",
   },
   general_options = {
     backup = false, -- creates a backup file

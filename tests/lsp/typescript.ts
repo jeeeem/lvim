@@ -5,6 +5,3 @@ function greet(arg : string) {
 
 greet("String");
 greet(1); // Should produce an error
-
-
-

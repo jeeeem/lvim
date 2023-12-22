@@ -60,6 +60,26 @@
     - https://github.com/wintermute-cell/gitignore.nvim
   - lightbulb.nvim
     - https://github.com/kosayoda/nvim-lightbulb
+  - window picker
+    - https://github.com/s1n7ax/nvim-window-picker
+  - blame.nvim
+    - https://github.com/FabijanZulj/blame.nvim
+  - diffview.nvim
+    - https://github.com/sindrets/diffview.nvim
+  - other.nvim
+    - https://github.com/rgroli/other.nvim
+  - range-highlight.nvim
+    - https://github.com/winston0410/range-highlight.nvim
+  - colortils.nvim
+    - https://github.com/nvim-colortils/colortils.nvim
+  - cutlass.nvim
+    - https://github.com/gbprod/cutlass.nvim
+  - codeium.nvim
+    - https://github.com/jcdickinson/codeium.nvim
+  - replacer.nvim
+    - https://github.com/gabrielpoca/replacer.nvim
+  - ultimate-autopair.nvim
+    - https://github.com/altermo/ultimate-autopair.nvim
 
 - UI
   - Default Nerd-font
@@ -86,6 +106,8 @@
       - https://github.com/SmiteshP/nvim-navbuddy
     - https://github.com/m-demare/hlargs.nvim
     - https://github.com/lvimuser/lsp-inlayhints.nvim
+    - tailwindcss
+      - https://github.com/MaximilianLloyd/tw-values.nvim
   - dashboard
     - add shortcuts for:
       - vimwiki?
@@ -97,8 +119,11 @@
     - vimwiki
       - silenty call the commands
     - markdown preview
-    - https://github.com/folke/paint.nvim
-      - https://www.reddit.com/r/neovim/comments/13mwsfo/how_do_i_show_markdown_headings_in_different/
+    - paint
+      - https://github.com/folke/paint.nvim
+        - https://www.reddit.com/r/neovim/comments/13mwsfo/how_do_i_show_markdown_headings_in_different/
+    - femaco
+      - https://github.com/AckslD/nvim-FeMaco.lua
   - spectre
   - ufo (folding)
     - https://github.com/kevinhwang91/nvim-ufo
@@ -132,6 +157,10 @@
     - https://github.com/tomiis4/hypersonic.nvim
   - rainbow (change from nvim-ts-rainbow2)
     - https://github.com/hiphish/rainbow-delimiters.nvim
+  - nvim-devdocs
+    - https://github.com/luckasRanarison/nvim-devdocs
+  - align.nvim
+    - https://github.com/Vonr/align.nvim
   - mini
     - ai
     - align
@@ -180,6 +209,8 @@
     - pretty-ts-error
       - https://github.com/yoavbls/pretty-ts-errors/issues/21
     - https://github.com/pmizio/typescript-tools.nvim
+    - tsc
+      - https://github.com/dmmulroy/tsc.nvim
   - go
     - https://github.com/ray-x/go.nvim
   - assembly
@@ -187,6 +218,12 @@
     - https://www.reddit.com/r/neovim/comments/x3kekm/how_do_you_write_assembly_with_neovim/
   - emmet
     - https://github.com/olrtg/emmet-language-server
+
+- Formatter
+  - format-on-save
+    - https://github.com/elentok/format-on-save.nvim
+  - conform.nvim
+    - https://github.com/stevearc/conform.nvim
 
 - DAP
   - lua debugger
@@ -229,6 +266,10 @@
 - lsp
   - cucumber
     - make it work, does not attach to cucumber file
+  - typescript/deno
+    - make it work perfectly
+- treesitter
+  - https://github.com/nvim-treesitter/nvim-treesitter/issues/5264
 
 ### Fixes:
 - nvim-jdtls

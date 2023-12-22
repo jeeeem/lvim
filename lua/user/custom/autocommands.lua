@@ -157,17 +157,17 @@ autocmd("FileType", {
 
 -- Markdown Augroup
 -- TODO: Fix the markdown syntax
-autocmd(
-  { "BufNewFile", "BufFilePre", "BufRead" },
-  { pattern = "*.md", command = "set filetype=markdown", group = markdown }
-)
+-- autocmd(
+--   { "BufNewFile", "BufFilePre", "BufRead" },
+--   { pattern = "*.md", command = "set filetype=markdown", group = markdown }
+-- )
 
 -- TODO: Fix the markdown syntax
-autocmd("FileType", {
-  pattern = { "vimwiki", "md" },
-  command = "set filetype=markdown",
-  group = markdown,
-})
+-- autocmd("FileType", {
+--   pattern = { "vimwiki", "md" },
+--   command = "set filetype=markdown",
+--   group = markdown,
+-- })
 
 -- autocmd("FileType", {
 -- 	pattern = { "markdown", "markdown.pandoc" },

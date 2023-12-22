@@ -39,6 +39,22 @@ lvim.plugins = {
   -- GO
   -- "ray-x/go.nvim",
 
+  -- Nushell
+  {
+    'LhKipp/nvim-nu',
+    ft="nu",
+    -- HACK: https://github.com/LhKipp/nvim-nu/issues/8
+    config = function ()
+      require('nu').setup({
+        use_lsp_features = true,
+        all_cmd_names = [[nu -c 'help commands | get name | str join "\n"']]
+      })
+      vim.schedule(function ()
+        vim.cmd[[set filetype=nu]]
+      end)
+    end
+  },
+
   -- Treesitter --
   -- {
   --  "nvim-treesitter/playground",
@@ -52,7 +68,7 @@ lvim.plugins = {
     dependencies = "nvim-treesitter",
   },
   {
-    "HiPhish/nvim-ts-rainbow2",
+    "hiphish/rainbow-delimiters.nvim",
     lazy = true,
     event = "BufReadPost",
     dependencies = "nvim-treesitter",

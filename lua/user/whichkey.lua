@@ -106,6 +106,10 @@ lvim.builtin.which_key.mappings["b"] = {
     "<cmd>BufferLineSortByTabs<cr>",
     "Sort by Tab",
   },
+  x = {
+    "<cmd>BufferLineCloseOthers<cr>",
+    "Close other buffers except under the cursor",
+  },
 }
 
 lvim.builtin.which_key.mappings["d"] = {

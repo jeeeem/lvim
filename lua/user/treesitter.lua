@@ -35,15 +35,30 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.rainbow = {
-  enable = true,
-  -- Which query to use for finding delimiters
-  query = 'rainbow-parens',
-  -- Highlight the entire buffer all at once
-  strategy = require 'ts-rainbow.strategy.global',
-  extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-  max_file_lines = 1000, -- Do not enable for files with more than n lines, int
+
+-- Tree-sitter Rainbow Delimiters
+local rainbow_delimiters = require 'rainbow-delimiters'
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+    },
 }
+
+-- Tree-sitter Incremental Selection
 lvim.builtin.treesitter.incremental_selection = {
   enable = true,
   keymaps = {
@@ -54,7 +69,7 @@ lvim.builtin.treesitter.incremental_selection = {
   },
 }
 
--- Custom parsers
+-- Tree-sitter Custom Parsers
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 -- Powershell (ps1) parser
@@ -77,6 +92,17 @@ parser_config.just = {
   filetype = "justfile",
   maintainers = { "@IndianBoy42" },
 }
+
+-- Nushell (nu) parser
+-- parser_config.nu = {
+--   install_info = {
+--     url = "https://github.com/nushell/tree-sitter-nu",
+--     files = { "src/parser.c" },
+--     branch = "main",
+--   },
+--   filetype = "nu",
+-- }
+
 -- 	textobjects = {
 -- 		select = {
 -- 			enable = true,
