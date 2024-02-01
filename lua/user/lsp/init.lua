@@ -40,13 +40,4 @@ lvim.lsp.installer.setup.ui.keymaps = {
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- require("lvim.lsp.manager").setup("cucumber_language_server", {
---   settings = {
---     cucumber = {
---       features = { 'features/**/*.feature' },
---       -- glue = { 'features/step_definitions/*.java', 'features/step_definitions/*.ts' }
---     }
---   }
--- })
-
 require("user.lsp.dap")

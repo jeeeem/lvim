@@ -256,14 +256,14 @@ lvim.plugins = {
   },
 
   -- UI --
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify"
-    }
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify"
+  --   }
+  -- },
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",

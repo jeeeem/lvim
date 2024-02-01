@@ -40,10 +40,6 @@
 -- local extendedClientCapabilities = jdtls.extendedClientCapabilities
 -- extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
--- -- TODO: add relative path for distinguishing same folder name
--- local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
--- local workspace_dir = WORKSPACE_PATH .. project_name
-
 -- if vim.fn.has('win32') == 1 then
 --   local bundles = {}
 --   local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
@@ -134,109 +130,108 @@
 --     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
 --     -- or https://github.com/redhat-developer/vscode-java#supported-vs-code-settings
 --     -- for a list of options
---     java = {
---       -- jdt = {
---       --   ls = {
---       --     vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
---       --   }
---       -- },
---       eclipse = {
---         downloadSources = true,
---       },
---       configuration = {
---         updateBuildConfiguration = "interactive",
---         runtimes = {
---           {
---             name = "JavaSE-17",
---             path = HOME .. "/scoop/apps/openjdk17/current/",
---             default = true
+--       java = {
+--         -- jdt = {
+--         --   ls = {
+--         --     vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
+--         --   }
+--         -- },
+--         eclipse = {
+--           downloadSources = true,
+--         },
+--         configuration = {
+--           updateBuildConfiguration = "interactive",
+--           runtimes = {
+--             {
+--               name = "JavaSE-17",
+--               path = HOME .. "/scoop/apps/openjdk17/current/",
+--               default = true
+--             },
+--             {
+--               name = "JavaSE-19",
+--               path = HOME .. "/scoop/apps/openjdk/current/"
+--             },
+--             -- {
+--             --   name = "JavaSE-19",
+--             --   path = HOME .. "/.sdkman/candidates/java/19.0.1-open/",
+--             -- }
 --           },
---           {
---             name = "JavaSE-19",
---             path = HOME .. "/scoop/apps/openjdk/current/"
+--         },
+--         maven = {
+--           downloadSources = true,
+--         },
+--         implementationsCodeLens = {
+--           enabled = true,
+--         },
+--         referencesCodeLens = {
+--           enabled = true,
+--         },
+--         references = {
+--           includeDecompiledSources = true,
+--         },
+--         inlayHints = {
+--           parameterNames = {
+--             enabled = "all", -- literals, all, none
 --           },
---           -- {
---           --   name = "JavaSE-19",
---           --   path = HOME .. "/.sdkman/candidates/java/19.0.1-open/",
---           -- }
+--         },
+--         -- format = {
+--         --   enabled = false,
+--         --   settings = {
+--         --     profile = "GoogleStyle",
+--         --     url = HOME .. "/.config/lvim/.java-google-formatter.xml",
+--         --   },
+--         -- },
+--       },
+--       signatureHelp = { enabled = true },
+--       completion = {
+--         favoriteStaticMembers = {
+--           "org.hamcrest.MatcherAssert.assertThat",
+--           "org.hamcrest.Matchers.*",
+--           "org.hamcrest.CoreMatchers.*",
+--           "org.junit.jupiter.api.Assertions.*",
+--           "java.util.Objects.requireNonNull",
+--           "java.util.Objects.requireNonNullElse",
+--           "org.mockito.Mockito.*",
 --         },
 --       },
---       maven = {
---         downloadSources = true,
---       },
---       implementationsCodeLens = {
---         enabled = true,
---       },
---       referencesCodeLens = {
---         enabled = true,
---       },
---       references = {
---         includeDecompiledSources = true,
---       },
---       inlayHints = {
---         parameterNames = {
---           enabled = "all", -- literals, all, none
+--       contentProvider = { preferred = "fernflower" },
+--       extendedClientCapabilities = extendedClientCapabilities,
+--       sources = {
+--         organizeImports = {
+--           starThreshold = 9999,
+--           staticStarThreshold = 9999,
 --         },
 --       },
---       format = {
---         enabled = false,
---         settings = {
---           profile = "GoogleStyle",
---           url = HOME .. "/.config/lvim/.java-google-formatter.xml",
+--       -- https://www.jetbrains.com/help/idea/generating-code.html
+--       -- https://github.com/eclipse/eclipse.jdt.ls/issues/1892
+--       codeGeneration = {
+--         hashCodeEquals = {
+--           useInstanceof = true,
+--           useJava7Objects = true
 --         },
+--         toString = {
+--           template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+--           codeStyle = "STRING_CONCATENATION"
+--         },
+--         useBlocks = true,
+--         generateComments = true,
 --       },
---     },
---     signatureHelp = { enabled = true },
---     completion = {
---       favoriteStaticMembers = {
---         "org.hamcrest.MatcherAssert.assertThat",
---         "org.hamcrest.Matchers.*",
---         "org.hamcrest.CoreMatchers.*",
---         "org.junit.jupiter.api.Assertions.*",
---         "java.util.Objects.requireNonNull",
---         "java.util.Objects.requireNonNullElse",
---         "org.mockito.Mockito.*",
---       },
---     },
---     contentProvider = { preferred = "fernflower" },
---     extendedClientCapabilities = extendedClientCapabilities,
---     sources = {
---       organizeImports = {
---         starThreshold = 9999,
---         staticStarThreshold = 9999,
---       },
---     },
---     -- https://www.jetbrains.com/help/idea/generating-code.html
---     -- https://github.com/eclipse/eclipse.jdt.ls/issues/1892
---     codeGeneration = {
---       hashCodeEquals = {
---         useInstanceof = true,
---         useJava7Objects = true
---       },
---       toString = {
---         template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
---         codeStyle = "STRING_CONCATENATION"
---       },
---       useBlocks = true,
---       generateComments = true,
---     },
---     -- single_file_support = false,
 --   }
 
 --   config["on_attach"] = function(client, bufnr)
---     local _, _ = pcall(vim.lsp.codelens.refresh)
+--   	local _, _ = pcall(vim.lsp.codelens.refresh)
 --     on_attach = require("lvim.lsp").common_on_attach(client, bufnr)
---     require("jdtls.dap").setup_dap_main_class_configs()
---     require("jdtls").setup_dap({ hotcodereplace = "auto" })
+--   	require("jdtls.dap").setup_dap_main_class_configs()
+--   	require("jdtls").setup_dap({ hotcodereplace = "auto" })
 --     -- TODO: Update local nlsp-settings after LspAttach
 --     -- vim.cmd[[LspSettings update jdtls]]
 --   end
 
 --   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---     pattern = { "*.java" },
---     callback = function()
---       local _, _ = pcall(vim.lsp.codelens.refresh)
---     end,
+--   	pattern = { "*.java" },
+--   	callback = function()
+--   		local _, _ = pcall(vim.lsp.codelens.refresh)
+--   	end,
 --   })
 
 --   -- This starts a new client & server,
@@ -423,11 +418,21 @@
 --     callback = function()
 --       local _, _ = pcall(vim.lsp.codelens.refresh)
 --     end,
---   })
+-- })
 
 --   -- This starts a new client & server,
 --   -- or attaches to an existing client & server depending on the `root_dir`.
 --   jdtls.start_or_attach(config)
+
+--   vim.cmd(
+--     [[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)]]
+--   )
+--   vim.cmd([[command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()]])
+--   -- vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+--   -- -- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
+--   -- vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
+--   -- -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
+-- end
 
 --   vim.cmd(
 --     [[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)]]
